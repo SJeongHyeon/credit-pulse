@@ -1,6 +1,6 @@
 # 문제와 시장 근거 보완 점검
 
-2026-11-15 기준. 상세 자료는 docs/deliverables/web_comparison_50_2026-11-12.md, 요약은 docs/deliverables/problem_market_summary_2026-11-15.md에 있다.
+2026-11-15 기준. 상세 자료(외부 서비스 답변 원문이 있어 공개 사본에서는 제외, 원본 저장소에 있음)는 생략하고, 요약은 docs/deliverables/problem_market_summary_2026-11-15.md에 있다.
 
 - [x] 기업여신 심사역의 역할, 단계별 막힘, 제품 개입을 6단계로 문서화했다.
 - [x] 동결 v2의 해시와 문항 50개 및 기존 Credit Pulse 원시 응답의 문항 ID를 대조했다.

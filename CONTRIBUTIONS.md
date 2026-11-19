@@ -6,8 +6,30 @@
 
 - 담당 축: LangGraph 에이전트(Supervisor, 검색·작성 서브에이전트, 승인 interrupt와 재개)와 그 평가.
 - 원본 `main` 비병합 커밋 764건 중 203건입니다. author 이름이 둘이라 합산한 값입니다(`SJH` 189건, `SJeongHyeon` 14건). 커밋 수는 기여의 크기를 뜻하지 않습니다.
-- Pull Request 65건: 병합 62건, 닫음 3건. 원본이 비공개라 PR 링크는 걸지 않습니다.
+- Pull Request 65건(병합 62건, 닫음 3건). 원본이 비공개라 PR 링크는 걸지 않습니다.
 - 상세 기록: [`docs/deliverables/portfolio-서정현.md`](docs/deliverables/portfolio-서정현.md), AI 도구 사용 기록 [`docs/deliverables/ai_tools_log.md`](docs/deliverables/ai_tools_log.md)
+
+### 대표 PR과 코드 위치
+
+PR 번호는 비공개 원본의 번호이며, 각 PR이 바꾼 파일을 원본에서 확인한 행만 적었습니다. 코드 위치는 이 사본의 경로입니다.
+
+| PR | 내용 | 코드 위치 |
+| --- | --- | --- |
+| #35 | 그래프 라우팅 구성 | `backend/graph/build.py`, `state.py` |
+| #71 | 단일 에이전트 v1 | `backend/graph/build.py`, `refusal.py`, `backend/services/llm.py` |
+| #58 | 비관련 질문 거절 응답 | `backend/graph/refusal.py` |
+| #79 | 보고서에 없는 반기보고서 요청 거절 | `backend/graph/refusal.py` |
+| #80 | 인용 검증기 | `backend/graph/verifier.py`, `backend/graph/agents/writer_agent.py` |
+| #89 | 승인 체크포인트와 재개 | `backend/graph/build.py` |
+| #98 | 사용자별 심사 규칙 저장 | `backend/memory.py` |
+| #114 | Store 기반 시맨틱 메모리 | `backend/memory.py`, `backend/graph/approval.py` |
+| #115 | 심사 건 질의·승인 API | `backend/api/reviews.py`, `backend/main.py` |
+| #149 | Gmail 인증코드 회원가입 | `backend/auth.py`, `backend/services/email_sender.py` |
+| #54 | 리랭커 후보 수·배치 측정 | `backend/rag/rerank.py`, `evals/results/rerank_ko_*_latency_v1.json` |
+| #169 | 프롬프트 인젝션 3겹 방어 | `backend/graph/injection_guard.py`, `output_guard.py` |
+| #203 | 거절 시 참고 뉴스의 회사명 사후 필터 | `backend/services/news_search.py` |
+| #235 | 문서 구조 그래프 검색(기본 꺼짐) | `backend/rag/document_graph.py`, `backend/retrieval_combo.py` |
+| #239 | 목차 어휘 질의 번역(미채택) | `backend/rag/term_bridge.py` |
 
 ## 2. 팀 성과(내 단독 성과가 아님)
 
