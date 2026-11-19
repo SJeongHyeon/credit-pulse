@@ -35,6 +35,7 @@
 - 실행은 2026-11-12, 코드 `7559c6b`입니다. 같은 구성도 실행마다 1문항쯤 흔들리므로(회귀 기준 [`evals/regression_baseline.json`](evals/regression_baseline.json)), 한 번의 값으로 읽지 마세요.
 - 평가셋 sha256은 `86b80054…cf299`이고 [`evals/FROZEN.json`](evals/FROZEN.json)에 기록돼 있으며, [`tests/test_frozen_evals.py`](tests/test_frozen_evals.py)가 바뀌면 실패합니다.
 - 이 사본에서 API 키 없이 `python -m pytest -q`를 다시 돌린 결과는 `1626 passed, 8 skipped`(2026-11-19, 80초)입니다. 건너뛴 8건은 DB 등 외부 환경이 필요한 시험으로 보이며 원인은 확인하지 않았습니다. 팀이 2026-11-12에 DB를 켜고 돌린 기록은 [`docs/evidence/d10/pytest_full.txt`](docs/evidence/d10/pytest_full.txt)(`1395 passed, 5 skipped`)에 있습니다.
+- GitHub Actions(`ci.yml`): 2026-11-19에 이 저장소에서 수동 실행(`workflow_dispatch`)한 결과 pytest `1626 passed, 8 skipped`, 평가 회귀 4건 통과, 프런트 node 시험 334건 통과·실패 0건이었습니다(커밋 `596a670`, [실행 기록](https://github.com/SJeongHyeon/credit-pulse/actions/runs/44475085663)). 이 사본에서 바꾼 것은 `workflow_dispatch` 트리거 추가뿐입니다. 의존성 대부분이 `>=`로 고정되지 않아 이 결과는 그날의 값입니다.
 - 전체 수치와 과정은 [`EVAL_REPORT.md`](EVAL_REPORT.md)에 있습니다.
 
 ## 구조
