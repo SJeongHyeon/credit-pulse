@@ -1,0 +1,122 @@
+/* 가입 화면 전용 스타일. 로그인 팝업(landing.css의 .login-dialog)과 같은 유리 카드 모양을 쓴다. */
+.signup-main {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+.signup-card {
+  -webkit-backdrop-filter: blur(24px) saturate(120%);
+  backdrop-filter: blur(24px) saturate(120%);
+  background: var(--glass-bg-strong);
+  border: 1px solid var(--glass-line);
+  border-radius: var(--radius-card);
+  box-shadow: 0 50px 100px -30px var(--shadow-tint);
+  box-sizing: border-box;
+  color: var(--on-dark);
+  max-width: 24rem;
+  width: 100%;
+}
+
+.signup-card .dialog-body {
+  padding: 1.5rem;
+}
+
+.signup-card .dialog-head {
+  margin-bottom: 0.75rem;
+}
+
+.signup-card .dialog-head h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.signup-card #signup-form {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.signup-card label {
+  color: var(--on-dark-muted);
+}
+
+.signup-card input {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--glass-line);
+  color: var(--on-dark);
+  font-size: 0.9375rem;
+  min-height: 2.75rem;
+}
+
+.signup-card input::placeholder {
+  color: var(--on-dark-muted);
+  opacity: 0.7;
+}
+
+.signup-card input:focus-visible,
+.signup-card button:focus-visible {
+  outline-color: var(--gold);
+}
+
+.signup-card .password-hint {
+  color: var(--on-dark-muted);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  margin: 0.25rem 0 0.5rem;
+}
+
+.signup-card button {
+  background: var(--on-dark);
+  border-color: var(--on-dark);
+  color: #17120d;
+  font-size: 0.9375rem;
+  min-height: 2.75rem;
+}
+
+.signup-card button:hover:not(:disabled) {
+  background: #ffffff;
+  border-color: #ffffff;
+}
+
+.signup-card #signup-submit {
+  margin-top: 0.5rem;
+}
+
+/* 이메일 입력과 코드 발송 버튼을 한 행에 둔다. */
+.signup-card .field-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.signup-card .field-row input {
+  flex: 1;
+  min-width: 0;
+}
+
+.signup-card .field-row button {
+  flex: none;
+  white-space: nowrap;
+}
+
+.signup-card #signup-error {
+  color: var(--error-on-dark);
+  margin: 0 0 1rem;
+}
+
+.signup-card #signup-status {
+  color: var(--on-dark-muted);
+  margin: 0 0 1rem;
+}
+
+.signup-card .signup-back {
+  color: var(--on-dark-muted);
+  display: block;
+  margin-top: 0.9rem;
+  text-align: center;
+  text-decoration: underline;
+}

@@ -1,0 +1,309 @@
+{
+  "started_at": "2026-11-10T05:15:52.634957+00:00",
+  "git_commit": "2a5fde1d89a1ca4e54c1f42d60795f2d2abdb897",
+  "combo_id": "d3-55",
+  "retrieval": {
+    "combo": {
+      "combo_id": "d3-55",
+      "preregister_no": "55",
+      "chunking": "fixed_window_1000_overlap100",
+      "embedding_model": "openai/text-embedding-3-small",
+      "embedding_dim": 1536,
+      "tokenizer": "kiwi",
+      "rrf_k": 10,
+      "rrf_candidates": 50,
+      "reranker": "voyage/rerank-2.5",
+      "rerank_candidates": 50,
+      "top_k": 10,
+      "rerank_header": true,
+      "rerank_top1_min_score": 0.6767
+    },
+    "chunks_path": "data\\experiments\\b100-v9-fixed_window\\chunks.jsonl",
+    "chunks_sha256": "f523a7a9575f1ee5d4457e4c150b88e48525fb7cd5cdbca222dae6943494b62b",
+    "corpus_ids": [
+      "corpus-ffc1830e50a11c57749b63b9"
+    ],
+    "vector_backend": "memory",
+    "embedding_prefix": "data\\embeddings\\v9\\oai-small-fixed1000-o100",
+    "embedding_config_sha256": "f38e49273923ec7eba1c506821a489273be9cc13497d4ba9b41f63873327f752",
+    "indexed_corp_codes": [
+      "00101220",
+      "00103042",
+      "00121288",
+      "00132868",
+      "00140177",
+      "00141529",
+      "00148610",
+      "00170558",
+      "00231363",
+      "00356361",
+      "00414850",
+      "00459871",
+      "00949161",
+      "00992871",
+      "01562589",
+      "01965324"
+    ],
+    "bm25_tokens_path": null,
+    "bm25_tokens_used": false
+  },
+  "chunk_version": "v9",
+  "models": {
+    "embedding": "openai/text-embedding-3-small@1536",
+    "reranker": "voyage/rerank-2.5",
+    "scorer": "off(회사·연도 결정적 검사만)",
+    "rewriter": "openai/gpt-4o-mini",
+    "writer": "openai/gpt-4o-mini",
+    "writer_reasoning_effort": "unset(공급자 기본값)",
+    "writer_reason_numbers": false,
+    "supervisor": "openai/gpt-4o-mini",
+    "supervisor_prompt_version": "supervisor-v1",
+    "search_grader": "openai/gpt-4.1(grade_search_round)",
+    "rerank_top1_min_score": 0.6767,
+    "domain_classifier": "openai/gpt-4o-mini"
+  },
+  "graph": "multi",
+  "domain_check": true,
+  "agents": "real",
+  "llm_grading": false,
+  "dataset": {
+    "path": "evals\\dataset_v2.jsonl",
+    "sha256": "86b800542f112f5cbe4d1952826bfb685484d23255252e760a5c8a54989cf299"
+  },
+  "gold": {
+    "source": "gold_spans(evaluation.span_item_chunks)",
+    "chunks_path": "data\\experiments\\b100-v9-fixed_window\\chunks.jsonl",
+    "chunks_sha256": "f523a7a9575f1ee5d4457e4c150b88e48525fb7cd5cdbca222dae6943494b62b",
+    "citation_gold": "관련 문항의 모든 item 정답 청크 합집합(인용 중 하나라도 있으면 맞음)"
+  },
+  "retrieval_subset": {
+    "path": "evals/mappings/dataset_v2.retrieval23.jsonl",
+    "sha256": "cbdd39d1e631167065efed435906e54c77ddd3c85ea45454d919a24cba6b163a",
+    "relevant": 23
+  },
+  "query_vectors": {
+    "path": "evals/results/v2_query_vectors_oai_small.npz",
+    "sha256": "2655c488e902ce420d639bf0caf4c2a2ac162ed816f9c99aa2c9d4f1e3e32b1d",
+    "pinned_calls": 0,
+    "fresh_calls": 9
+  },
+  "filters": {
+    "path": "evals\\filters_v2.graph.domain.jsonl",
+    "sha256": "3fb4e4fc3d803a7da3ecb7589a661558a4dfd6ebdbbfe2634c42bedb09525a32",
+    "source": "supervisor 추출(필터 파일과 대조, 불일치 시 중단)"
+  },
+  "limit": 5,
+  "llm_usage": {
+    "by_model": {
+      "chat:openai/gpt-4o-mini": {
+        "calls": 33,
+        "input_tokens": 60977,
+        "output_tokens": 6104,
+        "cost_usd": 0.012808949999999998,
+        "cost_unknown_calls": 0
+      },
+      "embedding:openai/text-embedding-3-small": {
+        "calls": 9,
+        "input_tokens": 338,
+        "output_tokens": 0,
+        "cost_usd": 6.7600000000000005e-06,
+        "cost_unknown_calls": 0
+      },
+      "rerank:rerank-2.5": {
+        "calls": 9,
+        "input_tokens": 356086,
+        "output_tokens": 0,
+        "cost_usd": 0.0178043,
+        "cost_unknown_calls": 0
+      },
+      "chat:openai/gpt-4.1": {
+        "calls": 6,
+        "input_tokens": 38798,
+        "output_tokens": 619,
+        "cost_usd": 0.079668,
+        "cost_unknown_calls": 0
+      }
+    },
+    "cost_usd_known_total": 0.110288,
+    "cost_unknown_calls": 0
+  },
+  "metrics": {
+    "n": 5,
+    "response": {
+      "correct_refusal": {
+        "numerator": 0,
+        "denominator": 0,
+        "rate": 0.0
+      },
+      "over_refusal": {
+        "numerator": 0,
+        "denominator": 5,
+        "rate": 0.0
+      },
+      "correct_citation": {
+        "numerator": 3,
+        "denominator": 5,
+        "rate": 0.6
+      },
+      "wrong_citation": {
+        "numerator": 0,
+        "denominator": 5,
+        "rate": 0.0
+      },
+      "hallucination_risk": {
+        "numerator": 0,
+        "denominator": 0,
+        "rate": 0.0
+      }
+    },
+    "retrieval_n": 5,
+    "retrieval_first_round": {
+      "k": 10,
+      "questions_total": 5,
+      "relevant_questions": 5,
+      "irrelevant_questions": 0,
+      "hit_at_10": 1.0,
+      "recall_at_10": 0.95,
+      "mrr_at_10": 1.0,
+      "ndcg_at_10": 0.8399705611211579,
+      "per_question": [
+        {
+          "id": 1,
+          "kind": "relevant",
+          "hit": true,
+          "first_gold_rank": 1,
+          "gold_count": 3,
+          "gold_items": 13,
+          "items_found": 13,
+          "items_unreachable": [],
+          "recall": 1.0,
+          "ndcg": 0.8710785440003369
+        },
+        {
+          "id": 3,
+          "kind": "relevant",
+          "hit": true,
+          "first_gold_rank": 1,
+          "gold_count": 4,
+          "gold_items": 4,
+          "items_found": 4,
+          "items_unreachable": [],
+          "recall": 1.0,
+          "ndcg": 0.867043684838194
+        },
+        {
+          "id": 5,
+          "kind": "relevant",
+          "hit": true,
+          "first_gold_rank": 1,
+          "gold_count": 4,
+          "gold_items": 3,
+          "items_found": 3,
+          "items_unreachable": [],
+          "recall": 1.0,
+          "ndcg": 0.8485833840018
+        },
+        {
+          "id": 7,
+          "kind": "relevant",
+          "hit": true,
+          "first_gold_rank": 1,
+          "gold_count": 2,
+          "gold_items": 4,
+          "items_found": 3,
+          "items_unreachable": [],
+          "recall": 0.75,
+          "ndcg": 0.6131471927654584
+        },
+        {
+          "id": 10,
+          "kind": "relevant",
+          "hit": true,
+          "first_gold_rank": 1,
+          "gold_count": 5,
+          "gold_items": 2,
+          "items_found": 2,
+          "items_unreachable": [],
+          "recall": 1.0,
+          "ndcg": 1.0
+        }
+      ]
+    },
+    "retrieval_last_round": {
+      "k": 10,
+      "questions_total": 5,
+      "relevant_questions": 5,
+      "irrelevant_questions": 0,
+      "hit_at_10": 1.0,
+      "recall_at_10": 0.95,
+      "mrr_at_10": 1.0,
+      "ndcg_at_10": 0.8601888579342211,
+      "per_question": [
+        {
+          "id": 1,
+          "kind": "relevant",
+          "hit": true,
+          "first_gold_rank": 1,
+          "gold_count": 3,
+          "gold_items": 13,
+          "items_found": 13,
+          "items_unreachable": [],
+          "recall": 1.0,
+          "ndcg": 0.8710785440003369
+        },
+        {
+          "id": 3,
+          "kind": "relevant",
+          "hit": true,
+          "first_gold_rank": 1,
+          "gold_count": 4,
+          "gold_items": 4,
+          "items_found": 4,
+          "items_unreachable": [],
+          "recall": 1.0,
+          "ndcg": 0.8899603164338973
+        },
+        {
+          "id": 5,
+          "kind": "relevant",
+          "hit": true,
+          "first_gold_rank": 1,
+          "gold_count": 4,
+          "gold_items": 3,
+          "items_found": 3,
+          "items_unreachable": [],
+          "recall": 1.0,
+          "ndcg": 0.9267582364714126
+        },
+        {
+          "id": 7,
+          "kind": "relevant",
+          "hit": true,
+          "first_gold_rank": 1,
+          "gold_count": 2,
+          "gold_items": 4,
+          "items_found": 3,
+          "items_unreachable": [],
+          "recall": 0.75,
+          "ndcg": 0.6131471927654584
+        },
+        {
+          "id": 10,
+          "kind": "relevant",
+          "hit": true,
+          "first_gold_rank": 1,
+          "gold_count": 5,
+          "gold_items": 2,
+          "items_found": 2,
+          "items_unreachable": [],
+          "recall": 1.0,
+          "ndcg": 1.0
+        }
+      ]
+    },
+    "relevant_answered_without_citations": 2,
+    "retrieval_calls_total": 9,
+    "domain_refused_ids": [],
+    "rerank_input_chars_total": 463780
+  }
+}

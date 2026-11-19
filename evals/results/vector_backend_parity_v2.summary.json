@@ -1,0 +1,42 @@
+{
+  "preregister_no": "90",
+  "questions": 23,
+  "top_k": 50,
+  "vector_set_equal": 23,
+  "vector_order_equal": 23,
+  "vector_swaps_within_tolerance": 23,
+  "vector_max_abs_score_diff": 1.738498880410333e-07,
+  "rrf_set_equal": 23,
+  "rrf_order_equal": 23,
+  "order_changed_ids": [],
+  "set_changed_ids": [],
+  "swap_tolerance": 1e-06,
+  "corpus_id": "corpus-ffc1830e50a11c57749b63b9",
+  "chunks_sha256": "f523a7a9575f1ee5d4457e4c150b88e48525fb7cd5cdbca222dae6943494b62b",
+  "query_vectors_sha256": "2655c488e902ce420d639bf0caf4c2a2ac162ed816f9c99aa2c9d4f1e3e32b1d",
+  "embedding_model": "openai/text-embedding-3-small",
+  "load_result": {
+    "corpus_id": "corpus-ffc1830e50a11c57749b63b9",
+    "documents": 100,
+    "chunks_input": 31967,
+    "chunks_stored": 31967,
+    "embedding_model": "openai/text-embedding-3-small",
+    "dimension": 1536
+  },
+  "database": {
+    "pgvector_version": "0.8.6",
+    "server_version": "16.15 (Debian 16.15-1.pgdg12+2)",
+    "chunks_rows": 31967,
+    "chunks_total_bytes": 328728576,
+    "chunks_indexes_bytes": 14860288,
+    "database_bytes": 337124375,
+    "chunks_indexes": [
+      "chunks_corpus_id_rcept_no_ordinal_key",
+      "chunks_pkey",
+      "idx_chunks_content_sha256",
+      "idx_chunks_corp_code_fiscal_year",
+      "idx_chunks_rcept_no_note_no"
+    ],
+    "hnsw_index_present": false
+  }
+}

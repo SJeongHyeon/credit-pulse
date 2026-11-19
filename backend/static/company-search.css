@@ -1,0 +1,285 @@
+/* 랜딩 02 기업 검색 패널(landing-company-search Spec). 색은 theme.css 토큰만 쓴다. */
+.company-search {
+  gap: 1rem;
+}
+
+.cs-results {
+  display: grid;
+  gap: 1.2rem;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  min-width: 0;
+}
+
+.cs-main {
+  align-content: start;
+  display: grid;
+  gap: 0.55rem;
+  min-width: 0;
+}
+
+/* 최근 공시 칩: 한 줄에 들어가는 3개 */
+.cs-chips {
+  align-items: center;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.45rem;
+  overflow: hidden;
+}
+
+.cs-chips small {
+  color: var(--on-dark-muted);
+  flex: none;
+  margin-right: 0.2rem;
+  white-space: nowrap;
+}
+
+.cs-chip {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--glass-line);
+  border-radius: 999px;
+  color: var(--on-dark);
+  cursor: pointer;
+  flex: none;
+  font: inherit;
+  font-size: 0.82rem;
+  padding: 0.28rem 0.8rem;
+  transition: border-color 0.25s, background-color 0.25s;
+  white-space: nowrap;
+}
+
+.cs-chip:hover {
+  background: rgba(227, 184, 102, 0.14);
+  border-color: var(--gold);
+}
+
+.cs-chip:focus-visible,
+.cs-sort-btn:focus-visible,
+.cs-list:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* 제목 줄: 왼쪽 제목, 오른쪽 정렬 드롭다운 */
+.cs-head {
+  align-items: center;
+  display: flex;
+  gap: 0.6rem;
+  justify-content: space-between;
+  min-height: 1.9rem;
+}
+
+.cs-title {
+  color: var(--gold-soft);
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.cs-sort {
+  position: relative;
+}
+
+.cs-sort-btn {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-line);
+  border-radius: 999px;
+  color: var(--on-dark);
+  cursor: pointer;
+  display: inline-flex;
+  font: inherit;
+  font-size: 0.76rem;
+  gap: 0.4rem;
+  min-height: 0;
+  padding: 0.22rem 0.7rem;
+  transition: border-color 0.25s, background-color 0.25s;
+  white-space: nowrap;
+}
+
+.cs-sort-btn:hover,
+.cs-sort-btn[aria-expanded="true"] {
+  background: rgba(227, 184, 102, 0.1);
+  border-color: var(--gold);
+}
+
+.cs-sort-btn svg,
+.cs-check svg {
+  color: var(--gold);
+}
+
+.cs-sort-menu {
+  background: var(--glass-bg-strong);
+  border: 1px solid var(--glass-line);
+  border-radius: 14px;
+  box-shadow: var(--glass-shadow);
+  list-style: none;
+  margin: 0;
+  min-width: 8.4rem;
+  padding: 0.3rem;
+  position: absolute;
+  right: 0;
+  top: calc(100% + 0.35rem);
+  z-index: 5;
+}
+
+.cs-sort-menu button {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  border-radius: 9px;
+  color: var(--on-dark);
+  cursor: pointer;
+  display: flex;
+  font: inherit;
+  font-size: 0.8rem;
+  gap: 0.8rem;
+  justify-content: space-between;
+  min-height: 0;
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+  width: 100%;
+}
+
+.cs-sort-menu button:hover,
+.cs-sort-menu button:focus-visible {
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.cs-sort-menu button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: -2px;
+}
+
+.cs-sort-menu button[aria-selected="true"] {
+  color: var(--gold-soft);
+}
+
+/* 체크는 모든 항목에 두고 선택된 항목만 보인다(aria-selected가 바뀌면 따라 움직인다) */
+.cs-check {
+  display: inline-flex;
+  min-width: 14px;
+  visibility: hidden;
+}
+
+.cs-sort-menu button[aria-selected="true"] .cs-check {
+  visibility: visible;
+}
+
+/* 결과 목록: 이름 / corp_code / 공시일 3열, 고정 높이 안에서 스크롤 */
+.cs-list {
+  color-scheme: dark;
+  display: grid;
+  gap: 0.4rem;
+  list-style: none;
+  margin: 0;
+  max-height: 10.6rem;
+  overflow-y: auto;
+  padding: 0 0.35rem 0 0;
+}
+
+.cs-list li {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--glass-line);
+  border-radius: 14px;
+  column-gap: 0.7rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 5.3rem 5.9rem;
+  min-width: 0;
+  padding: 0.42rem 0.8rem;
+}
+
+.cs-name {
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cs-code,
+.cs-date {
+  color: var(--on-dark-muted);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.cs-date {
+  color: var(--gold-soft);
+}
+
+.cs-empty {
+  color: var(--on-dark-muted);
+  margin: 0.4rem 0;
+}
+
+/* 요약: 왼쪽에 위아래로 옅어지는 금빛 세로선 */
+.cs-summary {
+  border-image: linear-gradient(to bottom, transparent, var(--gold) 30%, var(--gold) 70%, transparent) 1;
+  border-left: 1px solid;
+  display: grid;
+  gap: 0.9rem;
+  align-content: start;
+  padding-left: 1.2rem;
+}
+
+.cs-summary p {
+  margin: 0;
+}
+
+.cs-big strong {
+  color: var(--gold-soft);
+  font-family: var(--font-serif);
+  font-size: 2.8rem;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.cs-big small {
+  color: var(--on-dark-muted);
+  font-size: 0.85rem;
+  margin-left: 0.3rem;
+}
+
+.cs-k {
+  color: var(--on-dark-muted);
+  font-size: 0.8rem;
+}
+
+.cs-v {
+  font-weight: 600;
+}
+
+.cs-hist {
+  align-items: flex-end;
+  display: flex;
+  gap: 3px;
+  height: 3rem;
+}
+
+.cs-hist i {
+  background: linear-gradient(180deg, var(--gold-soft), var(--gold));
+  border-radius: 3px 3px 0 0;
+  flex: 1;
+  min-height: 3px;
+}
+
+@media (max-width: 52rem) {
+  .cs-results {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .cs-summary {
+    border-image: none;
+    border-left: 0;
+    padding-left: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cs-chip,
+  .cs-sort-btn {
+    transition: none;
+  }
+}

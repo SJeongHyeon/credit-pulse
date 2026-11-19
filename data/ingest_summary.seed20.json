@@ -1,0 +1,16 @@
+{
+  "chunks_near_dup": 0,
+  "chunks_path": "data/chunks.seed20.jsonl",
+  "chunks_superseded": 0,
+  "chunks_total": 53245,
+  "corpus_id": "corpus-8521b72f5e32b1cbbf16572b",
+  "documents_failed": 0,
+  "documents_success": 20,
+  "documents_superseded": 0,
+  "documents_total": 20,
+  "embedding_model": "unselected",
+  "manifest_path": "data/manifest.seed20.jsonl",
+  "max_chars": 1000,
+  "overlap_chars": 100,
+  "unique_chunks": 36143
+}

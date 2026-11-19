@@ -1,0 +1,294 @@
+{% from "_sort_menu.html" import sort_menu -%}
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CREDIT PULSE - 기업여신 심사</title>
+    {% include "_favicon.html" %}
+    <script>document.documentElement.classList.add("js");</script>
+    <script>
+      // 첫 방문(세션당 1회)이고 모션 줄이기가 아닐 때만, 첫 페인트부터 로고 인트로가 화면을 덮게 한다(intro.js가 재생).
+      // 6초 뒤에는 어떤 경우에도 풀어 JS가 실패해도 화면이 막히지 않는다.
+      try {
+        var root = document.documentElement;
+        if (!window.sessionStorage.getItem("credit-pulse-intro-seen") && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          root.classList.add("intro-pending");
+          window.setTimeout(function () { root.classList.remove("intro-pending"); }, 6000);
+        }
+      } catch (error) {}
+    </script>
+    <link rel="preload" href="{{ url_for('static', path='fonts/NotoSerifKR-subset.woff2') }}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{{ url_for('static', path='fonts/CreditPulseSans-subset.woff2') }}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{{ url_for('static', path='fonts/CreditPulseSerif-subset.woff2') }}" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="{{ url_for('static', path='fonts.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='login.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='theme.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='landing.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='intro.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='feature-sheet.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='feature-strips.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='company-search.css') }}">
+    <noscript><style>#login-status, #service-startup { display: none; }</style></noscript>
+  </head>
+  <body class="glass-page ui-sans landing">
+    <div id="intro" class="intro" aria-hidden="true" data-logo="{{ url_for('static', path='credit-pulse-logo-white.png').path }}"><div class="intro-stage"></div></div>
+    {% include "_page_bg.html" %}
+    <header class="site-bar">
+      <a class="site-logo-link" href="/">
+        <img class="site-logo" src="{{ url_for('static', path='credit-pulse-logo-white.png') }}" alt="CREDIT PULSE" width="1200" height="213">
+      </a>
+      <nav class="site-nav" aria-label="주요 메뉴">
+        <a href="#companies">보유 기업</a>
+        <a href="#features">기능</a>
+      </nav>
+      <div class="site-auth">
+        <span id="site-user" class="site-user" hidden></span>
+        <button id="open-login" class="pill pill-ghost" type="button" aria-haspopup="dialog" aria-controls="login-dialog">로그인</button>
+        <button id="site-logout" class="pill pill-ghost" type="button" hidden>로그아웃</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <h1 id="hero-title">CREDIT PULSE<span class="hero-sub">공시 근거로 답하는 기업여신 심사</span></h1>
+          <p class="hero-lead">사업보고서에서 근거 문장을 찾아 항목별 판정 초안과 인용을 만듭니다. 심사역이 승인한 내용만 심사 메모로 저장됩니다.</p>
+          <div class="hero-actions">
+            <button id="hero-login" class="pill pill-light" type="button" aria-haspopup="dialog" aria-controls="login-dialog">로그인</button>
+            <button id="hero-logout" class="pill pill-light" type="button" hidden>로그아웃</button>
+            <a class="pill pill-ghost" href="#companies">보유 기업 보기</a>
+            <a id="hero-reviews" class="pill pill-ghost" href="/reviews">심사 건 확인</a>
+          </div>
+          {% if review_login_required %}
+          <noscript><p role="status">로그인 후 이용해주십시오</p></noscript>
+          {% endif %}
+          <p id="service-startup" class="service-startup" role="status" aria-live="polite">서비스에 연결하는 중입니다. 첫 요청은 잠시 걸릴 수 있습니다.</p>
+          <p id="logout-error" class="hero-note" role="alert" hidden></p>
+          <noscript><p class="hero-note">이 화면은 JavaScript가 필요합니다. 브라우저에서 JavaScript를 켜고 다시 열어 주세요.</p></noscript>
+        </div>
+        <ul class="hero-stats" aria-label="핵심 수치">
+          <li><strong class="stat-value"><span id="stat-companies">100</span><small>곳</small></strong><span class="stat-label">공시 데이터가 준비된 보유 기업</span></li>
+          <li><strong class="stat-value">6<small>항목</small></strong><span class="stat-label">소송·보증·담보 등 체크리스트 항목</span></li>
+          <li><strong id="stat-year" class="stat-value">2025</strong><span class="stat-label">사업보고서 기준</span></li>
+          <li><strong class="stat-value">승인 후</strong><span class="stat-label">심사역이 확인한 내용만 저장</span></li>
+        </ul>
+        <div class="scroll-cue" aria-hidden="true"><span class="scroll-cue-text">아래로 스크롤</span><span class="scroll-cue-line"></span></div>
+      </section>
+
+      <section id="companies" class="section" aria-labelledby="companies-title">
+        <h2 id="companies-title" class="section-title visually-hidden">보유 기업</h2>
+        <div class="stage-wrap">
+          <div class="stage-nav">
+            <ul class="stage-list" role="tablist" aria-orientation="vertical" aria-label="보유 기업 화면 선택">
+              <li role="presentation"><button id="stage-tab-0" class="stage-tab" type="button" role="tab" aria-selected="true" aria-controls="stage-panel-0"><span class="stage-num">01</span><span class="stage-title">보유 기업<span class="stage-sub">공시 데이터가 준비된 기업</span></span></button></li>
+              <li role="presentation"><button id="stage-tab-1" class="stage-tab" type="button" role="tab" aria-selected="false" aria-controls="stage-panel-1"><span class="stage-num">02</span><span class="stage-title">기업 검색<span class="stage-sub">이름이나 corp_code로 찾기</span></span></button></li>
+              <li role="presentation"><button id="stage-tab-2" class="stage-tab" type="button" role="tab" aria-selected="false" aria-controls="features"><span class="stage-num">03</span><span class="stage-title">기능<span class="stage-sub">심사 건·승인 현황·판정 규칙</span></span></button></li>
+            </ul>
+            <button id="stage-toggle" class="stage-toggle" type="button" role="switch" aria-checked="true" hidden>
+              <span class="stage-toggle-track" aria-hidden="true">
+                <span class="stage-toggle-on">ON</span>
+                <span class="stage-toggle-off">OFF</span>
+              </span>
+              자동 전환
+            </button>
+          </div>
+          <div class="stage-body">
+            <div id="stage-panel-0" class="stage-panel" role="tabpanel" aria-labelledby="stage-tab-0" data-active>
+              <div id="info-panel" class="info-panel">
+                <div class="info-head" data-rise>
+                  <p class="info-title">보유 기업 정보</p>
+                  <div class="info-tools">
+                    <p id="slide-position" class="slide-position"></p>
+                    <button id="slide-toggle" class="slide-toggle secondary" type="button" aria-controls="slide-viewport" hidden>일시정지</button>
+                  </div>
+                </div>
+                <div class="slider" data-rise>
+                  <button id="slide-prev" class="slide-nav" type="button" aria-label="이전 기업"><span aria-hidden="true">&lsaquo;</span></button>
+                  <div id="slide-viewport" class="slide-viewport" aria-live="polite"></div>
+                  <button id="slide-next" class="slide-nav" type="button" aria-label="다음 기업"><span aria-hidden="true">&rsaquo;</span></button>
+                </div>
+                <div id="slide-progress" class="slide-progress" role="progressbar" aria-label="보유 기업 순번" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-rise>
+                  <span id="slide-progress-fill" class="slide-progress-fill"></span>
+                </div>
+                <p id="slide-empty" class="slide-empty" hidden></p>
+              </div>
+            </div>
+            <div id="stage-panel-1" class="stage-panel" role="tabpanel" aria-labelledby="stage-tab-1">
+              <div class="stage-search company-search">
+                <h3 class="stage-search-title" data-rise>기업 검색</h3>
+                <form id="company-search" class="search-bar" role="search" novalidate data-rise>
+                  <label for="company-query" class="visually-hidden">기업 검색</label>
+                  <input id="company-query" name="q" type="search" placeholder="기업명 또는 corp_code 검색 (예: LG화학, 00356361)" maxlength="50" autocomplete="off" aria-describedby="company-search-help">
+                  <button id="company-search-submit" class="pill pill-dark" type="submit" title="보유 기업 화면에서 결과를 슬라이드로 봅니다">검색</button>
+                  <span id="company-search-help" class="visually-hidden">입력하면 아래 목록이 바로 걸러집니다. 검색 버튼을 누르면 보유 기업 화면에서 같은 결과를 슬라이드로 볼 수 있습니다.</span>
+                </form>
+                <div id="company-results" class="cs-results" data-rise>
+                  <div class="cs-main">
+                    <div id="cs-chips" class="cs-chips" role="group" aria-label="최근 공시 기업"></div>
+                    <div class="cs-head">
+                      <p id="cs-title" class="cs-title"></p>
+                      {{ sort_menu("cs-sort") }}
+                    </div>
+                    <ul id="cs-list" class="cs-list" tabindex="0" aria-label="보유 기업 목록"></ul>
+                    <p id="cs-empty" class="cs-empty" hidden>검색 결과가 없습니다.</p>
+                  </div>
+                  <aside id="cs-summary" class="cs-summary" aria-label="요약">
+                    <div><p class="cs-big"><strong id="cs-count"></strong><small id="cs-count-label"></small></p><p id="cs-of" class="cs-k"></p></div>
+                    <div><p class="cs-k">공시일별 기업 수</p><div id="cs-hist" class="cs-hist" role="img" aria-label="공시일별 기업 수"></div></div>
+                    <div><p class="cs-k">최신 공시일</p><p id="cs-latest" class="cs-v">-</p></div>
+                    <div><p class="cs-k">공시가 가장 많았던 날</p><p id="cs-peak" class="cs-v">-</p></div>
+                  </aside>
+                </div>
+                <p id="cs-status" class="visually-hidden" role="status" aria-live="polite"></p>
+              </div>
+            </div>
+            <div id="features" class="stage-panel" role="tabpanel" aria-labelledby="stage-tab-2">
+              <div id="feature-strips" class="strips" data-rise>
+                  <div id="strip-search" class="strip" data-open="false">
+                    <button id="strip-rail-search" class="strip-rail" type="button" aria-expanded="false" aria-controls="strip-full-search">
+                      <span class="strip-ico" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="5.5"/><path d="m13.5 13.5 3.5 3.5"/></svg></span>
+                      <span class="strip-name">공시 검색</span>
+                      <em id="strip-stat-search" class="strip-stat"></em>
+                    </button>
+                    <div id="strip-full-search" class="strip-full" role="region" aria-label="공시 검색" inert>
+                      <div class="strip-head">
+                        <h3>공시 검색</h3>
+                        <a class="strip-open" href="/?open=search" data-feature="search">열기 <span aria-hidden="true">&rarr;</span></a>
+                      </div>
+                      <p class="strip-note">회사명·corp_code로 보유 기업 찾기</p>
+                      <div id="strip-preview-search" class="strip-preview"></div>
+                    </div>
+                  </div>
+                  <div id="strip-reviews" class="strip" data-open="true">
+                    <button id="strip-rail-reviews" class="strip-rail" type="button" aria-expanded="true" aria-controls="strip-full-reviews">
+                      <span class="strip-ico" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16V9M10 16V4M16 16v-5"/></svg></span>
+                      <span class="strip-name">리스크 점검</span>
+                      <em id="strip-stat-reviews" class="strip-stat"></em>
+                    </button>
+                    <div id="strip-full-reviews" class="strip-full" role="region" aria-label="리스크 점검">
+                      <div class="strip-head">
+                        <h3>리스크 점검</h3>
+                        <a class="strip-open" href="/?open=reviews" data-feature="reviews">열기 <span aria-hidden="true">&rarr;</span></a>
+                      </div>
+                      <p class="strip-note">심사 건 만들기·질의</p>
+                      <div id="strip-preview-reviews" class="strip-preview"></div>
+                    </div>
+                  </div>
+                  <div id="strip-reports" class="strip" data-open="false">
+                    <button id="strip-rail-reports" class="strip-rail" type="button" aria-expanded="false" aria-controls="strip-full-reports">
+                      <span class="strip-ico" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h6l3 3v11H6z"/><path d="M12 3v3h3M8.5 10h4M8.5 13h4"/></svg></span>
+                      <span class="strip-name">보고서</span>
+                      <em id="strip-stat-reports" class="strip-stat"></em>
+                    </button>
+                    <div id="strip-full-reports" class="strip-full" role="region" aria-label="보고서" inert>
+                      <div class="strip-head">
+                        <h3>보고서</h3>
+                        <a class="strip-open" href="/?open=reports" data-feature="reports">열기 <span aria-hidden="true">&rarr;</span></a>
+                      </div>
+                      <p class="strip-note">승인·저장된 심사 메모 모아 보기</p>
+                      <div id="strip-preview-reports" class="strip-preview"></div>
+                    </div>
+                  </div>
+                  <div id="strip-approvals" class="strip" data-open="false">
+                    <button id="strip-rail-approvals" class="strip-rail" type="button" aria-expanded="false" aria-controls="strip-full-approvals">
+                      <span class="strip-ico" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="7"/><path d="m7 10 2.2 2.2L13.5 8"/></svg></span>
+                      <span class="strip-name">승인 현황</span>
+                      <em id="strip-stat-approvals" class="strip-stat"></em>
+                    </button>
+                    <div id="strip-full-approvals" class="strip-full" role="region" aria-label="승인 현황" inert>
+                      <div class="strip-head">
+                        <h3>승인 현황</h3>
+                        <a class="strip-open" href="/?open=approvals" data-feature="approvals">열기 <span aria-hidden="true">&rarr;</span></a>
+                      </div>
+                      <p class="strip-note">승인 대기 건 모아 보기</p>
+                      <div id="strip-preview-approvals" class="strip-preview"></div>
+                    </div>
+                  </div>
+                  <div id="strip-rules" class="strip" data-open="false">
+                    <button id="strip-rail-rules" class="strip-rail" type="button" aria-expanded="false" aria-controls="strip-full-rules">
+                      <span class="strip-ico" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h12M4 10h12M4 14h8"/></svg></span>
+                      <span class="strip-name">내 판정 규칙</span>
+                      <em id="strip-stat-rules" class="strip-stat"></em>
+                    </button>
+                    <div id="strip-full-rules" class="strip-full" role="region" aria-label="내 판정 규칙" inert>
+                      <div class="strip-head">
+                        <h3>내 판정 규칙</h3>
+                        <a class="strip-open" href="/?open=rules" data-feature="rules">열기 <span aria-hidden="true">&rarr;</span></a>
+                      </div>
+                      <p class="strip-note">판정 규칙 보기·삭제</p>
+                      <div id="strip-preview-rules" class="strip-preview"></div>
+                    </div>
+                  </div>
+                </div>
+              <p id="login-required-hint" class="stage-hint" data-rise>로그인 후 사용 가능합니다.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <dialog id="review-login-notice" class="login-dialog" aria-labelledby="review-login-notice-title"{% if review_login_required %} data-open="true"{% endif %}>
+      <div class="dialog-body">
+        <p id="review-login-notice-title">로그인 후 이용해주십시오</p>
+        <form method="dialog">
+          <button type="submit">확인</button>
+        </form>
+      </div>
+    </dialog>
+    <dialog id="login-dialog" class="login-dialog" aria-labelledby="login-title" closedby="none">
+      <div class="dialog-body">
+        <div class="dialog-head">
+          <h2 id="login-title">로그인</h2>
+          <button id="login-close" class="dialog-close secondary" type="button" aria-label="닫기"><span aria-hidden="true">&times;</span></button>
+        </div>
+
+        <p id="login-error" role="alert" hidden></p>
+        <p id="login-status" role="status">로그인 상태를 확인하는 중…</p>
+
+        <form id="login-form" method="post" action="/api/v1/auth/login" hidden>
+          <label for="email">이메일</label>
+          <input id="email" name="email" type="email" autocomplete="username" required>
+
+          <label for="password">비밀번호</label>
+          <div class="password-field">
+            <input id="password" name="password" type="password" autocomplete="current-password" required>
+            <button id="toggle-password" class="secondary" type="button" aria-controls="password">표시</button>
+          </div>
+
+          <button id="login-submit" type="submit">로그인</button>
+          <a href="/signup" style="display: block; text-align: center; margin-top: 15px; color: #aaa; text-decoration: underline; cursor: pointer;">회원가입</a>
+
+        </form>
+      </div>
+    </dialog>
+    <dialog id="feature-sheet" class="feature-sheet" aria-labelledby="sheet-title">
+      <div class="sheet-grab" aria-hidden="true"></div>
+      <button id="sheet-close" class="sheet-close" type="button" aria-label="닫기">닫기 <span aria-hidden="true">&times;</span></button>
+      <div class="sheet-layout">
+        <nav id="sheet-tablist" class="sheet-nav" role="tablist" aria-orientation="vertical" aria-label="기능 선택">
+          <button id="sheet-tab-search" class="sheet-item" type="button" role="tab" aria-selected="false" aria-controls="sheet-body" tabindex="-1" data-feature="search"><span class="sheet-ico" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="5.5"/><path d="m13.5 13.5 3.5 3.5"/></svg></span><span class="sheet-txt"><b>공시 검색</b><small>회사명·corp_code로 보유 기업 찾기</small></span><em class="sheet-stat" data-stat="search"></em></button>
+          <button id="sheet-tab-reviews" class="sheet-item" type="button" role="tab" aria-selected="false" aria-controls="sheet-body" tabindex="-1" data-feature="reviews"><span class="sheet-ico" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16V9M10 16V4M16 16v-5"/></svg></span><span class="sheet-txt"><b>리스크 점검</b><small>심사 건 만들기·질의</small></span><em class="sheet-stat" data-stat="reviews"></em></button>
+          <button id="sheet-tab-reports" class="sheet-item" type="button" role="tab" aria-selected="false" aria-controls="sheet-body" tabindex="-1" data-feature="reports"><span class="sheet-ico" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h6l3 3v11H6z"/><path d="M12 3v3h3M8.5 10h4M8.5 13h4"/></svg></span><span class="sheet-txt"><b>보고서</b><small>승인·저장된 심사 메모 모아 보기</small></span><em class="sheet-stat" data-stat="reports"></em></button>
+          <button id="sheet-tab-approvals" class="sheet-item" type="button" role="tab" aria-selected="false" aria-controls="sheet-body" tabindex="-1" data-feature="approvals"><span class="sheet-ico" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="7"/><path d="m7 10 2.2 2.2L13.5 8"/></svg></span><span class="sheet-txt"><b>승인 현황</b><small>승인 대기 건 모아 보기</small></span><em class="sheet-stat" data-stat="approvals"></em></button>
+          <button id="sheet-tab-rules" class="sheet-item" type="button" role="tab" aria-selected="false" aria-controls="sheet-body" tabindex="-1" data-feature="rules"><span class="sheet-ico" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h12M4 10h12M4 14h8"/></svg></span><span class="sheet-txt"><b>내 판정 규칙</b><small>판정 규칙 보기·삭제</small></span><em class="sheet-stat" data-stat="rules"></em></button>
+        </nav>
+        <div class="sheet-main">
+          <h2 id="sheet-title" class="sheet-heading">기능</h2>
+          <div id="sheet-body" class="sheet-body" role="tabpanel" aria-live="polite"></div>
+        </div>
+      </div>
+    </dialog>
+    <script type="module" src="{{ url_for('static', path='login.js') }}"></script>
+    <script type="module" src="{{ url_for('static', path='landing.js') }}"></script>
+    <script type="module" src="{{ url_for('static', path='slide-fit.js') }}"></script>
+    <script type="module" src="{{ url_for('static', path='hero-stats.js') }}"></script>
+    <script type="module" src="{{ url_for('static', path='intro.js') }}"></script>
+    <script type="module" src="{{ url_for('static', path='page-glide.js') }}"></script>
+    <script type="module" src="{{ url_for('static', path='stage-tabs.js') }}"></script>
+    <script type="module" src="{{ url_for('static', path='feature-login.js') }}"></script>
+    <script type="module" src="{{ url_for('static', path='feature-sheet.js') }}"></script>
+    <script type="module" src="{{ url_for('static', path='feature-strips.js') }}"></script>
+    <script type="module" src="{{ url_for('static', path='company-search.js') }}"></script>
+  </body>
+</html>

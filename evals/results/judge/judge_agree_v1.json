@@ -1,0 +1,625 @@
+{
+  "judge_model": "openai/gpt-4.1",
+  "labels_file": "evals/judge_labels_v1.csv",
+  "grounded": {
+    "n": 40,
+    "agreement": 0.8,
+    "kappa": 0.5122,
+    "confusion": {
+      "O_O": 25,
+      "O_X": 1,
+      "X_O": 7,
+      "X_X": 7
+    },
+    "human_O": 26,
+    "human_X": 14,
+    "enough_classes": true
+  },
+  "specific": {
+    "n": 40,
+    "agreement": 0.825,
+    "kappa": 0.375,
+    "confusion": {
+      "O_O": 30,
+      "O_X": 1,
+      "X_O": 6,
+      "X_X": 3
+    },
+    "human_O": 31,
+    "human_X": 9,
+    "enough_classes": true
+  },
+  "real_only": {
+    "grounded": {
+      "n": 30,
+      "agreement": 0.8333,
+      "kappa": 0.2105,
+      "confusion": {
+        "O_O": 24,
+        "O_X": 1,
+        "X_O": 4,
+        "X_X": 1
+      },
+      "human_O": 25,
+      "human_X": 5,
+      "enough_classes": true
+    },
+    "specific": {
+      "n": 30,
+      "agreement": 0.9,
+      "kappa": 0.0,
+      "confusion": {
+        "O_O": 27,
+        "O_X": 0,
+        "X_O": 3,
+        "X_X": 0
+      },
+      "human_O": 27,
+      "human_X": 3,
+      "enough_classes": false
+    }
+  },
+  "details": [
+    {
+      "source": "evals/judge_labels_v1.contrast.jsonl",
+      "id": 11,
+      "item_index": 0,
+      "human": [
+        true,
+        false
+      ],
+      "judge": [
+        true,
+        true
+      ],
+      "note": "LX홀딩스가 순수지주회사임, 자회사별 원재료·매입액·비중·가격 변동 모두 청크에 구체적으로 있음."
+    },
+    {
+      "source": "evals/judge_labels_v1.contrast.jsonl",
+      "id": 32,
+      "item_index": 0,
+      "human": [
+        false,
+        true
+      ],
+      "judge": [
+        false,
+        true
+      ],
+      "note": "LG화학은 환율 10% 변동, 코웨이는 5% 변동 기준으로 민감도 공시. reason의 '60%'는 청크에 없음."
+    },
+    {
+      "source": "evals/judge_labels_v1.contrast.jsonl",
+      "id": 35,
+      "item_index": 0,
+      "human": [
+        false,
+        false
+      ],
+      "judge": [
+        false,
+        false
+      ],
+      "note": "reason에 '공시에 명시'라고만 했고, 실제 소송·분쟁 내역이나 재무상 영향의 구체적 사실을 적지 않았음."
+    },
+    {
+      "source": "evals/judge_labels_v1.contrast.jsonl",
+      "id": 36,
+      "item_index": 0,
+      "human": [
+        false,
+        false
+      ],
+      "judge": [
+        true,
+        true
+      ],
+      "note": "충당부채 4,468백만원, 지급보증, 투자약정, 매입확약 등 구체적 금액·상대방·조건이 청크에 모두 명시됨."
+    },
+    {
+      "source": "evals/judge_labels_v1.contrast.jsonl",
+      "id": 39,
+      "item_index": 0,
+      "human": [
+        false,
+        true
+      ],
+      "judge": [
+        false,
+        false
+      ],
+      "note": "'공시에 명시'만 언급, 실제 소송명·내용·금액 등 구체 내역이 reason에 없음. 청크 인용 사실도 reason에 없음."
+    },
+    {
+      "source": "evals/judge_labels_v1.contrast.jsonl",
+      "id": 57,
+      "item_index": 0,
+      "human": [
+        false,
+        true
+      ],
+      "judge": [
+        true,
+        true
+      ],
+      "note": "차입처(대구은행/아이엠뱅크, 우성금속, 상상인저축은행 등)와 이자율(5.89%, 4.6%, 6.14~8.25% 등)이 청크에 모두 명시됨."
+    },
+    {
+      "source": "evals/judge_labels_v1.contrast.jsonl",
+      "id": 58,
+      "item_index": 0,
+      "human": [
+        false,
+        false
+      ],
+      "judge": [
+        false,
+        false
+      ],
+      "note": "reason에 '공시에 명시'라고만 했고, 실제 잔액·상환예정액 숫자나 구체 내역을 적지 않아 둘 다 false."
+    },
+    {
+      "source": "evals/judge_labels_v1.contrast.jsonl",
+      "id": 60,
+      "item_index": 0,
+      "human": [
+        false,
+        true
+      ],
+      "judge": [
+        false,
+        true
+      ],
+      "note": "비유동 사채 15,002,881, 유동 사채 5,222,013은 청크에 있으나, 2025년 말 잔액을 유동+비유동(20,224,894)로 직접 합산하지 않고, reason에 비유동"
+    },
+    {
+      "source": "evals/judge_labels_v1.contrast.jsonl",
+      "id": 62,
+      "item_index": 0,
+      "human": [
+        false,
+        false
+      ],
+      "judge": [
+        false,
+        false
+      ],
+      "note": "2025년 말 차입금 합계가 직접적으로 명시된 청크가 없고, 합계 계산을 위해 여러 수치를 더해야 하므로 grounded와 specific 모두 false."
+    },
+    {
+      "source": "evals/judge_labels_v1.contrast.jsonl",
+      "id": 65,
+      "item_index": 0,
+      "human": [
+        false,
+        false
+      ],
+      "judge": [
+        true,
+        true
+      ],
+      "note": "2025년 연결 기준 사업부문별 매출액(지주회사투자, 제조, 엔지니어링, 레저, 연결조정)이 천원 단위로 구체적으로 명시됨."
+    },
+    {
+      "source": "evals/results/graph50/w62_single_haiku_d3-55_v9_v2.jsonl",
+      "id": 3,
+      "item_index": 0,
+      "human": [
+        false,
+        true
+      ],
+      "judge": [
+        true,
+        true
+      ],
+      "note": "청크에 소송명, 소송가액, 진행상황, 판결 결과, 충당부채 미인식 사실이 모두 명시되어 있음."
+    },
+    {
+      "source": "evals/results/graph50/w62_single_haiku_d3-55_v9_v2.jsonl",
+      "id": 13,
+      "item_index": 0,
+      "human": [
+        true,
+        true
+      ],
+      "judge": [
+        true,
+        true
+      ],
+      "note": "단기차입금, 장기차입금, 사채의 금액과 구성, 합계 모두 청크에 명확히 기재되어 있음."
+    },
+    {
+      "source": "evals/results/graph50/w62_single_haiku_d3-55_v9_v2.jsonl",
+      "id": 35,
+      "item_index": 0,
+      "human": [
+        true,
+        true
+      ],
+      "judge": [
+        true,
+        true
+      ],
+      "note": "지배기업은 소송 없음, 종속기업은 소송 현황·상대방·진행상황·합의일 등 구체적 사실이 청크에 모두 있음."
+    },
+    {
+      "source": "evals/results/graph50/w62_single_haiku_d3-55_v9_v2.jsonl",
+      "id": 40,
+      "item_index": 0,
+      "human": [
+        true,
+        true
+      ],
+      "judge": [
+        true,
+        true
+      ],
+      "note": "청크에 담보·보증·재무약정의 구체적 금액, 상대방, 자산, 조건 등이 모두 명시되어 있음."
+    },
+    {
+      "source": "evals/results/graph50/w62_single_haiku_d3-55_v9_v2.jsonl",
+      "id": 55,
+      "item_index": 0,
+      "human": [
+        true,
+        true
+      ],
+      "judge": [
+        true,
+        true
+      ],
+      "note": "배당금수익 72,563백만원, 영업수익 구성비(배당 69.7%, 상표권 29.7%) 모두 청크에 명시됨."
+    },
+    {
+      "source": "evals/results/graph50/w86_multi_haiku_d3-55_v9_v2.jsonl",
+      "id": 1,
+      "item_index": 0,
+      "human": [
+        true,
+        true
+      ],
+      "judge": [
+        true,
+        true
+      ],
+      "note": "청크에 소송 건별로 원고, 피고, 사건명, 금액, 진행상황 등 구체 내역이 모두 명시되어 있음."
+    },
+    {
+      "source": "evals/results/graph50/w86_multi_haiku_d3-55_v9_v2.jsonl",
+      "id": 10,
+      "item_index": 0,
+      "human": [
+        true,
+        true
+      ],
+      "judge": [
+        true,
+        true
+      ],
+      "note": "외화자산·부채(25,803/26,340백만원), 환율 10% 변동 시 손익 영향(±16백만원) 모두 청크에 명시됨."
+    },
+    {
+      "source": "evals/results/graph50/w86_multi_haiku_d3-55_v9_v2.jsonl",
+      "id": 15,
+      "item_index": 0,
+      "human": [
+        true,
+        true
+      ],
+      "judge": [
+        true,
+        true
+      ],
+      "note": "1년 내 상환액(별도 52,233,375천원, 연결 75,928,314천원)과 유동성 위험 관리방안 모두 청크에 구체적으로 명시됨."
+    },
+    {
+      "source": "evals/results/graph50/w86_multi_haiku_d3-55_v9_v2.jsonl",
+      "id": 38,
+      "item_index": 0,
+      "human": [
+        true,
+        true
+      ],
+      "judge": [
+        true,
+        true
+      ],
+      "note": "차입금·사채 금액, 만기, 조기상환 등 모든 수치와 사실이 청크에 명확히 있음."
+    },
+    {
+      "source": "evals/results/graph50/w86_multi_haiku_d3-55_v9_v2.jsonl",
+      "id": 54,
+      "item_index": 0,
+      "human": [
+        true,
+        true
+      ],
+      "judge": [
+        true,
+        true
+      ],
+      "note": "리스부채 총액, 유동/비유동, 만기별 구간별 금액 모두 청크에 명시되어 있음."
+    },
+    {
+      "source": "evals/results/graph50/w86_multi_haiku_d3-55_v9_v2.jsonl",
+      "id": 55,
+      "item_index": 0,
+      "human": [
+        true,
+        true
+      ],
+      "judge": [
+        true,
+        true
+      ],
+      "note": "주요 수익원이 배당수익, 상표권 사용수익, 기타수익임을 명시했고, 배당수익 72,563백만원도 청크에 있음."
+    },
+    {
+      "source": "evals/results/graph50/w86_multi_haiku_d3-55_v9_v2.jsonl",
+      "id": 63,
+      "item_index": 0,
+      "human": [
+        true,
+        true
+      ],
+      "judge": [
+        true,
+        true
+      ],
+      "note": "358,028백만원(총 차입금), 71,805백만원(유동성장기부채) 모두 청크에 명시, 금액도 구체적으로 적음."
+    },
+    {
+      "source": "evals/results/graph50/w86_multi_haiku_d3-55_v9_v2.jsonl",
+      "id": 64,
+      "item_index": 0,
+      "human": [
+        true,
+        true
+      ],
+      "judge": [
+        true,
+        true
+      ],
+      "note": "33,313,014천원, 유동 16,016,746천원, 비유동 17,296,268천원 모두 청크에 명시되어 있음."
+    },
+    {
+      "source": "evals/results/graph50/w86_multi_haiku_d3-55_v9_v2.jsonl",
+      "id": 65,
+      "item_index": 0,
+      "human": [
+        true,
+        true
+      ],
+      "judge": [
+        true,
+        true
+      ],
+      "note": "2025년 연결 기준 각 사업부문별 매출액이 천원 단위로 모두 청크에 명시되어 있음."
+    },
+    {
+      "source": "evals/results/graph50/w91_r2_multi_d3-55_v9_v2.jsonl",
+      "id": 3,
+      "item_index": 0,
+      "human": [
+        true,
+        true
+      ],
+      "judge": [
+        true,
+        true
+      ],
+      "note": "소송 건수, 금액, 충당부채 7,492백만원 모두 청크에 명시되어 있고, 구체적 수치와 소송 내역도 있음."
+    },
+    {
+      "source": "evals/results/graph50/w91_r2_multi_d3-55_v9_v2.jsonl",
+      "id": 7,
+      "item_index": 0,
+      "human": [
+        true,
+        true
+      ],
+      "judge": [
+        true,
+        true
+      ],
+      "note": "고객 1, 2, 3의 매출액(천원)과 비중(%)이 청크에 모두 명시되어 있음."
+    },
+    {
+      "source": "evals/results/graph50/w91_r2_multi_d3-55_v9_v2.jsonl",
+      "id": 15,
+      "item_index": 0,
+      "human": [
+        true,
+        true
+      ],
+      "judge": [
+        true,
+        true
+      ],
+      "note": "1년 내 상환 차입금 52,233,375천원, 유동성 위험 관리방안(자금관리계획, 현금유출 분석 등) 모두 청크에 명시됨."
+    },
+    {
+      "source": "evals/results/graph50/w91_r2_multi_d3-55_v9_v2.jsonl",
+      "id": 35,
+      "item_index": 0,
+      "human": [
+        false,
+        true
+      ],
+      "judge": [
+        true,
+        true
+      ],
+      "note": "소송 현황(진행 중, 당사자, 소송명)과 재무상 영향(중요 영향 없음)이 모두 청크에 명시됨."
+    },
+    {
+      "source": "evals/results/graph50/w91_r2_multi_d3-55_v9_v2.jsonl",
+      "id": 38,
+      "item_index": 0,
+      "human": [
+        true,
+        true
+      ],
+      "judge": [
+        true,
+        true
+      ],
+      "note": "단기차입금, 장기차입금, 사채 금액과 사채 만기일 모두 청크에 명시되어 있음."
+    },
+    {
+      "source": "evals/results/graph50/w91_r2_multi_d3-55_v9_v2.jsonl",
+      "id": 40,
+      "item_index": 0,
+      "human": [
+        true,
+        true
+      ],
+      "judge": [
+        true,
+        true
+      ],
+      "note": "reason에 적힌 모든 금액과 담보·보증·약정 내용이 청크에 구체적으로 명시되어 있음."
+    },
+    {
+      "source": "evals/results/graph50/w91_r2_multi_d3-55_v9_v2.jsonl",
+      "id": 52,
+      "item_index": 0,
+      "human": [
+        true,
+        true
+      ],
+      "judge": [
+        true,
+        true
+      ],
+      "note": "차입 약정 한도 1,399,941,400천원, 담보 유형자산 장부금액 105,960,398천원 모두 청크에 명시됨."
+    },
+    {
+      "source": "evals/results/graph50/w91_r2_multi_d3-55_v9_v2.jsonl",
+      "id": 54,
+      "item_index": 0,
+      "human": [
+        true,
+        true
+      ],
+      "judge": [
+        true,
+        true
+      ],
+      "note": "총 리스부채, 유동·비유동 리스부채 금액이 청크에 모두 명시되어 있고, 만기 구성도 구체적으로 제시됨."
+    },
+    {
+      "source": "evals/results/graph50/w91_r2_multi_d3-55_v9_v2.jsonl",
+      "id": 55,
+      "item_index": 0,
+      "human": [
+        true,
+        true
+      ],
+      "judge": [
+        true,
+        true
+      ],
+      "note": "주요 수익원(배당수익, 상표권 사용수익, 기타수익)과 배당수익 72,563백만원 모두 청크에 명시됨."
+    },
+    {
+      "source": "evals/results/graph50/w91_r2_multi_d3-55_v9_v2.jsonl",
+      "id": 60,
+      "item_index": 0,
+      "human": [
+        true,
+        true
+      ],
+      "judge": [
+        true,
+        true
+      ],
+      "note": "사채 잔액 15,002,881, 1년 이내 만기 사채 5,222,013 모두 청크에 명시되어 있음."
+    },
+    {
+      "source": "evals/results/graph50/w91_r2_multi_d3-55_v9_v2.jsonl",
+      "id": 62,
+      "item_index": 0,
+      "human": [
+        true,
+        true
+      ],
+      "judge": [
+        false,
+        true
+      ],
+      "note": "reason의 1,698,370,521은 차입부채만 해당하며, 사채 등 포함 합계는 chunk에서 별도 합산 필요하나 계산 결과를 reason에 직접 적음."
+    },
+    {
+      "source": "evals/results/graph50/w91_r2_multi_d3-55_v9_v2.jsonl",
+      "id": 64,
+      "item_index": 0,
+      "human": [
+        true,
+        true
+      ],
+      "judge": [
+        true,
+        true
+      ],
+      "note": "청크에 2025년 말 리스부채 잔액 33,313,014천원이 명시되어 있음."
+    },
+    {
+      "source": "evals/results/graph50/w91_r2_multi_d3-55_v9_v2.jsonl",
+      "id": 65,
+      "item_index": 0,
+      "human": [
+        true,
+        true
+      ],
+      "judge": [
+        true,
+        true
+      ],
+      "note": "모든 사업부문별 2025년 매출액 수치와 명칭이 청크에 명확히 기재되어 있고, reason에 구체적으로 언급됨."
+    },
+    {
+      "source": "evals/results/graph50/w92_dryrun_limit4_multi_gpt41mini_d3-55_v9_v2.jsonl",
+      "id": 3,
+      "item_index": 0,
+      "human": [
+        false,
+        false
+      ],
+      "judge": [
+        false,
+        true
+      ],
+      "note": "주요 소송 2건의 내역은 청크에 있으나, 관련 충당부채 금액이 소송별로 명확히 연결되어 있지 않고, 충당부채 표에는 소송 관련 항목이 구체적으로 분리되어 있지 않음."
+    },
+    {
+      "source": "evals/results/graph50/w92_dryrun_limit4_multi_gpt41mini_d3-55_v9_v2.jsonl",
+      "id": 5,
+      "item_index": 0,
+      "human": [
+        false,
+        false
+      ],
+      "judge": [
+        true,
+        true
+      ],
+      "note": "청크에 자산 종류(지분증권, 채무증권 등), 장부금액, 담보설정금액, 담보권자(한국증권금융 등)가 모두 구체적으로 명시됨."
+    },
+    {
+      "source": "evals/results/graph50/w92_dryrun_limit4_multi_gpt41mini_d3-55_v9_v2.jsonl",
+      "id": 7,
+      "item_index": 0,
+      "human": [
+        false,
+        false
+      ],
+      "judge": [
+        true,
+        true
+      ],
+      "note": "청크에 고객 1~3의 매출액(천원)과 매출 비중(%)이 명확히 제시되어 있음."
+    }
+  ],
+  "cost_usd": 0.250772
+}

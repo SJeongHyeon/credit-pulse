@@ -1,0 +1,538 @@
+/* 랜딩 기능 시트(landing-feature-pages Spec). 색은 theme.css 토큰만 쓴다. */
+.feature-sheet {
+  background: var(--glass-bg-strong);
+  border: 1px solid var(--glass-line);
+  border-bottom: 0;
+  border-radius: 26px 26px 0 0;
+  bottom: 0;
+  box-shadow: var(--glass-shadow);
+  box-sizing: border-box;
+  color: var(--on-dark);
+  display: none;
+  flex-direction: column;
+  font-family: var(--font-sans);
+  height: 88vh;
+  height: 88dvh;
+  inset: auto 0 0 0; /* left·right는 feature-sheet.js가 로고·로그아웃 위치에 맞춰 덮어쓴다 */
+  margin: 0;
+  max-height: none;
+  max-width: none;
+  overflow: hidden;
+  padding: 0;
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  width: auto;
+  word-break: keep-all;
+}
+
+.feature-sheet *,
+.feature-sheet *::before,
+.feature-sheet *::after {
+  box-sizing: border-box;
+}
+
+.feature-sheet[open] {
+  animation: sheet-up 0.45s var(--ease-spring) both;
+  display: flex;
+}
+
+.feature-sheet::backdrop {
+  animation: sheet-fade 0.3s both;
+  background: rgba(6, 4, 3, 0.55);
+}
+
+@keyframes sheet-up {
+  from {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes sheet-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+.sheet-grab {
+  background: var(--glass-line-hover);
+  border-radius: 9px;
+  flex: none;
+  height: 0.3rem;
+  margin: 0.7rem auto 0;
+  width: 3rem;
+}
+
+.sheet-close,
+.sheet-btn,
+.sheet-link {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--glass-line);
+  border-radius: 999px;
+  color: var(--on-dark);
+  cursor: pointer;
+  display: inline-flex;
+  flex: none;
+  font: inherit;
+  font-size: var(--text-sm);
+  gap: 0.35rem;
+  min-height: 2.5rem;
+  padding: 0.4rem 1.1rem;
+  text-decoration: none;
+  transition: background-color 0.4s var(--ease-spring), border-color 0.4s var(--ease-spring);
+  white-space: nowrap;
+}
+
+.sheet-close:hover,
+.sheet-btn:hover:not(:disabled),
+.sheet-link:hover {
+  border-color: var(--glass-line-hover);
+}
+
+/* 강조 버튼도 흰색 바탕 없이 투명 바탕 + 금색 테두리로 통일한다(03 띠의 「열기」와 같은 모양) */
+.sheet-link-solid {
+  background: transparent;
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.sheet-link-solid:hover {
+  background: rgba(227, 184, 102, 0.14);
+  border-color: var(--gold);
+  color: var(--gold-soft);
+}
+
+.sheet-close:focus-visible,
+.sheet-btn:focus-visible,
+.sheet-link:focus-visible,
+.sheet-rows a:focus-visible,
+.sheet-search input:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.sheet-btn:disabled {
+  cursor: default;
+  opacity: 0.6;
+}
+
+.sheet-body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 0.2rem 0.3rem 1.2rem 0;
+}
+
+.sheet-lead {
+  color: var(--on-dark-muted);
+  font-size: var(--text-base);
+  line-height: var(--leading-body);
+  margin: 0 auto 1rem;
+}
+
+.sheet-sub {
+  font-size: var(--text-base);
+  font-weight: 600;
+  margin: 1.2rem auto 0.6rem;
+}
+
+.sheet-note {
+  color: var(--on-dark-muted);
+  margin-bottom: 0.8rem;
+}
+
+.sheet-alert {
+  color: var(--error-on-dark);
+  margin-bottom: 0.8rem;
+}
+
+.sheet-cards {
+  display: grid;
+  gap: 0.7rem;
+  grid-template-columns: repeat(auto-fit, minmax(7.5rem, 1fr));
+  list-style: none;
+  margin-bottom: 1rem;
+  padding: 0;
+}
+
+.sheet-cards li {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-line);
+  border-radius: 16px;
+  min-width: 0;
+  padding: 0.8rem 0.9rem;
+}
+
+.sheet-cards strong {
+  color: var(--gold-soft);
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  font-weight: 300;
+  overflow-wrap: anywhere;
+}
+
+.sheet-cards span {
+  color: var(--on-dark-muted);
+  font-size: 0.8rem;
+}
+
+.sheet-chart {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--glass-line);
+  border-radius: 16px;
+  margin-bottom: 1rem;
+  padding: 1rem;
+}
+
+.sheet-chart h3 {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  margin: 0 0 0.7rem;
+}
+
+.sheet-bar {
+  align-items: center;
+  display: grid;
+  font-size: 0.85rem;
+  gap: 0.6rem;
+  grid-template-columns: 5.5rem minmax(0, 1fr) 3rem;
+  margin: 0.4rem 0;
+}
+
+.sheet-bar-label {
+  overflow-wrap: anywhere;
+}
+
+.sheet-bar-track {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  display: block;
+  height: 0.9rem;
+  overflow: hidden;
+}
+
+.sheet-bar i {
+  background: linear-gradient(90deg, var(--gold), var(--gold-soft));
+  border-radius: 999px;
+  display: block;
+  height: 100%;
+}
+
+.sheet-bar em {
+  color: var(--on-dark-muted);
+  font-style: normal;
+  text-align: right;
+}
+
+.sheet-donut-wrap {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+}
+
+.sheet-donut {
+  border-radius: 50%;
+  flex: none;
+  height: 7.5rem;
+  position: relative;
+  width: 7.5rem;
+}
+
+.sheet-donut::after {
+  background: var(--glass-bg-strong);
+  border-radius: 50%;
+  content: "";
+  inset: 1.6rem;
+  position: absolute;
+}
+
+.sheet-legend {
+  display: grid;
+  font-size: 0.85rem;
+  gap: 0.3rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sheet-legend li::before {
+  background: var(--c);
+  border-radius: 50%;
+  content: "";
+  display: inline-block;
+  height: 0.7rem;
+  margin-right: 0.5rem;
+  width: 0.7rem;
+}
+
+.sheet-rows {
+  display: grid;
+  gap: 0.55rem;
+  list-style: none;
+  margin-bottom: 1rem;
+  padding: 0;
+}
+
+.sheet-rows > li {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--glass-line);
+  border-radius: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.8rem;
+  justify-content: space-between;
+  min-width: 0;
+  padding: 0.7rem 0.9rem;
+}
+
+.sheet-rows a:not(.sheet-link) {
+  color: var(--on-dark);
+  overflow-wrap: anywhere;
+  text-underline-offset: 3px;
+}
+
+.sheet-rows a:not(.sheet-link):hover {
+  color: var(--gold);
+}
+
+.sheet-rows small {
+  color: var(--on-dark-muted);
+  overflow-wrap: anywhere;
+}
+
+.sheet-row-title {
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.sheet-rules > li {
+  display: block;
+}
+
+.sheet-rule-head {
+  align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.8rem;
+  justify-content: space-between;
+}
+
+.sheet-rule-text {
+  line-height: var(--leading-body);
+  margin: 0.4rem 0 0.6rem;
+  overflow-wrap: anywhere;
+}
+
+.sheet-actions-inline {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.sheet-actions {
+  margin-top: 1rem;
+}
+
+.sheet-empty {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px dashed var(--glass-line);
+  border-radius: 16px;
+  margin-bottom: 1rem;
+  padding: 1.2rem;
+  text-align: center;
+}
+
+.sheet-empty p {
+  color: var(--on-dark-muted);
+  margin: 0 0 0.9rem;
+}
+
+.sheet-search {
+  display: flex;
+  margin-bottom: 0.9rem;
+}
+
+.sheet-search input {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--glass-line);
+  border-radius: 999px;
+  box-sizing: border-box;
+  color: var(--on-dark);
+  flex: 1;
+  font: inherit;
+  min-height: 2.75rem;
+  min-width: 0;
+  padding: 0 1.1rem;
+}
+
+@media (max-width: 36rem) {
+  .sheet-bar {
+    grid-template-columns: 4.2rem minmax(0, 1fr) 2.6rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .feature-sheet[open],
+  .feature-sheet::backdrop {
+    animation: none;
+  }
+}
+
+/* ---- 좌측 목록 + 우측 본문 (시안 E-4) ---- */
+.feature-sheet {
+  color-scheme: dark; /* 스크롤바를 어두운 면에 맞춘다 */
+  container-type: inline-size;
+}
+
+.sheet-close {
+  position: absolute;
+  right: 1.1rem;
+  top: 0.9rem;
+  z-index: 1;
+}
+
+.sheet-layout {
+  display: grid;
+  flex: 1;
+  gap: 1.2rem;
+  grid-template-columns: 19rem minmax(0, 1fr);
+  min-height: 0;
+  padding: 3.6rem 1.25rem 1.2rem;
+}
+
+.sheet-nav {
+  border-image: linear-gradient(to bottom, transparent, var(--gold) 30%, var(--gold) 70%, transparent) 1;
+  border-right: 1px solid;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  overflow-y: auto;
+  padding-right: 1.2rem;
+}
+
+.sheet-item {
+  align-items: center;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 14px;
+  color: var(--on-dark);
+  cursor: pointer;
+  display: flex;
+  font: inherit;
+  gap: 0.7rem;
+  padding: 0.7rem 0.8rem;
+  text-align: left;
+  transition: background-color 0.25s var(--ease-spring), border-color 0.25s var(--ease-spring);
+  width: 100%;
+}
+
+.sheet-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.sheet-item[aria-selected="true"] {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--gold);
+}
+
+.sheet-item:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.sheet-ico {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  color: var(--gold-soft);
+  display: grid;
+  flex: none;
+  height: 2.1rem;
+  place-items: center;
+  width: 2.1rem;
+}
+
+.sheet-item[aria-selected="true"] .sheet-ico {
+  background: var(--gold);
+  color: var(--glass-bg-strong);
+}
+
+.sheet-txt {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.sheet-txt b {
+  font-weight: 600;
+}
+
+.sheet-txt small {
+  color: var(--on-dark-muted);
+  font-size: 0.75rem;
+  line-height: 1.3;
+}
+
+.sheet-stat {
+  color: var(--gold-soft);
+  font-size: 0.75rem;
+  font-style: normal;
+  white-space: nowrap;
+}
+
+.sheet-main {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  min-width: 0;
+}
+
+.sheet-heading {
+  border-bottom: 1px solid var(--glass-line);
+  flex: none;
+  font-family: var(--font-serif);
+  font-size: 1.7rem;
+  font-weight: 300;
+  margin: 0 0 0.9rem;
+  padding-bottom: 0.8rem;
+}
+
+.sheet-cards {
+  border-bottom: 1px dashed var(--glass-line);
+  padding-bottom: 1rem;
+}
+
+.sheet-chart {
+  background: transparent;
+  border-color: transparent;
+  border-bottom-color: var(--glass-line);
+  border-radius: 0;
+}
+
+@container (max-width: 44rem) {
+  .sheet-layout {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr);
+  }
+
+  .sheet-nav {
+    border-image: none;
+    border-right: 0;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0 0 0.6rem;
+  }
+
+  .sheet-item {
+    flex: none;
+    width: auto;
+  }
+
+  .sheet-txt small,
+  .sheet-stat {
+    display: none;
+  }
+}

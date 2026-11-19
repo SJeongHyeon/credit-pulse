@@ -1,0 +1,19 @@
+fastapi>=0.115
+jinja2>=3.1
+uvicorn[standard]>=0.32
+pydantic>=2.9
+python-dotenv>=1.0
+openai>=1.60                          # OpenRouter도 이 SDK로 부릅니다(base_url만 교체)
+langfuse>=5.1,<6                      # G6 (SPEC §5.6: v5 get_client·propagate_attributes)
+langgraph>=1.0                        # G4
+langgraph-checkpoint-postgres>=3.0    # 체크포인트를 DB에 (G4)
+psycopg[binary,pool]>=3.2
+pgvector>=0.3
+numpy>=1.26,<3                       # pgvector 적재·검색에 필요(pgvector 패키지가 설치하지 않음)
+rank-bm25>=0.2                        # 하이브리드의 키워드 쪽 (형태소 분석은 조에서 선택)
+kiwipiepy==0.24.1                     # 채택 조합 d3-55의 BM25 형태소 분석(서비스 검색기가 씀)
+voyageai==0.5.0                       # 채택 조합 리랭커 voyage/rerank-2.5(키가 있을 때)
+jsonschema>=4.23                      # D1 manifest/chunks 계약 검증
+lxml>=5.3                             # D1 OpenDART SGML/HTML형 XML 복구 파싱
+bcrypt>=5,<6                          # 비밀번호 해시(5부터 72바이트 초과 입력에 ValueError)
+PyJWT>=2.10,<3                        # 세션 JWT 서명·검증

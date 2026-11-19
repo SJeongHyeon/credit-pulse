@@ -1,0 +1,55 @@
+/* 첫 방문 로고 인트로(AC-50). 평소에는 보이지 않고, <html>에 intro-pending이 붙은 동안만 화면을 덮는다 */
+.intro {
+  background:
+    radial-gradient(ellipse at 50% 45%, rgba(227, 184, 102, 0.1), transparent 62%),
+    #0b0908;
+  display: none;
+  inset: 0;
+  place-items: center;
+  position: fixed;
+  z-index: 100;
+}
+
+html.intro-pending .intro {
+  display: grid;
+}
+
+/* 인트로가 도는 동안 뒤의 화면이 스크롤되지 않게 한다 */
+html.intro-pending {
+  overflow: hidden;
+}
+
+.intro-stage {
+  aspect-ratio: 1200 / 213;
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  position: relative;
+  width: min(86vw, 640px);
+}
+
+/* 로고 그림 주소는 JS가 --intro-logo 변수로 넣는다 */
+.intro-tile {
+  background-image: var(--intro-logo);
+  background-repeat: no-repeat;
+  will-change: transform, opacity;
+}
+
+/* 조립이 끝나면 조각을 통짜 로고로 바꿔 조각 사이의 가는 이음선을 없앤다 */
+.intro-full {
+  background: var(--intro-logo) center / 100% 100% no-repeat;
+  inset: 0;
+  opacity: 0;
+  position: absolute;
+}
+
+/* 로고 글자 모양을 따라 은은하게 번지는 금색 */
+.intro-gold {
+  -webkit-mask: var(--intro-logo) center / 100% 100% no-repeat;
+  background: var(--gold);
+  inset: 0;
+  mask: var(--intro-logo) center / 100% 100% no-repeat;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+}

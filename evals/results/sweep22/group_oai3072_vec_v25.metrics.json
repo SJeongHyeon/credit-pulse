@@ -1,0 +1,302 @@
+{
+  "candidate_k": 20,
+  "dataset_sha256": "2f0fcdc3dddd5ca8b2124aa82e5e52dc81492bde2e0859cc11198c1054f72e09",
+  "hit_at_10": 0.8,
+  "irrelevant_questions": 15,
+  "k": 10,
+  "latency": {
+    "max_ms": 551.7728999984683,
+    "p50_ms": 315.7571499978076,
+    "p95_ms": 525.2699950040551,
+    "queries": 14
+  },
+  "mrr_at_10": 0.4844444444444444,
+  "ndcg_at_10": 0.4381962267428857,
+  "per_question": [
+    {
+      "first_gold_rank": 1,
+      "gold_count": 1,
+      "hit": true,
+      "id": 1,
+      "kind": "relevant",
+      "ndcg": 1.0,
+      "recall": 1.0
+    },
+    {
+      "first_gold_rank": 3,
+      "gold_count": 1,
+      "hit": true,
+      "id": 2,
+      "kind": "relevant",
+      "ndcg": 0.5,
+      "recall": 1.0
+    },
+    {
+      "first_gold_rank": 1,
+      "gold_count": 4,
+      "hit": true,
+      "id": 3,
+      "kind": "relevant",
+      "ndcg": 0.8318724637288826,
+      "recall": 0.75
+    },
+    {
+      "first_gold_rank": 1,
+      "gold_count": 1,
+      "hit": true,
+      "id": 4,
+      "kind": "relevant",
+      "ndcg": 1.0,
+      "recall": 1.0
+    },
+    {
+      "first_gold_rank": 1,
+      "gold_count": 5,
+      "hit": true,
+      "id": 5,
+      "kind": "relevant",
+      "ndcg": 0.639945385422766,
+      "recall": 0.6
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 3,
+      "hit": false,
+      "id": 6,
+      "kind": "relevant",
+      "ndcg": 0.0,
+      "recall": 0.0
+    },
+    {
+      "first_gold_rank": 2,
+      "gold_count": 2,
+      "hit": true,
+      "id": 7,
+      "kind": "relevant",
+      "ndcg": 0.6240505200038379,
+      "recall": 1.0
+    },
+    {
+      "first_gold_rank": 3,
+      "gold_count": 1,
+      "hit": true,
+      "id": 8,
+      "kind": "relevant",
+      "ndcg": 0.5,
+      "recall": 1.0
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 1,
+      "hit": false,
+      "id": 9,
+      "kind": "relevant",
+      "ndcg": 0.0,
+      "recall": 0.0
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 2,
+      "hit": false,
+      "id": 10,
+      "kind": "relevant",
+      "ndcg": 0.0,
+      "recall": 0.0
+    },
+    {
+      "first_gold_rank": 2,
+      "gold_count": 3,
+      "hit": true,
+      "id": 11,
+      "kind": "relevant",
+      "ndcg": 0.2960819109658652,
+      "recall": 0.3333333333333333
+    },
+    {
+      "first_gold_rank": 6,
+      "gold_count": 4,
+      "hit": true,
+      "id": 12,
+      "kind": "relevant",
+      "ndcg": 0.13905617951077562,
+      "recall": 0.25
+    },
+    {
+      "first_gold_rank": 1,
+      "gold_count": 5,
+      "hit": true,
+      "id": 13,
+      "kind": "relevant",
+      "ndcg": 0.5531464700081437,
+      "recall": 0.4
+    },
+    {
+      "first_gold_rank": 3,
+      "gold_count": 8,
+      "hit": true,
+      "id": 14,
+      "kind": "relevant",
+      "ndcg": 0.311551184718968,
+      "recall": 0.375
+    },
+    {
+      "first_gold_rank": 10,
+      "gold_count": 2,
+      "hit": true,
+      "id": 15,
+      "kind": "relevant",
+      "ndcg": 0.17723928678404774,
+      "recall": 0.5
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 0,
+      "hit": null,
+      "id": 16,
+      "kind": "irrelevant",
+      "ndcg": null,
+      "recall": null
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 0,
+      "hit": null,
+      "id": 17,
+      "kind": "irrelevant",
+      "ndcg": null,
+      "recall": null
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 0,
+      "hit": null,
+      "id": 18,
+      "kind": "irrelevant",
+      "ndcg": null,
+      "recall": null
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 0,
+      "hit": null,
+      "id": 19,
+      "kind": "irrelevant",
+      "ndcg": null,
+      "recall": null
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 0,
+      "hit": null,
+      "id": 20,
+      "kind": "irrelevant",
+      "ndcg": null,
+      "recall": null
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 0,
+      "hit": null,
+      "id": 21,
+      "kind": "irrelevant",
+      "ndcg": null,
+      "recall": null
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 0,
+      "hit": null,
+      "id": 22,
+      "kind": "irrelevant",
+      "ndcg": null,
+      "recall": null
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 0,
+      "hit": null,
+      "id": 23,
+      "kind": "irrelevant",
+      "ndcg": null,
+      "recall": null
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 0,
+      "hit": null,
+      "id": 24,
+      "kind": "irrelevant",
+      "ndcg": null,
+      "recall": null
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 0,
+      "hit": null,
+      "id": 25,
+      "kind": "irrelevant",
+      "ndcg": null,
+      "recall": null
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 0,
+      "hit": null,
+      "id": 26,
+      "kind": "irrelevant",
+      "ndcg": null,
+      "recall": null
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 0,
+      "hit": null,
+      "id": 27,
+      "kind": "irrelevant",
+      "ndcg": null,
+      "recall": null
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 0,
+      "hit": null,
+      "id": 28,
+      "kind": "irrelevant",
+      "ndcg": null,
+      "recall": null
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 0,
+      "hit": null,
+      "id": 29,
+      "kind": "irrelevant",
+      "ndcg": null,
+      "recall": null
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 0,
+      "hit": null,
+      "id": 30,
+      "kind": "irrelevant",
+      "ndcg": null,
+      "recall": null
+    }
+  ],
+  "questions_total": 30,
+  "recall_at_10": 0.5472222222222222,
+  "reference_candidate_30": {
+    "hit_at_10": 0.8,
+    "irrelevant_questions": 15,
+    "k": 10,
+    "mrr_at_10": 0.4844444444444444,
+    "ndcg_at_10": 0.4381962267428857,
+    "questions_total": 30,
+    "recall_at_10": 0.5472222222222222,
+    "relevant_questions": 15
+  },
+  "relevant_questions": 15,
+  "reranker": "voyage/rerank-2.5",
+  "results_sha256": "ab18a5dfcd2d14175da9e03dc517d1d559cf246fcf926700ceaded895224054c"
+}

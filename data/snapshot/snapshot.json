@@ -1,0 +1,58 @@
+{
+  "corp_codes": [
+    "00101220",
+    "00103042",
+    "00121288",
+    "00132868",
+    "00140177",
+    "00141529",
+    "00148610",
+    "00170558",
+    "00231363",
+    "00356361",
+    "00414850",
+    "00459871",
+    "00949161",
+    "00992871",
+    "01562589",
+    "01965324"
+  ],
+  "corpus_id": "corpus-a833986c7423168eae523176",
+  "counts": {
+    "chunks": 4942,
+    "documents": 16,
+    "unique_contents": 4932
+  },
+  "dimension": 1536,
+  "embedding_model": "openai/text-embedding-3-small",
+  "files": {
+    "chunks.jsonl.gz": {
+      "bytes": 2134401,
+      "sha256": "99df4165f6424e2aed4f7309a9aae72fcd425e0e033421be383615132a1ff832",
+      "uncompressed_sha256": "3c0d7174d9dbf12774d267b17f0f12cf1b4ee4529fea97dff197c414e27a8e59"
+    },
+    "embeddings.ids.jsonl.gz": {
+      "bytes": 208842,
+      "sha256": "de7f624c27d0ef2d03e0cbfa1befee8bad9baef91487f17905c8073bf961070b",
+      "uncompressed_sha256": "4ecaea2dc08da19c60f8b6731c1bcb89af61fafe9312e59c7c9f0e21223b8d04"
+    },
+    "embeddings.metadata.json": {
+      "bytes": 390,
+      "sha256": "23baf46c0fc4fb67cde83d3ebd03d7b3150f069d2bb9021a40633ddc6b67de2f",
+      "uncompressed_sha256": "23baf46c0fc4fb67cde83d3ebd03d7b3150f069d2bb9021a40633ddc6b67de2f"
+    },
+    "embeddings.vectors.npy.gz": {
+      "bytes": 24820360,
+      "sha256": "e46abd97f54544f5278298fce90e9c021d191fa91335ad252e56f054a2f7717d",
+      "uncompressed_sha256": "06ae6d0fb0049c86bda0ea70f87cf8361858d2d13e36bc74e32c06a5dec775c6"
+    },
+    "manifest.jsonl.gz": {
+      "bytes": 2531,
+      "sha256": "3ff465aa0ddd393c231cc80a0c08975af51730b2c826f77f8915a8ee1e39c938",
+      "uncompressed_sha256": "acea62d388fdff7c42362c50157a45a12d1b51ef005b2c59edd03979e0277caf"
+    }
+  },
+  "schema_version": 1,
+  "source_chunks_sha256": "f523a7a9575f1ee5d4457e4c150b88e48525fb7cd5cdbca222dae6943494b62b",
+  "source_corpus_id": "corpus-ffc1830e50a11c57749b63b9"
+}

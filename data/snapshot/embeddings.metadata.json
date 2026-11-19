@@ -1,0 +1,10 @@
+{
+  "chunks_sha256": "3c0d7174d9dbf12774d267b17f0f12cf1b4ee4529fea97dff197c414e27a8e59",
+  "complete": true,
+  "dimension": 1536,
+  "dtype": "float32",
+  "ids_sha256": "4ecaea2dc08da19c60f8b6731c1bcb89af61fafe9312e59c7c9f0e21223b8d04",
+  "model_name": "openai/text-embedding-3-small",
+  "rows": 4932,
+  "vectors_sha256": "06ae6d0fb0049c86bda0ea70f87cf8361858d2d13e36bc74e32c06a5dec775c6"
+}

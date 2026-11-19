@@ -1,0 +1,21 @@
+# 11/13 코멘트 대응 시험의 변이 확인: 핵심 코드를 한 줄 바꾸면 시험이 실패하는지
+
+## 1. 형식 재요청 상한 범위(backend/services/llm.py: 'if not 1 <= max_attempts <= 3' → '<= 4')
+tests\test_llm_service.py:395: Failed
+=========================== short test summary info ===========================
+FAILED tests/test_llm_service.py::test_format_retry_limit_outside_one_to_three_is_rejected_before_any_call[4]
+1 failed, 7 passed, 42 deselected in 0.96s
+
+## 2. 데모 기록 최신성(backend/services/llm.py: 주제 분류 지시문 첫 줄에 글자 하나 추가)
+E           backend.services.demo_replay.DemoMiss: 데모 모드: 기록에 없는 요청입니다. API 키를 넣으면 모든 질문에 답합니다
+E           During task with name 'writer' and id '7ec862ac-3290-54d9-2530-82742f2efa97'
+E           During task with name 'writer_agent' and id '01988808-91e0-cd0b-e059-4f9d86f89f2d'
+E           backend.services.demo_replay.DemoMiss: 데모 모드: 기록에 없는 요청입니다. API 키를 넣으면 모든 질문에 답합니다
+E           During task with name 'writer' and id '7ec862ac-3290-54d9-2530-82742f2efa97'
+E           During task with name 'writer_agent' and id '01988808-91e0-cd0b-e059-4f9d86f89f2d'
+E           backend.services.demo_replay.DemoMiss: 데모 모드: 기록에 없는 요청입니다. API 키를 넣으면 모든 질문에 답합니다
+E           During task with name 'writer' and id '7ec862ac-3290-54d9-2530-82742f2efa97'
+E           During task with name 'writer_agent' and id '01988808-91e0-cd0b-e059-4f9d86f89f2d'
+
+## 3. 되돌린 뒤
+53 passed in 32.54s

@@ -1,0 +1,161 @@
+{
+  "model": "Dongjin-kr/ko-reranker",
+  "device": "cpu",
+  "max_length": 512,
+  "warmup_id": 1,
+  "measured_ids": [
+    5,
+    7,
+    10,
+    12,
+    14
+  ],
+  "conditions": [
+    {
+      "candidate_k": 10,
+      "batch_size": 16,
+      "latency": {
+        "queries": 5,
+        "p50_ms": 8018.985348000001,
+        "p95_ms": 8121.576538200008,
+        "max_ms": 8138.253894000001
+      },
+      "per_question": [
+        {
+          "id": 1,
+          "candidate_count": 10,
+          "latency_ms": 9717.35761299999,
+          "warmup": true
+        },
+        {
+          "id": 5,
+          "candidate_count": 10,
+          "latency_ms": 7967.671016999986,
+          "warmup": false
+        },
+        {
+          "id": 7,
+          "candidate_count": 10,
+          "latency_ms": 7953.683989000012,
+          "warmup": false
+        },
+        {
+          "id": 10,
+          "candidate_count": 10,
+          "latency_ms": 8018.985348000001,
+          "warmup": false
+        },
+        {
+          "id": 12,
+          "candidate_count": 10,
+          "latency_ms": 8138.253894000001,
+          "warmup": false
+        },
+        {
+          "id": 14,
+          "candidate_count": 10,
+          "latency_ms": 8054.8671150000355,
+          "warmup": false
+        }
+      ]
+    },
+    {
+      "candidate_k": 20,
+      "batch_size": 16,
+      "latency": {
+        "queries": 5,
+        "p50_ms": 16245.541068000022,
+        "p95_ms": 16367.572741599963,
+        "max_ms": 16371.854265999957
+      },
+      "per_question": [
+        {
+          "id": 1,
+          "candidate_count": 20,
+          "latency_ms": 16288.995030999957,
+          "warmup": true
+        },
+        {
+          "id": 5,
+          "candidate_count": 20,
+          "latency_ms": 15909.527021999964,
+          "warmup": false
+        },
+        {
+          "id": 7,
+          "candidate_count": 20,
+          "latency_ms": 16245.541068000022,
+          "warmup": false
+        },
+        {
+          "id": 10,
+          "candidate_count": 20,
+          "latency_ms": 16350.446643999987,
+          "warmup": false
+        },
+        {
+          "id": 12,
+          "candidate_count": 20,
+          "latency_ms": 16371.854265999957,
+          "warmup": false
+        },
+        {
+          "id": 14,
+          "candidate_count": 20,
+          "latency_ms": 16134.211977999996,
+          "warmup": false
+        }
+      ]
+    },
+    {
+      "candidate_k": 50,
+      "batch_size": 16,
+      "latency": {
+        "queries": 5,
+        "p50_ms": 41844.02251400002,
+        "p95_ms": 42671.58532880008,
+        "max_ms": 42709.067928000084
+      },
+      "per_question": [
+        {
+          "id": 1,
+          "candidate_count": 50,
+          "latency_ms": 43286.53837799999,
+          "warmup": true
+        },
+        {
+          "id": 5,
+          "candidate_count": 50,
+          "latency_ms": 41844.02251400002,
+          "warmup": false
+        },
+        {
+          "id": 7,
+          "candidate_count": 50,
+          "latency_ms": 41504.60355700005,
+          "warmup": false
+        },
+        {
+          "id": 10,
+          "candidate_count": 50,
+          "latency_ms": 42521.65493200005,
+          "warmup": false
+        },
+        {
+          "id": 12,
+          "candidate_count": 50,
+          "latency_ms": 39734.32061400001,
+          "warmup": false
+        },
+        {
+          "id": 14,
+          "candidate_count": 50,
+          "latency_ms": 42709.067928000084,
+          "warmup": false
+        }
+      ]
+    }
+  ],
+  "source_results": "evals/results/rerank_ko_v1.jsonl",
+  "source_chunks": "data/snapshot/chunks.jsonl.gz"
+}

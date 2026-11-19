@@ -1,0 +1,29 @@
+{
+  "what": "새 clone에서 docker compose up --build → /health 200까지의 시간(G2)",
+  "branch": "main",
+  "measured_at": "2026-11-12T17:35:02+0900",
+  "machine": {
+    "platform": "Windows-10-10.0.26200-SP0",
+    "docker": "Docker version 29.7.2, build a7dcaa6"
+  },
+  "clone_seconds": 14.4,
+  "commit": "3190d66",
+  "env_file_present": false,
+  "build_cache": "없음(--no-cache)",
+  "build_no_cache_seconds": 65.9,
+  "build_exit_code": 0,
+  "compose_up_seconds": 81.6,
+  "compose_up_exit_code": 0,
+  "health_status": 200,
+  "seconds_until_health_200": 85.7,
+  "within_10_minutes": true,
+  "loader_log_tail": [
+    "loader-1  | [snapshot] 적재 완료: corpus-a833986c7423168eae523176, 문서 16, 청크 4942",
+    "loader-1  | 체크포인터·Store·daily_usage 표 준비 완료"
+  ],
+  "services": [
+    "api running starting",
+    "db running healthy",
+    ""
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "counts": {
+    "exact": 34
+  },
+  "derived_dataset_sha256": "22c0e58647e0fc311ad19ea8cb6a4014b223daa86e9cb574eb496a2ed11b1e8a",
+  "frozen_dataset_sha256": "8f79a754a663e3b38cbe44efb1aaa785e3e1bdf93aa9b1048c374063c26da934",
+  "mapping": {
+    "chunk-00e9adef012dae426ad214d6": {
+      "match": "exact",
+      "new_chunk_id": "chunk-f91f030f799a854d2801c3b0"
+    },
+    "chunk-063632f8af988cc343b0c1a2": {
+      "match": "exact",
+      "new_chunk_id": "chunk-8c43edeb546a28a3f44bcc9a"
+    },
+    "chunk-1609ef56f48ba18718d0a4db": {
+      "match": "exact",
+      "new_chunk_id": "chunk-50df3dc6742633f9c1aa41a0"
+    },
+    "chunk-174cae35fe41acaec5c107ed": {
+      "match": "exact",
+      "new_chunk_id": "chunk-d58d226ff39a9a1203c50ba7"
+    },
+    "chunk-1a56e957fdf8adc3ec322a21": {
+      "match": "exact",
+      "new_chunk_id": "chunk-43d016a82054fe9d39f558ee"
+    },
+    "chunk-2e7f9320edb546566e35f956": {
+      "match": "exact",
+      "new_chunk_id": "chunk-cdb851d05fb93c6b5314105a"
+    },
+    "chunk-311608cd2d132f30aff8b858": {
+      "match": "exact",
+      "new_chunk_id": "chunk-25cdd4d02adf2802f40f0a74"
+    },
+    "chunk-4063b504149793a037871fec": {
+      "match": "exact",
+      "new_chunk_id": "chunk-c6ecc5c17a1c46ae924b2eea"
+    },
+    "chunk-4408651711c0b5877a4440de": {
+      "match": "exact",
+      "new_chunk_id": "chunk-ade6d045b011857f967fc521"
+    },
+    "chunk-478c8cef66c7e342de7ceafe": {
+      "match": "exact",
+      "new_chunk_id": "chunk-eea110915f42d3c7ec1c457f"
+    },
+    "chunk-48dcb96ad575cba9e8b37d95": {
+      "match": "exact",
+      "new_chunk_id": "chunk-48dcb96ad575cba9e8b37d95"
+    },
+    "chunk-50fb65d461d0c3625bf6737c": {
+      "match": "exact",
+      "new_chunk_id": "chunk-7878d12336444854718a1b76"
+    },
+    "chunk-5213746d9f3df5a8dc771282": {
+      "match": "exact",
+      "new_chunk_id": "chunk-5213746d9f3df5a8dc771282"
+    },
+    "chunk-70d663218b9664bebc5786ae": {
+      "match": "exact",
+      "new_chunk_id": "chunk-e09dcee5968a04773d2a4325"
+    },
+    "chunk-7162aee00118b228a0529534": {
+      "match": "exact",
+      "new_chunk_id": "chunk-48af1f347d38110eb7314b8d"
+    },
+    "chunk-75d27d6290785d99509adbb0": {
+      "match": "exact",
+      "new_chunk_id": "chunk-75d27d6290785d99509adbb0"
+    },
+    "chunk-799d2988e3fe97a4cdc6b941": {
+      "match": "exact",
+      "new_chunk_id": "chunk-920bc3e410260a6d3380a27d"
+    },
+    "chunk-7cc7e13cf4c90d6984c37041": {
+      "match": "exact",
+      "new_chunk_id": "chunk-1c840a884bdd6ac833b0f9f7"
+    },
+    "chunk-86cdb7620f5ae60e4c661051": {
+      "match": "exact",
+      "new_chunk_id": "chunk-36f47a286bfe78ce62674a02"
+    },
+    "chunk-890b8cb2b054c25c901a26ad": {
+      "match": "exact",
+      "new_chunk_id": "chunk-890b8cb2b054c25c901a26ad"
+    },
+    "chunk-994c4a30631d506ef13a2168": {
+      "match": "exact",
+      "new_chunk_id": "chunk-d8abebd72da96be39251c5e5"
+    },
+    "chunk-aabccc7b963144e9d2d0e46e": {
+      "match": "exact",
+      "new_chunk_id": "chunk-3508faae3c2877f662ee27a0"
+    },
+    "chunk-b008287f9e3a5c380da2fe4d": {
+      "match": "exact",
+      "new_chunk_id": "chunk-b008287f9e3a5c380da2fe4d"
+    },
+    "chunk-bbd6a35ccb32bb2b8aa72045": {
+      "match": "exact",
+      "new_chunk_id": "chunk-3ff2e89eb0d8e43585e9df3e"
+    },
+    "chunk-bd2d25b2fd34bc25c3a32d4e": {
+      "match": "exact",
+      "new_chunk_id": "chunk-47bf56c06f591f6ccbd62b36"
+    },
+    "chunk-bf26ce5d8ee53491988ea709": {
+      "match": "exact",
+      "new_chunk_id": "chunk-f51323853b736472f92ed420"
+    },
+    "chunk-c5c412f819592132be1fc599": {
+      "match": "exact",
+      "new_chunk_id": "chunk-bc50854f335c924fedd1ce7a"
+    },
+    "chunk-c8767e79e1b7a4e254ca498e": {
+      "match": "exact",
+      "new_chunk_id": "chunk-97adf22b8eddae1d8a3d603c"
+    },
+    "chunk-dc275fadd181c37b47c08f81": {
+      "match": "exact",
+      "new_chunk_id": "chunk-7e24b90d0b3531853f5dae79"
+    },
+    "chunk-e32205c64e72aacc91c8b5c1": {
+      "match": "exact",
+      "new_chunk_id": "chunk-77cbf830c07f9a07cd4a894f"
+    },
+    "chunk-f386dc1b9ca2491ff15bf5ab": {
+      "match": "exact",
+      "new_chunk_id": "chunk-c629d820df630542785d2cc7"
+    },
+    "chunk-f7f666aba136b57f21619fe2": {
+      "match": "exact",
+      "new_chunk_id": "chunk-d0433a32d56e614a242531fd"
+    },
+    "chunk-f8b7b4b9ef908cb04aead871": {
+      "match": "exact",
+      "new_chunk_id": "chunk-f8b7b4b9ef908cb04aead871"
+    },
+    "chunk-fb4cdd623dd4fee8b6c1d314": {
+      "match": "exact",
+      "new_chunk_id": "chunk-1f3f756143706e1df8ccbbdd"
+    }
+  },
+  "new_chunks_sha256": "aec36bad9fbce1bdee53ddd36f08e17e9b9a1f2e6f236fc0cad5a3e5ede076c4",
+  "new_corpus_id": "corpus-e57853e4ac8f452ff130ba2b",
+  "old_chunks_sha256": "ebb66a7289a01df639871472213ed01ff9e61a32344d5bf89e8625fb2349bd36"
+}

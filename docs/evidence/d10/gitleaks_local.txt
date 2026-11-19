@@ -1,0 +1,9 @@
+비밀값 검사 (gitleaks, CI와 같은 이미지·같은 명령. 기준 코드: main c2a92e5, 2026-11-12 22:39 KST)
+GitHub Actions가 결제 문제로 작업을 시작하지 못해 로컬에서 같은 명령을 돌렸다. 값은 --redact로 가려진다.
+
+$ git clone (추적 파일과 전체 이력만) → docker run --rm -v <clone>:/repo ghcr.io/gitleaks/gitleaks:latest detect --source /repo --no-banner --redact -v
+1:40PM INF Unknown SCM platform. Use --platform to include links in findings. host=
+1:40PM INF 636 commits scanned.
+1:40PM INF scanned ~77135531 bytes (77.14 MB) in 25s
+1:40PM INF no leaks found
+종료 코드: 0

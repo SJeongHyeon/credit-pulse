@@ -1,0 +1,82 @@
+{
+  "what": "표·수치 청크의 원문 자동 대조(숫자 보존, 정답 구간이 원문 한 행 안에 있는지)",
+  "chunks_file": "chunks.jsonl",
+  "results": "w146_now_r1_multi_d3-55_v9_v2.jsonl",
+  "sample_seed": 20261113,
+  "sample_size": 300,
+  "documents_parsed": 93,
+  "cited": {
+    "chunks": 97,
+    "numbers_checked": 2000,
+    "numbers_missing_from_source": 10,
+    "numbers_cut_at_chunk_edge": 8,
+    "chunks_with_missing_numbers": 3
+  },
+  "sample": {
+    "chunks": 300,
+    "numbers_checked": 7693,
+    "numbers_missing_from_source": 2,
+    "numbers_cut_at_chunk_edge": 45,
+    "chunks_with_missing_numbers": 1
+  },
+  "gold_spans": {
+    "total": 155,
+    "in_one_source_block": 155,
+    "of_which_table_rows": 135,
+    "not_found": []
+  },
+  "problem_chunks": [
+    {
+      "chunk_id": "chunk-54ebe3febc836a62aa5834cf",
+      "group": "cited",
+      "rcept_no": "20260318000642",
+      "corp_name": "티엠씨",
+      "numbers": 18,
+      "numbers_missing": [
+        "18.1",
+        "18.1"
+      ],
+      "numbers_edge_cut": []
+    },
+    {
+      "chunk_id": "chunk-5c8ed99aa523979af49cea59",
+      "group": "cited",
+      "rcept_no": "20260318000642",
+      "corp_name": "티엠씨",
+      "numbers": 31,
+      "numbers_missing": [
+        "19.1",
+        "19.1",
+        "19.1",
+        "19.2",
+        "19.2"
+      ],
+      "numbers_edge_cut": []
+    },
+    {
+      "chunk_id": "chunk-bbf3d89e6cdfd6af69ea13e2",
+      "group": "sample",
+      "rcept_no": "20260318000642",
+      "corp_name": "티엠씨",
+      "numbers": 14,
+      "numbers_missing": [
+        "4.14",
+        "4.14"
+      ],
+      "numbers_edge_cut": []
+    },
+    {
+      "chunk_id": "chunk-c4f48dda0ca1779e2160f17e",
+      "group": "cited",
+      "rcept_no": "20260318000642",
+      "corp_name": "티엠씨",
+      "numbers": 24,
+      "numbers_missing": [
+        "19.1",
+        "19.1",
+        "19.1"
+      ],
+      "numbers_edge_cut": []
+    }
+  ]
+}

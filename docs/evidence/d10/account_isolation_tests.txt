@@ -1,0 +1,17 @@
+계정 분리 (기준 코드: main c2a92e5, 2026-11-12 22:39 KST, 키 없음)
+
+$ python -m pytest -v -k "other_user or hides_other or isolat or namespace" tests/test_reviews_api.py tests/test_memory.py tests/test_rules_api.py tests/test_errors.py
+tests/test_reviews_api.py::test_delete_hides_other_users_and_missing_reviews[20000000-0000-0000-0000-0000000000b2] PASSED [  7%]
+tests/test_reviews_api.py::test_delete_hides_other_users_and_missing_reviews[40000000-0000-0000-0000-0000000000d4] PASSED [ 15%]
+tests/test_reviews_api.py::test_detail_hides_other_users_and_missing_reviews_with_same_not_found[20000000-0000-0000-0000-0000000000b2] PASSED [ 23%]
+tests/test_reviews_api.py::test_detail_hides_other_users_and_missing_reviews_with_same_not_found[40000000-0000-0000-0000-0000000000d4] PASSED [ 30%]
+tests/test_reviews_api.py::test_query_hides_other_users_review_before_running_graph PASSED [ 38%]
+tests/test_reviews_api.py::test_approval_hides_other_users_review_before_resume PASSED [ 46%]
+tests/test_memory.py::test_list_rules_returns_only_calling_users_namespace PASSED [ 53%]
+tests/test_memory.py::test_namespace_rejects_blank_user_id PASSED        [ 61%]
+tests/test_memory.py::test_other_user_cannot_update_or_delete_rule PASSED [ 69%]
+tests/test_memory.py::test_semantic_rule_store_searches_only_the_authenticated_user_namespace PASSED [ 76%]
+tests/test_memory.py::test_semantic_rule_store_never_returns_another_users_rules PASSED [ 84%]
+tests/test_rules_api.py::test_deleting_another_users_rule_is_404_and_keeps_it PASSED [ 92%]
+tests/test_errors.py::test_hidden_resource_and_missing_route_have_the_same_public_404 PASSED [100%]
+====================== 13 passed, 78 deselected in 4.25s ======================

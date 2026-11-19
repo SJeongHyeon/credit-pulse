@@ -1,0 +1,65 @@
+{
+  "rule": "옛 정답 본문 50자 조각을 80% 덮을 때까지 새 청크를 모으고 50% 미만이면 옮기지 못함. 엄격 정답을 하나도 못 옮긴 문항은 모든 청킹에서 제외",
+  "applies_to": [
+    "dataset_v1.v8_fixed_window.gold_plus.jsonl",
+    "dataset_v1.v8_fixed_window.jsonl",
+    "dataset_v1.v8_fixed_window_500.gold_plus.jsonl",
+    "dataset_v1.v8_fixed_window_500.jsonl",
+    "dataset_v1.v8_group.gold_plus.jsonl",
+    "dataset_v1.v8_group.jsonl"
+  ],
+  "excluded": [],
+  "partially_mapped": [
+    {
+      "id": 5,
+      "chunking": "group",
+      "old_chunk_id": "chunk-bd2d25b2fd34bc25c3a32d4e",
+      "cover": 0.05
+    },
+    {
+      "id": 5,
+      "chunking": "group",
+      "old_chunk_id": "chunk-2e7f9320edb546566e35f956",
+      "cover": 0.16
+    },
+    {
+      "id": 11,
+      "chunking": "group",
+      "old_chunk_id": "chunk-f8b7b4b9ef908cb04aead871",
+      "cover": 0.37
+    },
+    {
+      "id": 11,
+      "chunking": "group",
+      "old_chunk_id": "chunk-b008287f9e3a5c380da2fe4d",
+      "cover": 0.11
+    },
+    {
+      "id": 13,
+      "chunking": "group",
+      "old_chunk_id": "chunk-aeb77208a73317ce68cf914a",
+      "cover": 0.05
+    },
+    {
+      "id": 13,
+      "chunking": "group",
+      "old_chunk_id": "chunk-025c673304c62b28ed82e440",
+      "cover": 0.0
+    },
+    {
+      "id": 13,
+      "chunking": "group",
+      "old_chunk_id": "chunk-2a6981092df8bac1a8991a73",
+      "cover": 0.26
+    },
+    {
+      "id": 13,
+      "chunking": "group",
+      "old_chunk_id": "chunk-31e42890f352ca11911aefe3",
+      "cover": 0.26
+    }
+  ],
+  "manual_mapped": [
+    11
+  ]
+}

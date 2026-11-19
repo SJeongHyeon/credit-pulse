@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "manifest.schema.json",
+  "title": "DART document manifest row",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "doc_id",
+    "corpus_id",
+    "rcept_no",
+    "corp_code",
+    "corp_name",
+    "fiscal_year",
+    "report_type",
+    "filed_at",
+    "source_url",
+    "collected_at",
+    "raw_sha256",
+    "superseded",
+    "parser",
+    "status",
+    "chunks",
+    "unique_chunks",
+    "chars_original",
+    "chars_kept",
+    "separator_counts",
+    "truncated",
+    "error"
+  ],
+  "properties": {
+    "doc_id": {"type": "string", "pattern": "^[0-9]{14}$"},
+    "corpus_id": {"type": "string", "pattern": "^corpus-[a-f0-9]{24}$"},
+    "rcept_no": {"type": "string", "pattern": "^[0-9]{14}$"},
+    "corp_code": {"type": "string", "pattern": "^[0-9]{8}$"},
+    "corp_name": {"type": "string", "minLength": 1, "maxLength": 100},
+    "fiscal_year": {"type": "integer", "minimum": 2020, "maximum": 2030},
+    "report_type": {"type": "string", "enum": ["annual", "quarterly", "half", "major_event"]},
+    "filed_at": {"type": "string", "pattern": "^$|^[0-9]{8}$|^[0-9]{4}-[0-9]{2}-[0-9]{2}$"},
+    "source_url": {"type": "string", "minLength": 1},
+    "collected_at": {"type": "string", "minLength": 1},
+    "raw_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "superseded": {"type": "boolean"},
+    "parser": {"type": "string", "enum": ["dart_xml_v5", "dart_xml_v6", "dart_xml_v7", "dart_xml_v8", "dart_xml_v9"]},
+    "status": {"type": "string", "enum": ["success", "failed"]},
+    "chunks": {"type": "integer", "minimum": 0},
+    "unique_chunks": {"type": "integer", "minimum": 0},
+    "chars_original": {"type": "integer", "minimum": 0},
+    "chars_kept": {"type": "integer", "minimum": 0},
+    "separator_counts": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "blank_lines": {"type": "integer", "minimum": 0},
+        "line_breaks": {"type": "integer", "minimum": 0},
+        "sentence_marks": {"type": "integer", "minimum": 0},
+        "paragraph_elements": {"type": "integer", "minimum": 0},
+        "section_elements": {"type": "integer", "minimum": 0},
+        "table_rows": {"type": "integer", "minimum": 0}
+      }
+    },
+    "truncated": {"type": "boolean"},
+    "error": {"type": ["string", "null"]}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"status": {"const": "success"}}},
+      "then": {
+        "properties": {
+          "chunks": {"minimum": 1},
+          "separator_counts": {
+            "required": [
+              "blank_lines",
+              "line_breaks",
+              "sentence_marks",
+              "paragraph_elements",
+              "section_elements",
+              "table_rows"
+            ]
+          },
+          "error": {"type": "null"}
+        }
+      },
+      "else": {
+        "properties": {
+          "error": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  ]
+}

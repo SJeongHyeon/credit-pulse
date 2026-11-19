@@ -1,0 +1,43 @@
+[02:20:36] 새 clone 기동 시간 측정
+[02:20:36] commit: 38bda1d Merge pull request #253 from aihuman-7th/민영-deploy-00056
+[02:20:36] .env 있음: False (없어야 한다)
+[02:20:36] 환경변수의 API 키: [] (비어 있어야 한다)
+[02:20:36] $ docker compose -p freshboot down -v
+[02:20:37]   time="2026-11-17T02:20:37+09:00" level=warning msg="Warning: No resource found to remove for project \"freshboot\"."
+[02:20:37]   (exit 0)
+[02:20:37] $ docker compose -p freshboot build --no-cache
+[02:21:44]   #17 unpacking to docker.io/library/freshboot-loader:latest 3.6s done
+[02:21:44]   #17 DONE 15.5s
+[02:21:44] 
+[02:21:44]   #18 [loader] resolving provenance for metadata file
+[02:21:44]   #18 DONE 0.0s
+[02:21:44] 
+[02:21:44]   #19 [api] resolving provenance for metadata file
+[02:21:44]   #19 DONE 0.0s
+[02:21:44]    Image freshboot-loader Building
+[02:21:44]    Image freshboot-api Building
+[02:21:44]    Image freshboot-loader Built
+[02:21:44]    Image freshboot-api Built
+[02:21:44]   (exit 0)
+[02:21:44] 빌드 시간(캐시 없음): 67.2초
+[02:21:44] $ docker compose -p freshboot up -d
+[02:21:57]    Container freshboot-db-1 Starting
+[02:21:57]    Container freshboot-db-1 Started
+[02:21:57]    Container freshboot-db-1 Waiting
+[02:21:57]    Container freshboot-db-1 Healthy
+[02:21:57]    Container freshboot-loader-1 Starting
+[02:21:57]    Container freshboot-loader-1 Started
+[02:21:57]    Container freshboot-loader-1 Waiting
+[02:21:57]    Container freshboot-db-1 Waiting
+[02:21:57]    Container freshboot-db-1 Healthy
+[02:21:57]    Container freshboot-loader-1 Exited
+[02:21:57]    Container freshboot-api-1 Starting
+[02:21:57]    Container freshboot-api-1 Started
+[02:21:57]   (exit 0)
+[02:22:00] 기동 시간(up → /health 200): 15.8초
+[02:22:00] 합계(build --no-cache 시작 → /health 200): 83.1초
+[02:22:00] GET /health → 200 {"status":"ok"}
+[02:22:00] $ docker compose -p freshboot ps --format {{.Name}} {{.Status}}
+[02:22:00]   freshboot-api-1 Up 3 seconds (health: starting)
+[02:22:00]   freshboot-db-1 Up 14 seconds (healthy)
+[02:22:00]   (exit 0)

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CREDIT PULSE - 승인 현황</title>
+    {% include "_favicon.html" %}
+    <link rel="preload" href="{{ url_for('static', path='fonts/NotoSerifKR-subset.woff2') }}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{{ url_for('static', path='fonts/CreditPulseSans-subset.woff2') }}" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="{{ url_for('static', path='fonts.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='login.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='theme.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='reviews.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='approvals.css') }}">
+    <noscript><style>#approvals-loading { display: none; }</style></noscript>
+  </head>
+  <body class="glass-page ui-sans">
+    {% include "_page_bg.html" %}
+    <header class="app-bar">
+      <div class="app-bar-inner">
+        <img class="app-logo" src="{{ url_for('static', path='credit-pulse-logo-white.png') }}" alt="CREDIT PULSE" width="1200" height="213">
+        <div class="reviews-user">
+          <span id="current-user"></span>
+          <button id="logout-button" class="secondary" type="button">로그아웃</button>
+        </div>
+      </div>
+    </header>
+    <main class="login-page reviews-page approvals-page">
+      <h1>승인 현황</h1>
+      <p class="approvals-links"><a href="/reviews">심사 건 전체 보기</a></p>
+
+      <p id="approvals-error" role="alert" hidden></p>
+      <p id="approvals-loading" role="status">승인 현황을 불러오는 중…</p>
+      <noscript><p>이 화면은 JavaScript가 필요합니다. 브라우저에서 JavaScript를 켜고 다시 열어 주세요.</p></noscript>
+      <button id="reload-button" type="button" hidden>다시 불러오기</button>
+
+      <div class="status-filter" role="group" aria-label="상태 선택">
+        <button id="filter-awaiting_approval" class="secondary" type="button" aria-pressed="true">승인 대기</button>
+        <button id="filter-open" class="secondary" type="button" aria-pressed="false">진행 가능</button>
+        <button id="filter-running" class="secondary" type="button" aria-pressed="false">처리 중</button>
+      </div>
+      <p id="approvals-status" role="status" hidden></p>
+      <p id="approvals-notice" hidden>최근 250건만 확인했습니다. 전체는 <a href="/reviews">심사 건 화면</a>에서 확인하세요.</p>
+
+      <p id="approvals-empty" hidden></p>
+      <ul id="approvals-list" class="review-list"></ul>
+    </main>
+    <script type="module" src="{{ url_for('static', path='approvals.js') }}"></script>
+  </body>
+</html>

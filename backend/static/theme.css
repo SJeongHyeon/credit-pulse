@@ -1,0 +1,157 @@
+/* 메인·심사 건 화면이 함께 쓰는 배경, 글꼴, 유리 질감 토큰 */
+:root {
+  /* 어두운 책상 사진 위에 올리는 글자와 면 */
+  --on-dark: #f5f1ea;
+  --on-dark-muted: #d2cec6;
+  /* 카드 글자는 밝은 책 사진 위에서도 AA를 넘도록 유리를 진하게 한다(AC-41) */
+  --glass-bg: rgba(14, 16, 20, 0.82);
+  --glass-bg-strong: rgba(14, 16, 20, 0.92);
+  --glass-line: rgba(255, 255, 255, 0.22);
+  --glass-line-hover: rgba(255, 255, 255, 0.45);
+  --glass-blur: blur(18px) saturate(120%);
+  --shadow-tint: rgba(18, 9, 3, 0.8);
+  --glass-shadow: 0 24px 48px -28px var(--shadow-tint);
+  --gold: #e3b866;
+  --gold-soft: #f3d9a4;
+  --error-on-dark: #ffb4a8;
+  --radius-card: 24px;
+  --ease-soft: cubic-bezier(0.22, 0.61, 0.36, 1);
+  /* 모든 버튼·카드 전환이 쓰는 하나의 곡선(AC-44) */
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  /* 카드 안 글자 크기·줄간격·여백(AC-42) */
+  --text-sm: 0.9375rem;
+  --text-base: 1rem;
+  --text-lg: 1.0625rem;
+  --leading-body: 1.7;
+  --leading-tight: 1.35;
+  --space-card-y: 0.95rem;
+  --space-card-x: 1.25rem;
+  --mx: 0.5;
+  --my: 0.5;
+  --spot: 0;
+  /* 글꼴 역할: 제목은 세리프(영문 Playfair, 한글 Noto Serif KR), 정보 영역은 고딕(Pretendard) */
+  --font-serif: "Credit Pulse Serif", "Noto Serif KR", "Batang", "AppleMyungjo", "Noto Serif CJK KR", serif;
+  --font-sans: "Credit Pulse Sans", "Malgun Gothic", "Apple SD Gothic Neo", "Noto Sans CJK KR", sans-serif;
+}
+
+/* 메인·심사 건 목록·상세 화면의 본문은 같은 고딕을 쓴다. */
+.ui-sans {
+  font-family: var(--font-sans);
+  word-break: keep-all;
+}
+
+.ui-sans h1,
+.ui-sans h2,
+.ui-sans .review-title {
+  text-wrap: balance;
+}
+
+.ui-sans .hero h1,
+.ui-sans .section-title,
+.ui-sans .slide-name,
+.ui-sans .reviews-page h1,
+.ui-sans .dialog-head h2 {
+  font-family: var(--font-serif);
+}
+
+.glass-page {
+  --mono: ui-monospace, "JetBrains Mono", "D2Coding", SFMono-Regular, Consolas, "Courier New", monospace;
+  background: #0b0908;
+  color: var(--on-dark);
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
+
+/* ---- 움직이는 배경 ---- */
+.page-bg {
+  color: var(--navy);
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  position: fixed;
+  z-index: 0;
+}
+
+.bg-photo {
+  animation: bg-in 1.4s ease-out both, bg-drift 28s ease-in-out infinite alternate;
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  object-position: 70% 50%;
+  transform: translate3d(calc((var(--mx) - 0.5) * -28px), calc((var(--my) - 0.5) * -18px), 0) scale(1.08);
+  width: 100%;
+  will-change: transform;
+}
+
+/* 글자가 놓이는 왼쪽을 어둡게 눌러 읽기 쉽게 한다 */
+.bg-shade {
+  background:
+    linear-gradient(90deg, rgba(8, 6, 5, 0.82) 0%, rgba(8, 6, 5, 0.55) 38%, rgba(8, 6, 5, 0.1) 70%),
+    linear-gradient(180deg, rgba(8, 6, 5, 0.55) 0%, transparent 22%, transparent 70%, rgba(8, 6, 5, 0.7) 100%);
+  inset: 0;
+  position: absolute;
+}
+
+/* 영상 속 창가 빛줄기가 천천히 흐르는 느낌 */
+.bg-light {
+  animation: bg-sweep 14s ease-in-out infinite alternate;
+  background: linear-gradient(105deg, transparent 30%, rgba(255, 214, 150, 0.1) 46%, transparent 62%);
+  inset: -10%;
+  mix-blend-mode: screen;
+  position: absolute;
+}
+
+/* 마우스 둘레만 따뜻하게 밝아진다 */
+.bg-spot {
+  background: radial-gradient(
+    22rem circle at calc(var(--mx) * 100%) calc(var(--my) * 100%),
+    rgba(255, 207, 140, 0.22),
+    transparent 70%
+  );
+  inset: 0;
+  mix-blend-mode: screen;
+  opacity: var(--spot);
+  position: absolute;
+}
+
+@keyframes bg-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes bg-drift {
+  from {
+    scale: 1;
+    translate: 0 0;
+  }
+  to {
+    scale: 1.05;
+    translate: -1.2% 0.8%;
+  }
+}
+
+@keyframes bg-sweep {
+  from {
+    transform: translateX(-9%);
+  }
+  to {
+    transform: translateX(9%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bg-photo,
+  .bg-light {
+    animation: none;
+  }
+
+  .bg-photo {
+    transform: scale(1.08);
+  }
+
+  .bg-spot {
+    display: none;
+  }
+}

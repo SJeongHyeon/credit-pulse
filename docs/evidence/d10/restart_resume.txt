@@ -1,0 +1,27 @@
+재시작 뒤 재개 (기준 코드: main c2a92e5, 2026-11-12 22:39 KST). 가짜 검색기·작성기, 일회용 Postgres, 키 없음.
+단계마다 다른 프로세스다(pid가 다름). 운영 DB는 쓰지 않는다.
+
+$ python -X utf8 scripts/approval_resume_demo.py --step pause --review-id d10-multi --graph multi
+{"step": "pause", "graph": "multi", "pid": 1824, "thread_id": "demo-user:d10-multi", "interrupted": true, "approval_seq": 1, "draft_items": [["litigation", "needs_check"], ["borrowing_structure", "applicable"]], "status": "awaiting_approval", "next": ["human_approval"], "calls_in_this_process": {"retriever": 1, "writer": 2}}
+
+$ python -X utf8 scripts/approval_resume_demo.py --step resume --review-id d10-multi --graph multi
+{"step": "resume", "graph": "multi", "pid": 20928, "thread_id": "demo-user:d10-multi", "resumed": true, "saved_memo_id": "memo-1", "status": "open", "edited": [false, true], "last_events": ["approval_prepare:awaiting", "human_approval:resumed", "save_memo:saved"], "calls_in_this_process": {"retriever": 0, "writer": 0}}
+
+$ python -X utf8 scripts/approval_resume_demo.py --step resume --review-id d10-multi --graph multi
+{"step": "resume", "graph": "multi", "pid": 22324, "thread_id": "demo-user:d10-multi", "resumed": false, "error": "CONFLICT_NOT_AWAITING_APPROVAL", "message": "대기 중인 승인 요청이 없습니다", "calls_in_this_process": {"retriever": 0, "writer": 0}}
+
+$ python -X utf8 scripts/approval_resume_demo.py --step count --review-id d10-multi 
+{"step": "count", "review_id": "d10-multi", "memo_rows": 1}
+
+$ python -X utf8 scripts/approval_resume_demo.py --step pause --review-id d10-single --graph single
+{"step": "pause", "graph": "single", "pid": 38300, "thread_id": "demo-user:d10-single", "interrupted": true, "approval_seq": 1, "draft_items": [["litigation", "needs_check"], ["borrowing_structure", "applicable"]], "status": "awaiting_approval", "next": ["human_approval"], "calls_in_this_process": {"retriever": 1, "writer": 1}}
+
+$ python -X utf8 scripts/approval_resume_demo.py --step resume --review-id d10-single --graph single
+{"step": "resume", "graph": "single", "pid": 28300, "thread_id": "demo-user:d10-single", "resumed": true, "saved_memo_id": "memo-2", "status": "open", "edited": [false, true], "last_events": ["approval_prepare:awaiting", "human_approval:resumed", "save_memo:saved"], "calls_in_this_process": {"retriever": 0, "writer": 0}}
+
+$ python -X utf8 scripts/approval_resume_demo.py --step resume --review-id d10-single --graph single
+{"step": "resume", "graph": "single", "pid": 53572, "thread_id": "demo-user:d10-single", "resumed": false, "error": "CONFLICT_NOT_AWAITING_APPROVAL", "message": "대기 중인 승인 요청이 없습니다", "calls_in_this_process": {"retriever": 0, "writer": 0}}
+
+$ python -X utf8 scripts/approval_resume_demo.py --step count --review-id d10-single 
+{"step": "count", "review_id": "d10-single", "memo_rows": 1}
+

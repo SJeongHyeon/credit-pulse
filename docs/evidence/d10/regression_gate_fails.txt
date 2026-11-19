@@ -1,0 +1,25 @@
+평가 회귀 시험이 기준 미달에 실제로 실패하는지 (기준 코드: main c2a92e5, 2026-11-12 22:39 KST, 키 없음)
+
+$ python -m pytest tests/test_eval_regression.py -v      # 지금 채택 구성의 결과 → 통과해야 함
+configfile: pytest.ini
+plugins: anyio-4.16.0, langsmith-0.14.17
+collecting ... collected 4 items
+tests/test_eval_regression.py::test_current_result_meets_baseline PASSED [ 25%]
+tests/test_eval_regression.py::test_gate_rejects_a_run_recorded_as_below_baseline PASSED [ 50%]
+tests/test_eval_regression.py::test_gate_rejects_each_kind_of_regression PASSED [ 75%]
+tests/test_eval_regression.py::test_p95_uses_only_questions_that_reached_search PASSED [100%]
+============================= 4 passed in 10.07s ==============================
+종료 코드: 0
+
+$ EVAL_REGRESSION_SUMMARY=evals/results/graph50/w132_degraded_no_domain_check_multi_d3-55_v9_v2.summary.json python -m pytest tests/test_eval_regression.py -q
+# 주제 판정을 끄고 새로 잰 결과(사전 등록 132번) → 실패해야 함
+E   AssertionError: 평가 결과가 기준에 못 미칩니다:
+E      - correct_refusal 12: 기준 23 이상
+E      - hallucination_risk 13: 기준 0 이하
+E   assert ['correct_ref... 13: 기준 0 이하'] == []
+E     
+E     Left contains 2 more items, first extra item: 'correct_refusal 12: 기준 23 이상'
+E     Use -v to get more diff
+FAILED tests/test_eval_regression.py::test_current_result_meets_baseline - As...
+1 failed, 3 passed in 2.94s
+종료 코드: 1

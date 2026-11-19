@@ -1,0 +1,17 @@
+# gcloud run deploy --source . 업로드 규칙. .gitignore를 그대로 따르되, 서비스 검색 산출물만 업로드한다.
+# data/service/는 GitHub에는 올리지 않고(.gitignore) Cloud Build로만 보낸다(scripts/prepare_service_data.py).
+# 이미지에는 Dockerfile이 복사하는 backend/·data/·scripts/·db/만 들어가므로 나머지는 올리지 않는다.
+.gcloudignore
+.git/
+.gitignore
+.github/
+.worktrees/
+_practice/
+Claude outputs/
+docs/
+evals/
+tests/
+extras/
+#!include:.gitignore
+!data/service/
+!data/service/**

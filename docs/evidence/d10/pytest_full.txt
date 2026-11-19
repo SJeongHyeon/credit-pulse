@@ -1,0 +1,18 @@
+전체 pytest (기준 코드: main c2a92e5 + 이 PR의 시험 수정 2건, 2026-11-12 23:01 KST, API 키 없음)
+일회용 Postgres(pgvector/pgvector:pg16, 127.0.0.1:55439)를 띄우고 CHECKPOINT_DATABASE_URL로 가리켜, 평소 건너뛰는 Postgres 시험(재시작 뒤 재개, 하루 사용량 표)도 돌렸다.
+
+$ python -m pytest -q -rs
+..........................................................sss........... [ 97%]
+................................                                         [100%]
+=========================== short test summary info ===========================
+SKIPPED [1] tests\test_memory_postgres.py:23: TEST_MEMORY_DATABASE_URL is required for the Postgres rule-store integration test
+SKIPPED [1] tests\test_memory_postgres.py:60: TEST_MEMORY_DATABASE_URL is required for the Postgres rule-store integration test
+SKIPPED [1] tests\test_vector_store.py:373: PGVECTOR_TEST_DATABASE_URL 없음: 실제 pgvector가 필요한 시험이라 건너뜀
+SKIPPED [1] tests\test_vector_store.py:392: PGVECTOR_TEST_DATABASE_URL 없음: 실제 pgvector가 필요한 시험이라 건너뜀
+SKIPPED [1] tests\test_vector_store.py:407: PGVECTOR_TEST_DATABASE_URL 없음: 실제 pgvector가 필요한 시험이라 건너뜀
+1395 passed, 5 skipped in 514.36s (0:08:34)
+
+$ python -m pytest -v tests/test_approval_checkpoint_postgres.py     # 다른 프로세스에서 재개
+tests/test_approval_checkpoint_postgres.py::test_resume_in_new_process_saves_once_without_rerunning_search[single] PASSED [ 50%]
+tests/test_approval_checkpoint_postgres.py::test_resume_in_new_process_saves_once_without_rerunning_search[multi] PASSED [100%]
+============================= 2 passed in 31.71s ==============================

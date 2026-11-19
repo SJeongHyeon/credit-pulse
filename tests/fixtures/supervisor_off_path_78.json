@@ -1,0 +1,473 @@
+{
+ "answered": {
+  "calls": [
+   "오뚜기의 FY2025 사업보고서 차입금 현황을 알려주세요."
+  ],
+  "final": {
+   "applied_rules": [],
+   "citations": [
+    {
+     "chapter": "NOTES",
+     "chunk_id": "c1",
+     "note_no": "1",
+     "quote": "차입금 공시",
+     "rcept_no": "r",
+     "verification": {
+      "failed_checks": [],
+      "passed": true
+     }
+    }
+   ],
+   "comparison_targets": [],
+   "corp_code": "00000001",
+   "corp_name": "오뚜기",
+   "domain_check": "in_domain",
+   "draft_items": [
+    {
+     "citations": [
+      {
+       "chapter": "NOTES",
+       "chunk_id": "c1",
+       "note_no": "1",
+       "quote": "차입금 공시",
+       "rcept_no": "r",
+       "verification": {
+        "failed_checks": [],
+        "passed": true
+       }
+      }
+     ],
+     "item": "오뚜기의 FY2025 사업보고서 차입금 현황을 알려주세요.",
+     "reason": "차입금 공시",
+     "verdict": "applicable"
+    }
+   ],
+   "filters": {
+    "corp_code": "00000001",
+    "fiscal_year": 2025
+   },
+   "fiscal_year": 2025,
+   "node_events": [
+    "supervisor:retrieve",
+    "retriever:round=1",
+    "scorer:write",
+    "writer",
+    "verifier",
+    "approval_prepare:skip",
+    "human_approval:skip",
+    "save_memo:skip"
+   ],
+   "outcome": "answered",
+   "question": "오뚜기의 FY2025 사업보고서 차입금 현황을 알려주세요.",
+   "redraft_calls": 0,
+   "refusal_message": null,
+   "refusal_reason": null,
+   "requery_pending": false,
+   "requery_query": "",
+   "requery_stalled": false,
+   "retrieval_empty": false,
+   "retrieval_query": "오뚜기의 FY2025 사업보고서 차입금 현황을 알려주세요.",
+   "retrieval_rounds": 1,
+   "retrieval_sufficient": true,
+   "retrieved_chunks": [
+    {
+     "chapter": "NOTES",
+     "chunk_id": "c1",
+     "content": "차입금 공시",
+     "corp_code": "00000001",
+     "fiscal_year": 2025,
+     "note_no": "1",
+     "rcept_no": "r"
+    }
+   ],
+   "search_calls": 1,
+   "supervisor_trace": [
+    "search_agent",
+    "writer_agent"
+   ],
+   "supervisor_turns": 3,
+   "target_required": false,
+   "verification": [
+    {
+     "chunk_id": "c1",
+     "failed_checks": [],
+     "item": "오뚜기의 FY2025 사업보고서 차입금 현황을 알려주세요.",
+     "passed": true
+    }
+   ],
+   "writer_calls": 1,
+   "writer_feedback": ""
+  }
+ },
+ "ask_target": {
+  "calls": [],
+  "final": {
+   "applied_rules": [],
+   "citations": [],
+   "draft_items": [],
+   "node_events": [
+    "supervisor:target_required"
+   ],
+   "outcome": "answered",
+   "question": "차입금 현황을 알려주세요.",
+   "redraft_calls": 0,
+   "refusal_message": "회사명과 사업연도를 포함해 다시 질문해 주세요.",
+   "refusal_reason": null,
+   "requery_pending": false,
+   "requery_query": "",
+   "requery_stalled": false,
+   "search_calls": 0,
+   "supervisor_trace": [],
+   "supervisor_turns": 1,
+   "target_required": true,
+   "writer_calls": 0,
+   "writer_feedback": ""
+  }
+ },
+ "inner_rewrite_loop": {
+  "calls": [
+   "오뚜기의 FY2025 사업보고서 차입금 현황을 알려주세요.",
+   "오뚜기의 FY2025 사업보고서 차입금 현황을 알려주세요. 다시",
+   "오뚜기의 FY2025 사업보고서 차입금 현황을 알려주세요. 다시 다시"
+  ],
+  "final": {
+   "applied_rules": [],
+   "citations": [],
+   "comparison_targets": [],
+   "corp_code": "00000001",
+   "corp_name": "오뚜기",
+   "domain_check": "in_domain",
+   "draft_items": [
+    {
+     "citations": [],
+     "item": "오뚜기의 FY2025 사업보고서 차입금 현황을 알려주세요.",
+     "reason": "근거 부족: 확인할 공시 항목이나 기간을 구체화해 주세요.",
+     "verdict": "needs_check"
+    }
+   ],
+   "filters": {
+    "corp_code": "00000001",
+    "fiscal_year": 2025
+   },
+   "fiscal_year": 2025,
+   "node_events": [
+    "supervisor:retrieve",
+    "retriever:round=1",
+    "scorer:rewrite",
+    "rewriter:round=1",
+    "retriever:round=2",
+    "scorer:rewrite",
+    "rewriter:round=2",
+    "retriever:round=3",
+    "scorer:write",
+    "writer",
+    "verifier",
+    "approval_prepare:skip",
+    "human_approval:skip",
+    "save_memo:skip"
+   ],
+   "outcome": "answered",
+   "question": "오뚜기의 FY2025 사업보고서 차입금 현황을 알려주세요.",
+   "redraft_calls": 0,
+   "refusal_message": null,
+   "refusal_reason": null,
+   "requery_pending": false,
+   "requery_query": "",
+   "requery_stalled": false,
+   "retrieval_empty": false,
+   "retrieval_query": "오뚜기의 FY2025 사업보고서 차입금 현황을 알려주세요.",
+   "retrieval_rounds": 3,
+   "retrieval_sufficient": false,
+   "retrieved_chunks": [
+    {
+     "chapter": "NOTES",
+     "chunk_id": "c1",
+     "content": "차입금 공시",
+     "corp_code": "00000001",
+     "fiscal_year": 2025,
+     "note_no": "1",
+     "rcept_no": "r"
+    }
+   ],
+   "search_calls": 1,
+   "supervisor_trace": [
+    "search_agent",
+    "writer_agent"
+   ],
+   "supervisor_turns": 3,
+   "target_required": false,
+   "verification": [],
+   "writer_calls": 1,
+   "writer_feedback": ""
+  }
+ },
+ "intake_out_of_domain": {
+  "calls": [],
+  "final": {
+   "applied_rules": [],
+   "citations": [],
+   "domain_check": "out_of_domain",
+   "draft_items": [],
+   "node_events": [
+    "supervisor:refuse_domain"
+   ],
+   "outcome": "refused",
+   "question": "오뚜기의 FY2025 사업보고서로 날씨를 알려주세요.",
+   "redraft_calls": 0,
+   "refusal_message": "사업보고서 코퍼스로는 답변할 수 없는 질문입니다.",
+   "refusal_reason": "OUT_OF_DOMAIN",
+   "requery_pending": false,
+   "requery_query": "",
+   "requery_stalled": false,
+   "search_calls": 0,
+   "supervisor_trace": [],
+   "supervisor_turns": 1,
+   "writer_calls": 0,
+   "writer_feedback": ""
+  }
+ },
+ "redraft_recovers": {
+  "calls": [
+   "오뚜기의 FY2025 사업보고서 차입금 현황을 알려주세요."
+  ],
+  "final": {
+   "applied_rules": [],
+   "citations": [
+    {
+     "chapter": "NOTES",
+     "chunk_id": "c1",
+     "note_no": "1",
+     "quote": "차입금 공시",
+     "rcept_no": "r",
+     "verification": {
+      "failed_checks": [],
+      "passed": true
+     }
+    }
+   ],
+   "comparison_targets": [],
+   "corp_code": "00000001",
+   "corp_name": "오뚜기",
+   "domain_check": "in_domain",
+   "draft_items": [
+    {
+     "citations": [
+      {
+       "chapter": "NOTES",
+       "chunk_id": "c1",
+       "note_no": "1",
+       "quote": "차입금 공시",
+       "rcept_no": "r",
+       "verification": {
+        "failed_checks": [],
+        "passed": true
+       }
+      }
+     ],
+     "item": "오뚜기의 FY2025 사업보고서 차입금 현황을 알려주세요.",
+     "reason": "차입금 공시",
+     "verdict": "applicable"
+    }
+   ],
+   "filters": {
+    "corp_code": "00000001",
+    "fiscal_year": 2025
+   },
+   "fiscal_year": 2025,
+   "node_events": [
+    "supervisor:retrieve",
+    "retriever:round=1",
+    "scorer:write",
+    "writer",
+    "verifier",
+    "writer",
+    "verifier",
+    "approval_prepare:skip",
+    "human_approval:skip",
+    "save_memo:skip"
+   ],
+   "outcome": "answered",
+   "question": "오뚜기의 FY2025 사업보고서 차입금 현황을 알려주세요.",
+   "redraft_calls": 1,
+   "refusal_message": null,
+   "refusal_reason": null,
+   "requery_pending": false,
+   "requery_query": "",
+   "requery_stalled": false,
+   "retrieval_empty": false,
+   "retrieval_query": "오뚜기의 FY2025 사업보고서 차입금 현황을 알려주세요.",
+   "retrieval_rounds": 1,
+   "retrieval_sufficient": true,
+   "retrieved_chunks": [
+    {
+     "chapter": "NOTES",
+     "chunk_id": "c1",
+     "content": "차입금 공시",
+     "corp_code": "00000001",
+     "fiscal_year": 2025,
+     "note_no": "1",
+     "rcept_no": "r"
+    }
+   ],
+   "search_calls": 1,
+   "supervisor_trace": [
+    "search_agent",
+    "writer_agent",
+    "redraft"
+   ],
+   "supervisor_turns": 4,
+   "target_required": false,
+   "verification": [
+    {
+     "chunk_id": "c1",
+     "failed_checks": [],
+     "item": "오뚜기의 FY2025 사업보고서 차입금 현황을 알려주세요.",
+     "passed": true
+    }
+   ],
+   "writer_calls": 1,
+   "writer_feedback": ""
+  }
+ },
+ "redraft_still_mismatch": {
+  "calls": [
+   "오뚜기의 FY2025 사업보고서 차입금 현황을 알려주세요."
+  ],
+  "final": {
+   "applied_rules": [],
+   "citations": [],
+   "comparison_targets": [],
+   "corp_code": "00000001",
+   "corp_name": "오뚜기",
+   "domain_check": "in_domain",
+   "draft_items": [
+    {
+     "citations": [],
+     "item": "오뚜기의 FY2025 사업보고서 차입금 현황을 알려주세요.",
+     "reason": "근거 부족: 확인할 공시 항목이나 기간을 구체화해 주세요.",
+     "verdict": "needs_check"
+    }
+   ],
+   "filters": {
+    "corp_code": "00000001",
+    "fiscal_year": 2025
+   },
+   "fiscal_year": 2025,
+   "node_events": [
+    "supervisor:retrieve",
+    "retriever:round=1",
+    "scorer:write",
+    "writer",
+    "verifier",
+    "writer",
+    "verifier",
+    "approval_prepare:skip",
+    "human_approval:skip",
+    "save_memo:skip"
+   ],
+   "outcome": "answered",
+   "question": "오뚜기의 FY2025 사업보고서 차입금 현황을 알려주세요.",
+   "redraft_calls": 1,
+   "refusal_message": null,
+   "refusal_reason": null,
+   "requery_pending": false,
+   "requery_query": "",
+   "requery_stalled": false,
+   "retrieval_empty": false,
+   "retrieval_query": "오뚜기의 FY2025 사업보고서 차입금 현황을 알려주세요.",
+   "retrieval_rounds": 1,
+   "retrieval_sufficient": true,
+   "retrieved_chunks": [
+    {
+     "chapter": "NOTES",
+     "chunk_id": "c1",
+     "content": "차입금 공시",
+     "corp_code": "00000001",
+     "fiscal_year": 2025,
+     "note_no": "1",
+     "rcept_no": "r"
+    }
+   ],
+   "search_calls": 1,
+   "supervisor_trace": [
+    "search_agent",
+    "writer_agent",
+    "redraft"
+   ],
+   "supervisor_turns": 4,
+   "target_required": false,
+   "verification": [
+    {
+     "chunk_id": "c1",
+     "failed_checks": [
+      "reason_number_or_unit_not_in_chunk"
+     ],
+     "item": "오뚜기의 FY2025 사업보고서 차입금 현황을 알려주세요.",
+     "missing_numbers": [
+      "888888원"
+     ],
+     "passed": false
+    }
+   ],
+   "writer_calls": 1,
+   "writer_feedback": ""
+  }
+ },
+ "writer_not_disclosed": {
+  "calls": [
+   "오뚜기의 FY2025 사업보고서 차입금 현황을 알려주세요."
+  ],
+  "final": {
+   "applied_rules": [],
+   "citations": [],
+   "comparison_targets": [],
+   "corp_code": "00000001",
+   "corp_name": "오뚜기",
+   "domain_check": "not_disclosed_item",
+   "draft_items": [],
+   "filters": {
+    "corp_code": "00000001",
+    "fiscal_year": 2025
+   },
+   "fiscal_year": 2025,
+   "node_events": [
+    "supervisor:retrieve",
+    "retriever:round=1",
+    "scorer:write",
+    "writer:not_disclosed"
+   ],
+   "outcome": "refused",
+   "question": "오뚜기의 FY2025 사업보고서 차입금 현황을 알려주세요.",
+   "redraft_calls": 0,
+   "refusal_message": null,
+   "refusal_reason": "ITEM_NOT_DISCLOSED",
+   "requery_pending": false,
+   "requery_query": "",
+   "requery_stalled": false,
+   "retrieval_empty": false,
+   "retrieval_query": "오뚜기의 FY2025 사업보고서 차입금 현황을 알려주세요.",
+   "retrieval_rounds": 1,
+   "retrieval_sufficient": true,
+   "retrieved_chunks": [
+    {
+     "chapter": "NOTES",
+     "chunk_id": "c1",
+     "content": "차입금 공시",
+     "corp_code": "00000001",
+     "fiscal_year": 2025,
+     "note_no": "1",
+     "rcept_no": "r"
+    }
+   ],
+   "search_calls": 1,
+   "supervisor_trace": [
+    "search_agent",
+    "writer_agent"
+   ],
+   "supervisor_turns": 3,
+   "target_required": false,
+   "writer_calls": 1,
+   "writer_feedback": ""
+  }
+ }
+}

@@ -1,0 +1,29 @@
+{
+  "model": "openai/gpt-4.1",
+  "results": "evals\\results\\graph50\\w91_r2_multi_d3-55_v9_v2.jsonl",
+  "extra": [
+    "evals/results/graph50/w91_r3_multi_d3-55_v9_v2.jsonl:47"
+  ],
+  "cases": 30,
+  "errors": [],
+  "relevant_false": [
+    3
+  ],
+  "raw_quote_chars_max": 276,
+  "raw_quotes_over_limit": 10,
+  "irrelevant": {
+    "24": false,
+    "25": false,
+    "26": false,
+    "27": false,
+    "47": false,
+    "48": false
+  },
+  "llm_true_but_quotes_rejected": [],
+  "input_tokens_per_call_median": 6629.5,
+  "output_tokens_per_call_median": 169.0,
+  "cost_usd_total": 0.4452,
+  "latency_s_p50": 2.0,
+  "latency_s_p95": 4.34,
+  "retried_calls": []
+}

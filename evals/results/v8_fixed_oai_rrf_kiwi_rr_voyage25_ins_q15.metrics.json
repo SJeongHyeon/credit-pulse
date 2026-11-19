@@ -1,0 +1,209 @@
+{
+  "candidate_k": 20,
+  "dataset_sha256": "9ba632b03e1a1e5f218cd97ca964f3540f30039bb5c901519922676d6b942d0f",
+  "irrelevant_questions": 15,
+  "k": 10,
+  "latency": {
+    "max_ms": 497.0675000004121,
+    "p50_ms": 343.2825000018056,
+    "p95_ms": 429.4230400028027,
+    "queries": 14
+  },
+  "mrr_at_10": 0.47841269841269846,
+  "per_question": [
+    {
+      "first_gold_rank": 1,
+      "hit": true,
+      "id": 1,
+      "kind": "relevant"
+    },
+    {
+      "first_gold_rank": 3,
+      "hit": true,
+      "id": 2,
+      "kind": "relevant"
+    },
+    {
+      "first_gold_rank": 1,
+      "hit": true,
+      "id": 3,
+      "kind": "relevant"
+    },
+    {
+      "first_gold_rank": 4,
+      "hit": true,
+      "id": 4,
+      "kind": "relevant"
+    },
+    {
+      "first_gold_rank": 2,
+      "hit": true,
+      "id": 5,
+      "kind": "relevant"
+    },
+    {
+      "first_gold_rank": 5,
+      "hit": true,
+      "id": 6,
+      "kind": "relevant"
+    },
+    {
+      "first_gold_rank": 2,
+      "hit": true,
+      "id": 7,
+      "kind": "relevant"
+    },
+    {
+      "first_gold_rank": 2,
+      "hit": true,
+      "id": 8,
+      "kind": "relevant"
+    },
+    {
+      "first_gold_rank": 4,
+      "hit": true,
+      "id": 9,
+      "kind": "relevant"
+    },
+    {
+      "first_gold_rank": 2,
+      "hit": true,
+      "id": 10,
+      "kind": "relevant"
+    },
+    {
+      "first_gold_rank": 1,
+      "hit": true,
+      "id": 11,
+      "kind": "relevant"
+    },
+    {
+      "first_gold_rank": 3,
+      "hit": true,
+      "id": 12,
+      "kind": "relevant"
+    },
+    {
+      "first_gold_rank": 2,
+      "hit": true,
+      "id": 13,
+      "kind": "relevant"
+    },
+    {
+      "first_gold_rank": 7,
+      "hit": true,
+      "id": 14,
+      "kind": "relevant"
+    },
+    {
+      "first_gold_rank": 6,
+      "hit": true,
+      "id": 15,
+      "kind": "relevant"
+    },
+    {
+      "first_gold_rank": null,
+      "hit": null,
+      "id": 16,
+      "kind": "irrelevant"
+    },
+    {
+      "first_gold_rank": null,
+      "hit": null,
+      "id": 17,
+      "kind": "irrelevant"
+    },
+    {
+      "first_gold_rank": null,
+      "hit": null,
+      "id": 18,
+      "kind": "irrelevant"
+    },
+    {
+      "first_gold_rank": null,
+      "hit": null,
+      "id": 19,
+      "kind": "irrelevant"
+    },
+    {
+      "first_gold_rank": null,
+      "hit": null,
+      "id": 20,
+      "kind": "irrelevant"
+    },
+    {
+      "first_gold_rank": null,
+      "hit": null,
+      "id": 21,
+      "kind": "irrelevant"
+    },
+    {
+      "first_gold_rank": null,
+      "hit": null,
+      "id": 22,
+      "kind": "irrelevant"
+    },
+    {
+      "first_gold_rank": null,
+      "hit": null,
+      "id": 23,
+      "kind": "irrelevant"
+    },
+    {
+      "first_gold_rank": null,
+      "hit": null,
+      "id": 24,
+      "kind": "irrelevant"
+    },
+    {
+      "first_gold_rank": null,
+      "hit": null,
+      "id": 25,
+      "kind": "irrelevant"
+    },
+    {
+      "first_gold_rank": null,
+      "hit": null,
+      "id": 26,
+      "kind": "irrelevant"
+    },
+    {
+      "first_gold_rank": null,
+      "hit": null,
+      "id": 27,
+      "kind": "irrelevant"
+    },
+    {
+      "first_gold_rank": null,
+      "hit": null,
+      "id": 28,
+      "kind": "irrelevant"
+    },
+    {
+      "first_gold_rank": null,
+      "hit": null,
+      "id": 29,
+      "kind": "irrelevant"
+    },
+    {
+      "first_gold_rank": null,
+      "hit": null,
+      "id": 30,
+      "kind": "irrelevant"
+    }
+  ],
+  "questions_total": 30,
+  "recall_at_10": 1.0,
+  "reference_candidate_30": {
+    "irrelevant_questions": 15,
+    "k": 10,
+    "mrr_at_10": 0.47841269841269846,
+    "questions_total": 30,
+    "recall_at_10": 1.0,
+    "relevant_questions": 15
+  },
+  "relevant_questions": 15,
+  "rerank_instruction": "한국 기업 사업보고서(DART 공시)에서 여신심사 질문의 근거를 찾고 있습니다. 질문이 묻는 항목의 금액이나 내용을 직접 적은 조각을 가장 관련 있다고 판단하고, 낱말이나 숫자 형식만 비슷한 조각은 덜 관련 있다고 판단하세요.",
+  "reranker": "voyage/rerank-2.5",
+  "results_sha256": "ed510dff75eadcec46897b131a1a485a0205308f8240f222f2bf3632ffab1382"
+}

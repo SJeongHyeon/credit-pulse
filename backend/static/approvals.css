@@ -1,0 +1,77 @@
+/* 승인 현황 화면. login.css·reviews.css의 전역 button 규칙(밝은 알약, button.secondary 유리)보다
+   구체성이 높도록 .approvals-page로 범위를 좁혀 상태 선택 버튼의 선택 표시를 정한다. */
+.approvals-links {
+  margin: 0 0 1rem;
+}
+
+.approvals-links a,
+#approvals-notice a,
+.approval-open {
+  color: var(--on-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.approvals-links a:hover,
+#approvals-notice a:hover,
+.approval-open:hover {
+  color: var(--gold);
+}
+
+.approvals-links a:focus-visible,
+#approvals-notice a:focus-visible,
+.approval-open:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.approvals-page .status-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0 0 0.75rem;
+}
+
+/* 선택된 상태: 밝은 알약(기본 .reviews-page button 모양). 선택 안 된 상태는 button.secondary 유리 그대로. */
+.approvals-page .status-filter button.secondary[aria-pressed="true"] {
+  background: var(--on-dark);
+  border-color: var(--on-dark);
+  color: #17120d;
+}
+
+.approvals-page .status-filter button.secondary[aria-pressed="true"]:hover:not(:disabled) {
+  background: #ffffff;
+  border-color: #ffffff;
+}
+
+#approvals-error {
+  color: var(--error-on-dark);
+  margin: 0 0 1rem;
+}
+
+#approvals-loading,
+#approvals-status,
+#approvals-notice,
+#approvals-empty {
+  color: var(--on-dark-muted);
+  margin: 0.75rem 0;
+}
+
+.approval-item {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.approval-name {
+  font-weight: 600;
+}
+
+.approval-open {
+  justify-self: start;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .approvals-page .status-filter button {
+    transition: none;
+  }
+}

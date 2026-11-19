@@ -1,0 +1,163 @@
+{
+  "what": "RAGAS 참고 지표(사전 등록 151번). 채택·회귀 기준 아님. 사람 판정과 대조하지 않은 LLM 판정",
+  "results": "w146_now_r1_multi_d3-55_v9_v2.jsonl",
+  "ragas_version": "0.4.3",
+  "judge_model": "openai/gpt-4.1",
+  "judge_temperature": "RAGAS 기본(1회 0.01, 여러 개 생성 0.3)",
+  "embedding_model": "text-embedding-3-small (1536차원)",
+  "prompts": "RAGAS 기본(영어)",
+  "strictness": 3,
+  "scored_questions": 24,
+  "skipped": {
+    "irrelevant_question": 25,
+    "no_cited_answer": 1
+  },
+  "answer_relevancy": {
+    "n": 24,
+    "mean": 0.2221,
+    "min": 0.0,
+    "below_0_5": [
+      1,
+      3,
+      5,
+      7,
+      10,
+      11,
+      13,
+      15,
+      35,
+      36,
+      38,
+      40,
+      52,
+      54,
+      55,
+      57,
+      58,
+      60,
+      62,
+      63,
+      64,
+      65
+    ],
+    "not_scored": []
+  },
+  "faithfulness": {
+    "n": 24,
+    "mean": 0.9139,
+    "min": 0.25,
+    "below_0_5": [
+      64
+    ],
+    "not_scored": []
+  },
+  "skipped_ids": [
+    {
+      "id": 16,
+      "reason": "irrelevant_question"
+    },
+    {
+      "id": 17,
+      "reason": "irrelevant_question"
+    },
+    {
+      "id": 18,
+      "reason": "irrelevant_question"
+    },
+    {
+      "id": 19,
+      "reason": "irrelevant_question"
+    },
+    {
+      "id": 20,
+      "reason": "irrelevant_question"
+    },
+    {
+      "id": 21,
+      "reason": "irrelevant_question"
+    },
+    {
+      "id": 22,
+      "reason": "irrelevant_question"
+    },
+    {
+      "id": 23,
+      "reason": "irrelevant_question"
+    },
+    {
+      "id": 24,
+      "reason": "irrelevant_question"
+    },
+    {
+      "id": 25,
+      "reason": "irrelevant_question"
+    },
+    {
+      "id": 26,
+      "reason": "irrelevant_question"
+    },
+    {
+      "id": 27,
+      "reason": "irrelevant_question"
+    },
+    {
+      "id": 28,
+      "reason": "irrelevant_question"
+    },
+    {
+      "id": 29,
+      "reason": "irrelevant_question"
+    },
+    {
+      "id": 30,
+      "reason": "irrelevant_question"
+    },
+    {
+      "id": 31,
+      "reason": "no_cited_answer"
+    },
+    {
+      "id": 41,
+      "reason": "irrelevant_question"
+    },
+    {
+      "id": 42,
+      "reason": "irrelevant_question"
+    },
+    {
+      "id": 43,
+      "reason": "irrelevant_question"
+    },
+    {
+      "id": 44,
+      "reason": "irrelevant_question"
+    },
+    {
+      "id": 45,
+      "reason": "irrelevant_question"
+    },
+    {
+      "id": 47,
+      "reason": "irrelevant_question"
+    },
+    {
+      "id": 48,
+      "reason": "irrelevant_question"
+    },
+    {
+      "id": 49,
+      "reason": "irrelevant_question"
+    },
+    {
+      "id": 50,
+      "reason": "irrelevant_question"
+    },
+    {
+      "id": 59,
+      "reason": "irrelevant_question"
+    }
+  ],
+  "calls": 168,
+  "cost_usd": 0.4346,
+  "cost_unknown_calls": 0
+}

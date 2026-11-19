@@ -1,0 +1,9 @@
+# 평가셋은 동결 sha256을 바이트로 비교하므로 OS와 무관하게 LF로 고정한다.
+evals/*.jsonl text eol=lf
+data/unique_chunk_hashes*.txt text eol=lf
+# sha256을 바이트 단위로 검사하므로 줄바꿈 변환을 막는다.
+data/snapshot/** -text
+evals/results/** text eol=lf
+# 질의 벡터 파일(.npz)은 바이너리라 줄바꿈 변환을 하면 깨진다(위 규칙보다 뒤에 둬야 덮어쓴다).
+evals/results/*.npz -text
+evals/mappings/** text eol=lf

@@ -1,0 +1,18 @@
+청크 해시 목록(줄 끝·해시·본문 묶음 검증) (기준 코드: main c2a92e5, 2026-11-12 22:39 KST)
+
+$ python -X utf8 scripts/verify_g3_bundle.py
+{"chunks": 31967, "compressed_sha256": "78deabfcea8c0696a5f968736921fa27f719f6418fb5181dfd7e1df3a7d227a0", "corpus_id": "corpus-4867b25d560356df13ab7886", "documents": 100, "unique_chunks": 31953}
+종료 코드: 0
+
+[1] 청크 해시 목록 data/unique_chunk_hashes.100-b-v9.txt
+  줄 수: 31953
+  git에 저장된 본문의 줄 끝: LF / 작업 폴더 파일의 줄 끝: LF
+  sha256(LF)  : 06a26f21943051d9ed165790255007c4aca3ccca520888ed662975445816140d
+  sha256(CRLF): 1f5b2e94799cf1651ddca0158cf69f643eaf0d06be22311782301edcc53eeb88
+  checksums.json의 unique_hashes_sha256: 06a26f21943051d9ed165790255007c4aca3ccca520888ed662975445816140d → LF 기준과 같음
+i/lf    w/crlf  attr/                 	data/g3/checksums.json
+i/lf    w/lf    attr/text eol=lf      	data/unique_chunk_hashes.100-b-v9.txt
+
+[2] 운영 코퍼스 청크 파일(저장소 밖, 로컬)과 해시 목록의 일치
+  행 수: 31967 / 고유 content_sha256: 31953
+  해시 목록과 같은 집합인가: True (목록에만 0 / 파일에만 0 )

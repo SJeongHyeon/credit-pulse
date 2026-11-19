@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CREDIT PULSE - 심사 건 상세</title>
+    {% include "_favicon.html" %}
+    <link rel="preload" href="{{ url_for('static', path='fonts/NotoSerifKR-subset.woff2') }}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{{ url_for('static', path='fonts/CreditPulseSans-subset.woff2') }}" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="{{ url_for('static', path='fonts.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='login.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='theme.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='reviews.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='review-detail.css') }}">
+    <noscript><style>#detail-loading { display: none; }</style></noscript>
+  </head>
+  <body class="glass-page ui-sans">
+    {% include "_page_bg.html" %}
+    <header class="app-bar">
+      <div class="app-bar-inner">
+        <a class="app-logo-link" href="/">
+          <img class="app-logo" src="{{ url_for('static', path='credit-pulse-logo-white.png') }}" alt="CREDIT PULSE" width="1200" height="213">
+        </a>
+        <div class="reviews-user">
+          <span id="current-user"></span>
+          <button id="logout-button" class="secondary" type="button">로그아웃</button>
+        </div>
+      </div>
+    </header>
+    <main class="login-page reviews-page detail-page">
+      <a id="back-link" class="back-link" href="/reviews">← 심사 건 목록</a>
+      <h1>심사 건 상세</h1>
+
+      <p id="detail-error" role="alert" hidden></p>
+      <p id="detail-loading" role="status">심사 건을 불러오는 중입니다. 첫 요청은 잠시 걸릴 수 있습니다.</p>
+      <noscript><p>이 화면은 JavaScript가 필요합니다. 브라우저에서 JavaScript를 켜고 다시 열어 주세요.</p></noscript>
+      <button id="detail-reload" type="button" hidden>다시 불러오기</button>
+
+      <div id="detail-missing" class="detail-card" hidden>
+        <p>심사 건을 찾을 수 없습니다.</p>
+        <a href="/reviews">심사 건 목록으로 돌아가기</a>
+      </div>
+
+      <section id="approval-question" class="detail-card approval-question" aria-labelledby="approval-question-title" hidden>
+        <h2 id="approval-question-title">내가 한 질문</h2>
+        <p id="approval-question-text"></p>
+      </section>
+
+      <section id="detail-body" class="detail-card" aria-labelledby="review-name" hidden>
+        <div class="detail-title">
+          <span id="review-name" class="detail-name"></span>
+          <span id="review-code" class="detail-code"></span>
+        </div>
+        <div class="detail-meta">
+          <span id="review-year"></span>
+          <span id="review-status" class="review-status"></span>
+          <span id="review-count"></span>
+          <span id="review-created"></span>
+        </div>
+      </section>
+
+      <p id="approval-done" role="status" hidden></p>
+      <p id="approval-error" role="alert" hidden></p>
+      <section id="approval-section" class="detail-card approval-card" aria-labelledby="approval-title" hidden>
+        <h2 id="approval-title">초안 승인</h2>
+        <p class="approval-lead">판정과 이유를 확인하고, 틀린 항목은 고쳐서 승인하세요. 승인한 내용만 심사 메모로 저장됩니다.</p>
+        <details class="approval-verdict-guide">
+          <summary>판정 기준</summary>
+          <ul>
+            <li><strong>해당</strong> · 공시에서 해당 사실이 확인됐습니다. 예를 들어 진행 중인 소송이 공시돼 있습니다.</li>
+            <li><strong>비해당</strong> · 해당 사항이 없다는 근거가 확인됐습니다. 예를 들어 공시에 계류 중인 소송이 없다고 명시돼 있습니다.</li>
+            <li><strong>확인 필요</strong> · 공시 근거가 부족하거나 불명확합니다. 예를 들어 소송 공시에서 질문한 기간을 확인하기 어렵습니다.</li>
+          </ul>
+        </details>
+        <section id="approval-rules" class="applied-rules" aria-labelledby="approval-rules-title" hidden>
+          <h3 id="approval-rules-title">이번 초안에 참고한 내 규칙</h3>
+          <ul id="approval-rules-list" class="applied-rules-list"></ul>
+          <a class="applied-rules-manage" href="/reviews#rules-section">내 판정 규칙에서 관리</a>
+        </section>
+        <p id="approval-summary" class="approval-summary"></p>
+        <p id="approval-empty" hidden></p>
+        <div id="approval-list" class="approval-list"></div>
+        <div class="approval-actions">
+          <button id="approval-submit" type="button">승인</button>
+          <button id="approval-cancel" class="secondary" type="button">취소</button>
+        </div>
+      </section>
+
+      <section id="query-section" class="detail-card">
+        <h2>이 심사 건에서 추가 질문</h2>
+        <p id="query-scope" class="query-scope"></p>
+        <div id="review-conversation" class="review-conversation" role="log" aria-label="심사 건 대화" hidden></div>
+        <p id="query-hint" role="status" hidden></p>
+        <form id="query-form" novalidate>
+          <label for="question">추가 질문을 입력해 주세요 (최대 500자)</label>
+          <textarea id="question" class="review-question" name="question" rows="3" maxlength="500" aria-describedby="query-hint" required></textarea>
+          <p id="query-error" role="alert" hidden></p>
+          <button id="query-submit" type="submit">추가 질문 보내기</button>
+        </form>
+      </section>
+
+      <template id="review-turn-template">
+        <article class="review-turn">
+          <div class="review-turn-question">
+            <h3>내 질문</h3>
+            <p data-result="question"></p>
+          </div>
+          <div class="result-card">
+            <h3>분석 결과</h3>
+            <p class="result-notice" data-result="notice" hidden></p>
+            <p class="result-answer" data-result="answer" hidden></p>
+            <div class="applied-rules" data-result="rules" hidden>
+              <h4>이번 초안에 참고한 내 규칙</h4>
+              <ul class="applied-rules-list" data-result="rules-list"></ul>
+              <a class="applied-rules-manage" href="/reviews">내 판정 규칙에서 관리</a>
+            </div>
+            <ul class="draft-list" data-result="drafts"></ul>
+            <div class="news-reference" data-result="news" hidden>
+              <h4>참고 뉴스 <span class="news-reference-tag">공시 근거 아님</span></h4>
+              <p class="news-reference-note">네이버 뉴스 검색 결과입니다. 심사 판정과 메모 저장에는 쓰이지 않습니다.</p>
+              <ul class="news-reference-list" data-result="news-list"></ul>
+            </div>
+          </div>
+        </article>
+      </template>
+    </main>
+    <script type="module" src="{{ url_for('static', path='review-detail.js') }}?v=pending-rules"></script>
+  </body>
+</html>

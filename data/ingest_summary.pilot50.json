@@ -1,0 +1,16 @@
+{
+  "chunks_near_dup": 0,
+  "chunks_path": "data/chunks.pilot50.jsonl",
+  "chunks_superseded": 0,
+  "chunks_total": 128607,
+  "corpus_id": "corpus-c121ffd5dea5e9a0cfb237c9",
+  "documents_failed": 0,
+  "documents_success": 50,
+  "documents_superseded": 0,
+  "documents_total": 50,
+  "embedding_model": "unselected",
+  "manifest_path": "data/manifest.pilot50.jsonl",
+  "max_chars": 1000,
+  "overlap_chars": 100,
+  "unique_chunks": 87749
+}

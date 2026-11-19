@@ -1,0 +1,38 @@
+{
+  "rule": "v8 정답 id가 v9에 있으면 유지, 없으면 v8 본문 50자 조각을 80% 덮을 때까지 v9 청크를 모음(50% 미만 실패)",
+  "source": "evals/mappings/dataset_v1.v8_{chunking}*.jsonl",
+  "chunkings": {
+    "group": {
+      "corpus_version": "corpus-2234d7df326dffecab19e921",
+      "remapped": [
+        {
+          "old_chunk_id": "chunk-00e9adef012dae426ad214d6",
+          "new_chunk_ids": [
+            "chunk-6271f822cb3496d699d680f4"
+          ],
+          "cover": 1.0
+        }
+      ]
+    },
+    "fixed_window": {
+      "corpus_version": "corpus-ffc1830e50a11c57749b63b9",
+      "remapped": [
+        {
+          "old_chunk_id": "chunk-d6eae801eee2fbbf768a0b38",
+          "new_chunk_ids": [
+            "chunk-7dc539d03e548f7978b1079c"
+          ],
+          "cover": 1.0
+        },
+        {
+          "old_chunk_id": "chunk-929bfe856d6f5b0a21e6cc83",
+          "new_chunk_ids": [
+            "chunk-9e980c45d0a017b1d49b4e96",
+            "chunk-4993be4ed116bf9b189febb9"
+          ],
+          "cover": 0.8
+        }
+      ]
+    }
+  }
+}

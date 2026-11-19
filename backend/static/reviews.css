@@ -1,0 +1,459 @@
+.app-bar {
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  background: var(--glass-bg);
+  border-bottom: 1px solid var(--glass-line);
+  position: relative;
+  z-index: 1;
+}
+
+.app-bar-inner {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 48rem;
+  padding: 0.75rem 1rem;
+}
+
+.app-logo {
+  display: block;
+  height: 1.75rem;
+  width: auto;
+}
+
+.app-logo-link {
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.app-logo-link:focus-visible {
+  border-radius: 0.25rem;
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+}
+
+.reviews-page {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-line);
+  border-radius: var(--radius-card);
+  box-shadow: var(--glass-shadow);
+  color: var(--on-dark);
+  margin-top: clamp(1rem, 4vh, 2.5rem);
+  max-width: 48rem;
+  position: relative;
+  z-index: 1;
+}
+
+.reviews-page h1,
+.reviews-page h2 {
+  color: var(--on-dark);
+}
+
+.reviews-page h1 {
+  font-size: 1.75rem;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.reviews-heading {
+  align-items: center;
+  display: flex;
+  gap: 0.75rem;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.reviews-heading-title {
+  align-items: center;
+  display: flex;
+  gap: 0.75rem;
+}
+
+.reviews-heading h2 {
+  font-size: 1.125rem;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.reviews-heading .cs-sort-menu {
+  left: 0;
+  right: auto;
+}
+
+.reviews-heading #review-delete-all {
+  flex-shrink: 0;
+  min-width: 2.75rem;
+  padding: 0.5rem;
+  width: auto;
+}
+
+.reviews-page label {
+  color: var(--on-dark-muted);
+}
+
+.reviews-user {
+  align-items: center;
+  display: flex;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.reviews-user button {
+  border-radius: 999px;
+  min-height: 2.75rem;
+  padding: 0.4rem 1.1rem;
+}
+
+/* 어두운 배경 위의 버튼: 기본은 밝은 알약, secondary는 유리 */
+.reviews-page button:where(:not(.cs-sort button)),
+.reviews-user button {
+  background: var(--on-dark);
+  border-color: var(--on-dark);
+  color: #17120d;
+}
+
+.reviews-page button:where(:not(.cs-sort button)):hover:not(:disabled),
+.reviews-user button:hover:not(:disabled) {
+  background: #ffffff;
+  border-color: #ffffff;
+}
+
+.reviews-page button.secondary,
+.reviews-user button.secondary {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--glass-line);
+  color: var(--on-dark);
+}
+
+.reviews-page button.secondary:hover:not(:disabled),
+.reviews-user button.secondary:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: var(--glass-line-hover);
+}
+
+.reviews-page button:where(:not(.cs-sort button)) {
+  border-radius: 999px;
+  min-height: 2.75rem;
+  padding: 0.5rem 1.25rem;
+}
+
+.reviews-page button:where(:not(.cs-sort button)),
+.reviews-user button {
+  transition:
+    background-color 0.4s var(--ease-spring),
+    border-color 0.4s var(--ease-spring),
+    transform 0.4s var(--ease-spring);
+}
+
+.reviews-page button:active:not(:disabled),
+.reviews-user button:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.reviews-page input,
+.reviews-page select {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--glass-line);
+  border-radius: 999px;
+  color: var(--on-dark);
+  min-height: 2.75rem;
+  padding: 0.5rem 1.1rem;
+}
+
+.reviews-page select option {
+  background: #1a1612;
+  color: var(--on-dark);
+}
+
+.reviews-page input:focus-visible,
+.reviews-page select:focus-visible,
+.reviews-page button:focus-visible,
+.reviews-user button:focus-visible {
+  outline-color: var(--gold);
+}
+
+#current-user {
+  color: var(--on-dark-muted);
+  font-size: var(--text-sm);
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.review-list {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: minmax(0, 1fr);
+  list-style: none;
+  margin: 1rem 0;
+  padding: 0;
+}
+
+.review-item {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid var(--glass-line);
+  border-left: 2px solid var(--gold);
+  border-radius: 16px;
+  box-shadow: 0 18px 32px -24px var(--shadow-tint);
+  overflow-wrap: anywhere;
+  padding: var(--space-card-y) var(--space-card-x);
+  position: relative;
+  transition: border-color 0.4s var(--ease-spring), background-color 0.4s var(--ease-spring);
+}
+
+.review-list:not(.rules-list) .review-item {
+  padding-right: 4rem;
+}
+
+.review-delete-button {
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.review-item:hover > .review-delete-button,
+.review-item:focus-within > .review-delete-button {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@media (hover: none) {
+  .review-delete-button { opacity: 1; pointer-events: auto; }
+}
+
+#review-delete-dialog {
+  background: #24211f;
+  border: 1px solid var(--glass-line);
+  border-radius: 16px;
+  color: var(--on-dark);
+  max-width: min(24rem, calc(100vw - 2rem));
+  padding: 1.5rem;
+}
+
+#review-delete-dialog::backdrop { background: rgba(14, 16, 20, 0.65); }
+.review-delete-actions { display: flex; gap: 0.75rem; justify-content: flex-end; }
+
+.review-item:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--glass-line-hover);
+  border-left-color: var(--gold);
+}
+
+.review-title {
+  color: var(--on-dark);
+  font-size: var(--text-lg);
+  font-weight: 600;
+}
+
+.review-code,
+.review-meta {
+  color: var(--on-dark-muted);
+  font-size: var(--text-sm);
+  font-variant-numeric: tabular-nums;
+  line-height: var(--leading-tight);
+}
+
+.review-code {
+  color: var(--gold);
+  font-weight: 400;
+  margin-left: 0.5rem;
+  white-space: nowrap;
+}
+
+.review-meta {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem 1rem;
+  margin-top: 0.375rem;
+}
+
+/* 날짜·질의 수 같은 한 항목은 줄 안에서 끊지 않고 항목 단위로만 줄을 바꾼다 */
+.review-meta > span {
+  white-space: nowrap;
+}
+
+.review-status {
+  background: rgba(227, 184, 102, 0.16);
+  border: 1px solid rgba(227, 184, 102, 0.5);
+  border-radius: 999px;
+  color: var(--gold-soft);
+  font-weight: 600;
+  padding: 0 0.6rem;
+}
+
+.reviews-history {
+  margin-top: 1.5rem;
+}
+
+.create-section {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--glass-line);
+  border-radius: 20px;
+  box-shadow: 0 30px 50px -36px var(--shadow-tint);
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+}
+
+.create-section h2 {
+  font-size: 1.125rem;
+  margin: 0 0 0.75rem;
+}
+
+#ask-form {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.review-question {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--glass-line);
+  border-radius: 14px;
+  box-sizing: border-box;
+  color: var(--on-dark);
+  font: inherit;
+  min-height: 6rem;
+  padding: 0.6rem 1.1rem;
+  resize: vertical;
+  width: 100%;
+}
+
+.review-question:focus-visible,
+.question-examples summary:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.question-examples summary {
+  color: var(--gold-soft);
+  cursor: pointer;
+  font-size: var(--text-sm);
+  padding: 0.35rem 0;
+  width: fit-content;
+}
+
+.question-example-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.25rem 0 0.5rem;
+}
+
+.question-example-buttons button {
+  font-size: var(--text-sm);
+}
+
+#ask-result-message {
+  color: var(--on-dark);
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+#ask-result-news {
+  margin: 0.5rem 0 0;
+}
+
+#ask-result-news a {
+  color: var(--on-dark);
+}
+
+.rules-help,
+#rules-status {
+  color: var(--on-dark-muted);
+  font-size: var(--text-sm);
+  margin: 0 0 0.5rem;
+}
+
+.rules-list {
+  margin: 0.75rem 0 0;
+}
+
+.rule-instruction {
+  color: var(--on-dark);
+  margin: 0.375rem 0 0;
+  white-space: pre-wrap;
+}
+
+.rule-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+#rules-error,
+#ask-error,
+#reviews-error {
+  color: var(--error-on-dark);
+  margin: 0 0 1rem;
+}
+
+#ask-error,
+#rules-error {
+  margin: 0;
+}
+
+#reviews-loading,
+#reviews-empty {
+  color: var(--on-dark-muted);
+  margin: 1rem 0;
+}
+
+a.review-name {
+  color: var(--on-dark);
+  text-decoration: none;
+}
+
+a.review-name:hover,
+a.review-name:focus-visible {
+  color: var(--gold);
+  text-decoration: underline;
+}
+
+@media (max-width: 40rem) {
+  .app-bar-inner,
+  .reviews-user {
+    gap: 0.5rem;
+  }
+
+  .app-logo {
+    height: 1.5rem;
+  }
+}
+
+@media (max-width: 24rem) {
+  .reviews-index {
+    padding-inline: 1rem;
+  }
+
+  .reviews-heading,
+  .reviews-heading-title {
+    gap: 0.375rem;
+  }
+
+  .reviews-heading h2 {
+    font-size: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .review-item,
+  .reviews-page button,
+  .reviews-user button {
+    transition: none;
+  }
+
+  .reviews-page button:active:not(:disabled),
+  .reviews-user button:active:not(:disabled) {
+    transform: none;
+  }
+}

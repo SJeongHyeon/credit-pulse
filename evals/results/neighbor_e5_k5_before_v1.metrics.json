@@ -1,0 +1,192 @@
+{
+  "after": 0,
+  "baseline_by_chars": {
+    "hit": 0.7333333333333333,
+    "mrr": 0.4077777777777778
+  },
+  "baseline_by_chunks": {
+    "hit": 0.7333333333333333,
+    "mrr": 0.4077777777777778
+  },
+  "before": 1,
+  "dataset_sha256": "8f79a754a663e3b38cbe44efb1aaa785e3e1bdf93aa9b1048c374063c26da934",
+  "hit": 0.6,
+  "improved": 0,
+  "max_total_chars": 9660,
+  "mean_total_chars": 4986.133333333333,
+  "mean_total_chunks": 8.666666666666666,
+  "mrr_flat_rank": 0.317962962962963,
+  "mrr_seed_rank": 0.38555555555555554,
+  "per_question": [
+    {
+      "baseline_chars_rank": null,
+      "baseline_chunks_rank": null,
+      "by_chars_n": 7,
+      "change": "same",
+      "flat_rank": null,
+      "id": 1,
+      "seed_rank": null,
+      "total_chars": 5321,
+      "total_chunks": 7
+    },
+    {
+      "baseline_chars_rank": 1,
+      "baseline_chunks_rank": 1,
+      "by_chars_n": 6,
+      "change": "same",
+      "flat_rank": 1,
+      "id": 2,
+      "seed_rank": 1,
+      "total_chars": 4188,
+      "total_chunks": 7
+    },
+    {
+      "baseline_chars_rank": 1,
+      "baseline_chunks_rank": 1,
+      "by_chars_n": 5,
+      "change": "same",
+      "flat_rank": 1,
+      "id": 3,
+      "seed_rank": 1,
+      "total_chars": 2869,
+      "total_chunks": 8
+    },
+    {
+      "baseline_chars_rank": 1,
+      "baseline_chunks_rank": 1,
+      "by_chars_n": 6,
+      "change": "same",
+      "flat_rank": 1,
+      "id": 4,
+      "seed_rank": 1,
+      "total_chars": 3345,
+      "total_chunks": 9
+    },
+    {
+      "baseline_chars_rank": 2,
+      "baseline_chunks_rank": 2,
+      "by_chars_n": 8,
+      "change": "worsened",
+      "flat_rank": 3,
+      "id": 5,
+      "seed_rank": 2,
+      "total_chars": 7522,
+      "total_chunks": 9
+    },
+    {
+      "baseline_chars_rank": 6,
+      "baseline_chunks_rank": 6,
+      "by_chars_n": 6,
+      "change": "worsened",
+      "flat_rank": null,
+      "id": 6,
+      "seed_rank": null,
+      "total_chars": 5142,
+      "total_chunks": 9
+    },
+    {
+      "baseline_chars_rank": 5,
+      "baseline_chunks_rank": 5,
+      "by_chars_n": 7,
+      "change": "worsened",
+      "flat_rank": 9,
+      "id": 7,
+      "seed_rank": 5,
+      "total_chars": 3194,
+      "total_chunks": 9
+    },
+    {
+      "baseline_chars_rank": 3,
+      "baseline_chunks_rank": 3,
+      "by_chars_n": 7,
+      "change": "worsened",
+      "flat_rank": 5,
+      "id": 8,
+      "seed_rank": 3,
+      "total_chars": 4238,
+      "total_chunks": 8
+    },
+    {
+      "baseline_chars_rank": null,
+      "baseline_chunks_rank": null,
+      "by_chars_n": 6,
+      "change": "same",
+      "flat_rank": null,
+      "id": 9,
+      "seed_rank": null,
+      "total_chars": 5379,
+      "total_chunks": 8
+    },
+    {
+      "baseline_chars_rank": null,
+      "baseline_chunks_rank": null,
+      "by_chars_n": 8,
+      "change": "same",
+      "flat_rank": null,
+      "id": 10,
+      "seed_rank": null,
+      "total_chars": 6157,
+      "total_chunks": 10
+    },
+    {
+      "baseline_chars_rank": 2,
+      "baseline_chunks_rank": 2,
+      "by_chars_n": 8,
+      "change": "same",
+      "flat_rank": 2,
+      "id": 11,
+      "seed_rank": 2,
+      "total_chars": 6772,
+      "total_chunks": 8
+    },
+    {
+      "baseline_chars_rank": 6,
+      "baseline_chunks_rank": 6,
+      "by_chars_n": 6,
+      "change": "worsened",
+      "flat_rank": null,
+      "id": 12,
+      "seed_rank": null,
+      "total_chars": 2724,
+      "total_chunks": 9
+    },
+    {
+      "baseline_chars_rank": 4,
+      "baseline_chunks_rank": 4,
+      "by_chars_n": 10,
+      "change": "worsened",
+      "flat_rank": 8,
+      "id": 13,
+      "seed_rank": 4,
+      "total_chars": 9660,
+      "total_chunks": 10
+    },
+    {
+      "baseline_chars_rank": null,
+      "baseline_chunks_rank": null,
+      "by_chars_n": 6,
+      "change": "same",
+      "flat_rank": null,
+      "id": 14,
+      "seed_rank": null,
+      "total_chars": 4363,
+      "total_chunks": 9
+    },
+    {
+      "baseline_chars_rank": 1,
+      "baseline_chunks_rank": 1,
+      "by_chars_n": 6,
+      "change": "worsened",
+      "flat_rank": 2,
+      "id": 15,
+      "seed_rank": 1,
+      "total_chars": 3918,
+      "total_chunks": 10
+    }
+  ],
+  "relevant_questions": 15,
+  "results_sha256": "2e2e5ba23f658797f0595c65c93a7567e98ed58ed12c6d3c637a817428b73a1d",
+  "same": 8,
+  "seed_k": 5,
+  "worsened": 7
+}

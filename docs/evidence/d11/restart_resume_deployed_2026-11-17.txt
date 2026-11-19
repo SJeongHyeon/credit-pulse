@@ -1,0 +1,23 @@
+서버 재시작 뒤 재개: 배포 서버(Cloud Run)에서 확인 (2026-11-17 01:33~01:36 KST)
+기준 코드: main 468beaf (PR #252 머지: 재검색 코드 제거, 검색 뒤 작성 대 거절을 Supervisor LLM이 결정)
+환경: 배포 주소, 평가용 계정으로 로그인(키 소유자가 실행. 계정 값은 기록하지 않는다). 운영 DB를 쓴다.
+
+리비전과 시각(gcloud run revisions list, UTC → KST)
+  creditpulse-api-00055-r97  2026-11-16T16:31:59Z = 11/17 01:31:59 KST  main 468beaf에서 재배포한 리비전
+  creditpulse-api-00056-nm5  2026-11-16T16:35:11Z = 11/17 01:35:11 KST  서버를 다시 띄운 리비전(같은 이미지, 라벨만 추가)
+  → 승인 대기를 만든 시각(01:33:05)은 00055가 받았고, 재개한 시각(01:35:36)은 00056이 받았다(트래픽 100%).
+
+$ python -X utf8 scripts/service_restart_resume.py --base-url <배포 주소> --step pause --state restart_state.json
+{"step": "pause", "http": 200, "outcome": "awaiting_approval", "review_id": "7c0f3f76-a41e-499b-b1ac-22835189a005", "corp_name": "오뚜기", "draft": [{"item": "borrowing_structure", "verdict": "applicable", "citations": 4}], "status_before_restart": "awaiting_approval", "host": "creditpulse-api-236552047198.asia-northeast3.run.app", "at": "2026-11-17T01:33:05+0900"}
+
+$ gcloud run services update creditpulse-api --region asia-northeast3 --update-labels restart-check=20261117
+(새 리비전 creditpulse-api-00056-nm5가 떠서 트래픽 100%를 받음)
+
+$ python -X utf8 scripts/service_restart_resume.py --base-url <배포 주소> --step resume --state restart_state.json
+{"step": "resume", "review_id": "7c0f3f76-a41e-499b-b1ac-22835189a005", "detail_http": 200, "status_after_restart": "awaiting_approval", "pending_draft": [{"item": "borrowing_structure", "verdict": "applicable", "citations": 4}], "draft_same_as_before_restart": true, "approve_http": 200, "memo_id_saved": true, "approval_seq": 1, "approve_error": null, "second_approve_http": 409, "second_approve_error": "CONFLICT_NOT_AWAITING_APPROVAL", "status_after_approval": "closed", "host": "creditpulse-api-236552047198.asia-northeast3.run.app", "at": "2026-11-17T01:35:36+0900"}
+
+읽는 법
+  - status_after_restart = awaiting_approval, draft_same_as_before_restart = true: 서버가 새로 떠도 승인 대기와 초안이 그대로다.
+  - approve_http = 200, memo_id_saved = true: 새 서버에서 승인해 메모가 저장됐다.
+  - second_approve_http = 409 (CONFLICT_NOT_AWAITING_APPROVAL): 같은 승인을 다시 보내면 막힌다.
+  - 출력 두 줄은 키 소유자가 실행해 붙여 준 것을 그대로 옮겼다. 리비전과 시각은 gcloud로 따로 확인했다.

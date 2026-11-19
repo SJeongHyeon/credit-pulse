@@ -1,0 +1,208 @@
+{
+  "candidate_k": 50,
+  "dataset_sha256": "8f79a754a663e3b38cbe44efb1aaa785e3e1bdf93aa9b1048c374063c26da934",
+  "irrelevant_questions": 15,
+  "k": 10,
+  "latency": {
+    "max_ms": 56738.35599999984,
+    "p50_ms": 52082.20924999932,
+    "p95_ms": 56708.647099999915,
+    "queries": 14
+  },
+  "mrr_at_10": 0.3576719576719577,
+  "per_question": [
+    {
+      "first_gold_rank": null,
+      "hit": false,
+      "id": 1,
+      "kind": "relevant"
+    },
+    {
+      "first_gold_rank": 9,
+      "hit": true,
+      "id": 2,
+      "kind": "relevant"
+    },
+    {
+      "first_gold_rank": 1,
+      "hit": true,
+      "id": 3,
+      "kind": "relevant"
+    },
+    {
+      "first_gold_rank": 1,
+      "hit": true,
+      "id": 4,
+      "kind": "relevant"
+    },
+    {
+      "first_gold_rank": 9,
+      "hit": true,
+      "id": 5,
+      "kind": "relevant"
+    },
+    {
+      "first_gold_rank": null,
+      "hit": false,
+      "id": 6,
+      "kind": "relevant"
+    },
+    {
+      "first_gold_rank": 2,
+      "hit": true,
+      "id": 7,
+      "kind": "relevant"
+    },
+    {
+      "first_gold_rank": 1,
+      "hit": true,
+      "id": 8,
+      "kind": "relevant"
+    },
+    {
+      "first_gold_rank": null,
+      "hit": false,
+      "id": 9,
+      "kind": "relevant"
+    },
+    {
+      "first_gold_rank": null,
+      "hit": false,
+      "id": 10,
+      "kind": "relevant"
+    },
+    {
+      "first_gold_rank": 1,
+      "hit": true,
+      "id": 11,
+      "kind": "relevant"
+    },
+    {
+      "first_gold_rank": 7,
+      "hit": true,
+      "id": 12,
+      "kind": "relevant"
+    },
+    {
+      "first_gold_rank": 5,
+      "hit": true,
+      "id": 13,
+      "kind": "relevant"
+    },
+    {
+      "first_gold_rank": 10,
+      "hit": true,
+      "id": 14,
+      "kind": "relevant"
+    },
+    {
+      "first_gold_rank": 5,
+      "hit": true,
+      "id": 15,
+      "kind": "relevant"
+    },
+    {
+      "first_gold_rank": null,
+      "hit": null,
+      "id": 16,
+      "kind": "irrelevant"
+    },
+    {
+      "first_gold_rank": null,
+      "hit": null,
+      "id": 17,
+      "kind": "irrelevant"
+    },
+    {
+      "first_gold_rank": null,
+      "hit": null,
+      "id": 18,
+      "kind": "irrelevant"
+    },
+    {
+      "first_gold_rank": null,
+      "hit": null,
+      "id": 19,
+      "kind": "irrelevant"
+    },
+    {
+      "first_gold_rank": null,
+      "hit": null,
+      "id": 20,
+      "kind": "irrelevant"
+    },
+    {
+      "first_gold_rank": null,
+      "hit": null,
+      "id": 21,
+      "kind": "irrelevant"
+    },
+    {
+      "first_gold_rank": null,
+      "hit": null,
+      "id": 22,
+      "kind": "irrelevant"
+    },
+    {
+      "first_gold_rank": null,
+      "hit": null,
+      "id": 23,
+      "kind": "irrelevant"
+    },
+    {
+      "first_gold_rank": null,
+      "hit": null,
+      "id": 24,
+      "kind": "irrelevant"
+    },
+    {
+      "first_gold_rank": null,
+      "hit": null,
+      "id": 25,
+      "kind": "irrelevant"
+    },
+    {
+      "first_gold_rank": null,
+      "hit": null,
+      "id": 26,
+      "kind": "irrelevant"
+    },
+    {
+      "first_gold_rank": null,
+      "hit": null,
+      "id": 27,
+      "kind": "irrelevant"
+    },
+    {
+      "first_gold_rank": null,
+      "hit": null,
+      "id": 28,
+      "kind": "irrelevant"
+    },
+    {
+      "first_gold_rank": null,
+      "hit": null,
+      "id": 29,
+      "kind": "irrelevant"
+    },
+    {
+      "first_gold_rank": null,
+      "hit": null,
+      "id": 30,
+      "kind": "irrelevant"
+    }
+  ],
+  "questions_total": 30,
+  "recall_at_10": 0.7333333333333333,
+  "reference_candidate_30": {
+    "irrelevant_questions": 15,
+    "k": 10,
+    "mrr_at_10": 0.36238095238095247,
+    "questions_total": 30,
+    "recall_at_10": 0.6666666666666666,
+    "relevant_questions": 15
+  },
+  "relevant_questions": 15,
+  "reranker": "BAAI/bge-reranker-v2-m3",
+  "results_sha256": "08fb819e9780b24e2205a143409c8028f96d118833fb20247fb33bb0dfbf541a"
+}

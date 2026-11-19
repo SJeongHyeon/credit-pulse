@@ -1,0 +1,302 @@
+{
+  "candidate_k": 20,
+  "dataset_sha256": "9ba632b03e1a1e5f218cd97ca964f3540f30039bb5c901519922676d6b942d0f",
+  "hit_at_10": 1.0,
+  "irrelevant_questions": 15,
+  "k": 10,
+  "latency": {
+    "max_ms": 1841.3750000036089,
+    "p50_ms": 390.51109999854816,
+    "p95_ms": 930.0863100033889,
+    "queries": 14
+  },
+  "mrr_at_10": 0.6518518518518518,
+  "ndcg_at_10": 0.6268000114556512,
+  "per_question": [
+    {
+      "first_gold_rank": 1,
+      "gold_count": 1,
+      "hit": true,
+      "id": 1,
+      "kind": "relevant",
+      "ndcg": 1.0,
+      "recall": 1.0
+    },
+    {
+      "first_gold_rank": 2,
+      "gold_count": 1,
+      "hit": true,
+      "id": 2,
+      "kind": "relevant",
+      "ndcg": 0.6309297535714575,
+      "recall": 1.0
+    },
+    {
+      "first_gold_rank": 1,
+      "gold_count": 2,
+      "hit": true,
+      "id": 3,
+      "kind": "relevant",
+      "ndcg": 1.0,
+      "recall": 1.0
+    },
+    {
+      "first_gold_rank": 1,
+      "gold_count": 1,
+      "hit": true,
+      "id": 4,
+      "kind": "relevant",
+      "ndcg": 1.0,
+      "recall": 1.0
+    },
+    {
+      "first_gold_rank": 1,
+      "gold_count": 3,
+      "hit": true,
+      "id": 5,
+      "kind": "relevant",
+      "ndcg": 0.8072467605676945,
+      "recall": 1.0
+    },
+    {
+      "first_gold_rank": 3,
+      "gold_count": 4,
+      "hit": true,
+      "id": 6,
+      "kind": "relevant",
+      "ndcg": 0.36331756126716835,
+      "recall": 0.5
+    },
+    {
+      "first_gold_rank": 2,
+      "gold_count": 2,
+      "hit": true,
+      "id": 7,
+      "kind": "relevant",
+      "ndcg": 0.38685280723454163,
+      "recall": 0.5
+    },
+    {
+      "first_gold_rank": 2,
+      "gold_count": 1,
+      "hit": true,
+      "id": 8,
+      "kind": "relevant",
+      "ndcg": 0.6309297535714575,
+      "recall": 1.0
+    },
+    {
+      "first_gold_rank": 1,
+      "gold_count": 1,
+      "hit": true,
+      "id": 9,
+      "kind": "relevant",
+      "ndcg": 1.0,
+      "recall": 1.0
+    },
+    {
+      "first_gold_rank": 3,
+      "gold_count": 1,
+      "hit": true,
+      "id": 10,
+      "kind": "relevant",
+      "ndcg": 0.5,
+      "recall": 1.0
+    },
+    {
+      "first_gold_rank": 1,
+      "gold_count": 2,
+      "hit": true,
+      "id": 11,
+      "kind": "relevant",
+      "ndcg": 0.6131471927654584,
+      "recall": 0.5
+    },
+    {
+      "first_gold_rank": 2,
+      "gold_count": 3,
+      "hit": true,
+      "id": 12,
+      "kind": "relevant",
+      "ndcg": 0.2960819109658652,
+      "recall": 0.3333333333333333
+    },
+    {
+      "first_gold_rank": 2,
+      "gold_count": 4,
+      "hit": true,
+      "id": 13,
+      "kind": "relevant",
+      "ndcg": 0.3973220069685352,
+      "recall": 0.5
+    },
+    {
+      "first_gold_rank": 9,
+      "gold_count": 7,
+      "hit": true,
+      "id": 14,
+      "kind": "relevant",
+      "ndcg": 0.08274602130532002,
+      "recall": 0.14285714285714285
+    },
+    {
+      "first_gold_rank": 2,
+      "gold_count": 2,
+      "hit": true,
+      "id": 15,
+      "kind": "relevant",
+      "ndcg": 0.6934264036172708,
+      "recall": 1.0
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 0,
+      "hit": null,
+      "id": 16,
+      "kind": "irrelevant",
+      "ndcg": null,
+      "recall": null
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 0,
+      "hit": null,
+      "id": 17,
+      "kind": "irrelevant",
+      "ndcg": null,
+      "recall": null
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 0,
+      "hit": null,
+      "id": 18,
+      "kind": "irrelevant",
+      "ndcg": null,
+      "recall": null
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 0,
+      "hit": null,
+      "id": 19,
+      "kind": "irrelevant",
+      "ndcg": null,
+      "recall": null
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 0,
+      "hit": null,
+      "id": 20,
+      "kind": "irrelevant",
+      "ndcg": null,
+      "recall": null
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 0,
+      "hit": null,
+      "id": 21,
+      "kind": "irrelevant",
+      "ndcg": null,
+      "recall": null
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 0,
+      "hit": null,
+      "id": 22,
+      "kind": "irrelevant",
+      "ndcg": null,
+      "recall": null
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 0,
+      "hit": null,
+      "id": 23,
+      "kind": "irrelevant",
+      "ndcg": null,
+      "recall": null
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 0,
+      "hit": null,
+      "id": 24,
+      "kind": "irrelevant",
+      "ndcg": null,
+      "recall": null
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 0,
+      "hit": null,
+      "id": 25,
+      "kind": "irrelevant",
+      "ndcg": null,
+      "recall": null
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 0,
+      "hit": null,
+      "id": 26,
+      "kind": "irrelevant",
+      "ndcg": null,
+      "recall": null
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 0,
+      "hit": null,
+      "id": 27,
+      "kind": "irrelevant",
+      "ndcg": null,
+      "recall": null
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 0,
+      "hit": null,
+      "id": 28,
+      "kind": "irrelevant",
+      "ndcg": null,
+      "recall": null
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 0,
+      "hit": null,
+      "id": 29,
+      "kind": "irrelevant",
+      "ndcg": null,
+      "recall": null
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 0,
+      "hit": null,
+      "id": 30,
+      "kind": "irrelevant",
+      "ndcg": null,
+      "recall": null
+    }
+  ],
+  "questions_total": 30,
+  "recall_at_10": 0.7650793650793651,
+  "reference_candidate_30": {
+    "hit_at_10": 1.0,
+    "irrelevant_questions": 15,
+    "k": 10,
+    "mrr_at_10": 0.6518518518518518,
+    "ndcg_at_10": 0.6268000114556512,
+    "questions_total": 30,
+    "recall_at_10": 0.7650793650793651,
+    "relevant_questions": 15
+  },
+  "relevant_questions": 15,
+  "reranker": "voyage/rerank-3",
+  "results_sha256": "89fcd0ac0fb470e44c36e57903ed4a0c1e0156150ab6a25fd732fda7eed9eb17"
+}

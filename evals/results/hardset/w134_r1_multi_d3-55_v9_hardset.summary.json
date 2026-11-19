@@ -1,0 +1,312 @@
+{
+  "started_at": "2026-11-11T23:15:03.905194+00:00",
+  "git_commit": "c1a19d136f31018175c5727f7ef5df897eeff68e",
+  "combo_id": "d3-55",
+  "retrieval": {
+    "combo": {
+      "combo_id": "d3-55",
+      "preregister_no": "55",
+      "chunking": "fixed_window_1000_overlap100",
+      "embedding_model": "openai/text-embedding-3-small",
+      "embedding_dim": 1536,
+      "tokenizer": "kiwi",
+      "rrf_k": 10,
+      "rrf_candidates": 50,
+      "reranker": "voyage/rerank-2.5",
+      "rerank_candidates": 50,
+      "top_k": 10,
+      "rerank_header": true,
+      "rerank_top1_min_score": 0.6767
+    },
+    "chunks_path": "data\\experiments\\b100-v9-fixed_window\\chunks.jsonl",
+    "chunks_sha256": "f523a7a9575f1ee5d4457e4c150b88e48525fb7cd5cdbca222dae6943494b62b",
+    "corpus_ids": [
+      "corpus-ffc1830e50a11c57749b63b9"
+    ],
+    "vector_backend": "memory",
+    "embedding_prefix": "data\\embeddings\\v9\\oai-small-fixed1000-o100",
+    "embedding_config_sha256": "f38e49273923ec7eba1c506821a489273be9cc13497d4ba9b41f63873327f752",
+    "indexed_corp_codes": [
+      "00101220",
+      "00103042",
+      "00121288",
+      "00132868",
+      "00140177",
+      "00141529",
+      "00148610",
+      "00170558",
+      "00231363",
+      "00356361",
+      "00414850",
+      "00459871",
+      "00949161",
+      "00992871",
+      "01562589",
+      "01965324"
+    ],
+    "bm25_tokens_path": "data\\experiments\\b100-v9-fixed_window\\bm25_tokens.win.jsonl.gz",
+    "bm25_tokens_used": true
+  },
+  "chunk_version": "v9",
+  "models": {
+    "embedding": "openai/text-embedding-3-small@1536",
+    "reranker": "voyage/rerank-2.5",
+    "scorer": "off(회사·연도 결정적 검사만)",
+    "rewriter": "deepseek/deepseek-v4.1-flash",
+    "writer": "deepseek/deepseek-v4.1-flash",
+    "writer_reasoning_effort": "none",
+    "writer_reason_numbers": false,
+    "supervisor": "openai/gpt-4o-mini",
+    "supervisor_prompt_version": "supervisor-v1",
+    "search_grader": "google/gemini-3.5-flash-lite(grade_search_round)",
+    "rerank_top1_min_score": 0.6767,
+    "domain_classifier": "openai/gpt-4o-mini"
+  },
+  "graph": "multi",
+  "domain_check": true,
+  "agents": "real",
+  "llm_grading": false,
+  "dataset": {
+    "path": "evals\\dataset_v1.jsonl",
+    "sha256": "8f79a754a663e3b38cbe44efb1aaa785e3e1bdf93aa9b1048c374063c26da934"
+  },
+  "gold": {
+    "path": "evals/mappings/dataset_v1.v9_fixed_window.jsonl",
+    "sha256": "5dce7a4cf9eabe75d2707a6ae1c5a186bf92c14041082ae2fb9f910b90b0d0f8"
+  },
+  "retrieval_subset": null,
+  "query_vectors": null,
+  "filters": {
+    "path": "evals\\filters_v1.graph.jsonl",
+    "sha256": "d87814f4764ad47b83bee56a91f945a20bf5e0cc6e66e6ecc2dc40488729793a",
+    "source": "supervisor 추출(필터 파일과 대조, 불일치 시 중단)"
+  },
+  "limit": null,
+  "ids": "2,4,6,8,9,12,14",
+  "llm_usage": {
+    "by_model": {
+      "embedding:openai/text-embedding-3-small": {
+        "calls": 7,
+        "input_tokens": 369,
+        "output_tokens": 0,
+        "cost_usd": 7.380000000000001e-06,
+        "cost_unknown_calls": 0
+      },
+      "rerank:rerank-2.5": {
+        "calls": 7,
+        "input_tokens": 271257,
+        "output_tokens": 0,
+        "cost_usd": 0.013562850000000001,
+        "cost_unknown_calls": 0
+      },
+      "chat:openai/gpt-4o-mini": {
+        "calls": 15,
+        "input_tokens": 7150,
+        "output_tokens": 706,
+        "cost_usd": 0.0014960999999999998,
+        "cost_unknown_calls": 0
+      },
+      "chat:deepseek/deepseek-v4.1-flash": {
+        "calls": 16,
+        "input_tokens": 112780,
+        "output_tokens": 5047,
+        "cost_usd": 0.038385119999999995,
+        "cost_unknown_calls": 0
+      },
+      "chat:google/gemini-3.5-flash-lite": {
+        "calls": 5,
+        "input_tokens": 36911,
+        "output_tokens": 706,
+        "cost_usd": 0.012838299999999999,
+        "cost_unknown_calls": 0
+      }
+    },
+    "cost_usd_known_total": 0.06629,
+    "cost_unknown_calls": 0
+  },
+  "metrics": {
+    "n": 7,
+    "response": {
+      "correct_refusal": {
+        "numerator": 0,
+        "denominator": 0,
+        "rate": 0.0
+      },
+      "over_refusal": {
+        "numerator": 1,
+        "denominator": 7,
+        "rate": 0.14285714285714285
+      },
+      "correct_citation": {
+        "numerator": 5,
+        "denominator": 7,
+        "rate": 0.7142857142857143
+      },
+      "wrong_citation": {
+        "numerator": 1,
+        "denominator": 7,
+        "rate": 0.14285714285714285
+      },
+      "hallucination_risk": {
+        "numerator": 0,
+        "denominator": 0,
+        "rate": 0.0
+      }
+    },
+    "retrieval_n": 7,
+    "retrieval_first_round": {
+      "k": 10,
+      "questions_total": 7,
+      "relevant_questions": 7,
+      "irrelevant_questions": 0,
+      "hit_at_10": 1.0,
+      "recall_at_10": 0.7517006802721088,
+      "mrr_at_10": 0.30612244897959184,
+      "ndcg_at_10": 0.3916481029871975,
+      "per_question": [
+        {
+          "id": 2,
+          "kind": "relevant",
+          "hit": true,
+          "first_gold_rank": 4,
+          "gold_count": 1,
+          "recall": 1.0,
+          "ndcg": 0.43067655807339306
+        },
+        {
+          "id": 4,
+          "kind": "relevant",
+          "hit": true,
+          "first_gold_rank": 6,
+          "gold_count": 1,
+          "recall": 1.0,
+          "ndcg": 0.3562071871080222
+        },
+        {
+          "id": 6,
+          "kind": "relevant",
+          "hit": true,
+          "first_gold_rank": 2,
+          "gold_count": 4,
+          "recall": 0.5,
+          "ndcg": 0.3973220069685352
+        },
+        {
+          "id": 8,
+          "kind": "relevant",
+          "hit": true,
+          "first_gold_rank": 2,
+          "gold_count": 1,
+          "recall": 1.0,
+          "ndcg": 0.6309297535714575
+        },
+        {
+          "id": 9,
+          "kind": "relevant",
+          "hit": true,
+          "first_gold_rank": 4,
+          "gold_count": 1,
+          "recall": 1.0,
+          "ndcg": 0.43067655807339306
+        },
+        {
+          "id": 12,
+          "kind": "relevant",
+          "hit": true,
+          "first_gold_rank": 3,
+          "gold_count": 3,
+          "recall": 0.3333333333333333,
+          "ndcg": 0.23463936301137822
+        },
+        {
+          "id": 14,
+          "kind": "relevant",
+          "hit": true,
+          "first_gold_rank": 7,
+          "gold_count": 7,
+          "recall": 0.42857142857142855,
+          "ndcg": 0.2610852941042034
+        }
+      ]
+    },
+    "retrieval_last_round": {
+      "k": 10,
+      "questions_total": 7,
+      "relevant_questions": 7,
+      "irrelevant_questions": 0,
+      "hit_at_10": 1.0,
+      "recall_at_10": 0.7517006802721088,
+      "mrr_at_10": 0.30612244897959184,
+      "ndcg_at_10": 0.3916481029871975,
+      "per_question": [
+        {
+          "id": 2,
+          "kind": "relevant",
+          "hit": true,
+          "first_gold_rank": 4,
+          "gold_count": 1,
+          "recall": 1.0,
+          "ndcg": 0.43067655807339306
+        },
+        {
+          "id": 4,
+          "kind": "relevant",
+          "hit": true,
+          "first_gold_rank": 6,
+          "gold_count": 1,
+          "recall": 1.0,
+          "ndcg": 0.3562071871080222
+        },
+        {
+          "id": 6,
+          "kind": "relevant",
+          "hit": true,
+          "first_gold_rank": 2,
+          "gold_count": 4,
+          "recall": 0.5,
+          "ndcg": 0.3973220069685352
+        },
+        {
+          "id": 8,
+          "kind": "relevant",
+          "hit": true,
+          "first_gold_rank": 2,
+          "gold_count": 1,
+          "recall": 1.0,
+          "ndcg": 0.6309297535714575
+        },
+        {
+          "id": 9,
+          "kind": "relevant",
+          "hit": true,
+          "first_gold_rank": 4,
+          "gold_count": 1,
+          "recall": 1.0,
+          "ndcg": 0.43067655807339306
+        },
+        {
+          "id": 12,
+          "kind": "relevant",
+          "hit": true,
+          "first_gold_rank": 3,
+          "gold_count": 3,
+          "recall": 0.3333333333333333,
+          "ndcg": 0.23463936301137822
+        },
+        {
+          "id": 14,
+          "kind": "relevant",
+          "hit": true,
+          "first_gold_rank": 7,
+          "gold_count": 7,
+          "recall": 0.42857142857142855,
+          "ndcg": 0.2610852941042034
+        }
+      ]
+    },
+    "relevant_answered_without_citations": 0,
+    "retrieval_calls_total": 7,
+    "domain_refused_ids": [],
+    "rerank_input_chars_total": 363584
+  }
+}

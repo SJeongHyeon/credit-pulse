@@ -1,0 +1,28 @@
+/* 외부 글꼴 서비스 없이 같은 서버에서 내려주는 글꼴(가변 굵기, 필요한 글자만 줄인 사본) */
+
+/* 제목용 한글 명조 */
+@font-face {
+  font-display: swap;
+  font-family: "Noto Serif KR";
+  font-style: normal;
+  font-weight: 200 900;
+  src: url("/static/fonts/NotoSerifKR-subset.woff2") format("woff2");
+}
+
+/* 본문·표·카드용 고딕(Pretendard 부분집합, 예약 이름을 피해 이름을 바꿈: fonts/LICENSE.txt) */
+@font-face {
+  font-display: swap;
+  font-family: "Credit Pulse Sans";
+  font-style: normal;
+  font-weight: 300 700;
+  src: url("/static/fonts/CreditPulseSans-subset.woff2") format("woff2");
+}
+
+/* 영문 제목(CREDIT PULSE 등)용 세리프(Playfair Display 부분집합, 이름을 바꿈: fonts/LICENSE.txt). 한글은 Noto Serif KR이 맡는다 */
+@font-face {
+  font-display: swap;
+  font-family: "Credit Pulse Serif";
+  font-style: normal;
+  font-weight: 400 700;
+  src: url("/static/fonts/CreditPulseSerif-subset.woff2") format("woff2");
+}

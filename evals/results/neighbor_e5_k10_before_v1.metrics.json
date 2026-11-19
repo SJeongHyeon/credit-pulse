@@ -1,0 +1,192 @@
+{
+  "after": 0,
+  "baseline_by_chars": {
+    "hit": 0.7333333333333333,
+    "mrr": 0.4077777777777778
+  },
+  "baseline_by_chunks": {
+    "hit": 0.7333333333333333,
+    "mrr": 0.4077777777777778
+  },
+  "before": 1,
+  "dataset_sha256": "8f79a754a663e3b38cbe44efb1aaa785e3e1bdf93aa9b1048c374063c26da934",
+  "hit": 0.7333333333333333,
+  "improved": 0,
+  "max_total_chars": 15488,
+  "mean_total_chars": 10249.066666666668,
+  "mean_total_chunks": 17.4,
+  "mrr_flat_rank": 0.3306902356902357,
+  "mrr_seed_rank": 0.4077777777777778,
+  "per_question": [
+    {
+      "baseline_chars_rank": null,
+      "baseline_chunks_rank": null,
+      "by_chars_n": 14,
+      "change": "same",
+      "flat_rank": null,
+      "id": 1,
+      "seed_rank": null,
+      "total_chars": 12148,
+      "total_chunks": 16
+    },
+    {
+      "baseline_chars_rank": 1,
+      "baseline_chunks_rank": 1,
+      "by_chars_n": 11,
+      "change": "same",
+      "flat_rank": 1,
+      "id": 2,
+      "seed_rank": 1,
+      "total_chars": 8251,
+      "total_chunks": 15
+    },
+    {
+      "baseline_chars_rank": 1,
+      "baseline_chunks_rank": 1,
+      "by_chars_n": 13,
+      "change": "same",
+      "flat_rank": 1,
+      "id": 3,
+      "seed_rank": 1,
+      "total_chars": 7808,
+      "total_chunks": 17
+    },
+    {
+      "baseline_chars_rank": 1,
+      "baseline_chunks_rank": 1,
+      "by_chars_n": 16,
+      "change": "same",
+      "flat_rank": 1,
+      "id": 4,
+      "seed_rank": 1,
+      "total_chars": 6661,
+      "total_chunks": 18
+    },
+    {
+      "baseline_chars_rank": 2,
+      "baseline_chunks_rank": 2,
+      "by_chars_n": 15,
+      "change": "worsened",
+      "flat_rank": 3,
+      "id": 5,
+      "seed_rank": 2,
+      "total_chars": 14174,
+      "total_chunks": 17
+    },
+    {
+      "baseline_chars_rank": 6,
+      "baseline_chunks_rank": 6,
+      "by_chars_n": 17,
+      "change": "worsened",
+      "flat_rank": 11,
+      "id": 6,
+      "seed_rank": 6,
+      "total_chars": 10953,
+      "total_chunks": 19
+    },
+    {
+      "baseline_chars_rank": 5,
+      "baseline_chunks_rank": 5,
+      "by_chars_n": 13,
+      "change": "worsened",
+      "flat_rank": 9,
+      "id": 7,
+      "seed_rank": 5,
+      "total_chars": 7165,
+      "total_chunks": 18
+    },
+    {
+      "baseline_chars_rank": 3,
+      "baseline_chunks_rank": 3,
+      "by_chars_n": 15,
+      "change": "worsened",
+      "flat_rank": 5,
+      "id": 8,
+      "seed_rank": 3,
+      "total_chars": 9468,
+      "total_chunks": 17
+    },
+    {
+      "baseline_chars_rank": null,
+      "baseline_chunks_rank": null,
+      "by_chars_n": 15,
+      "change": "same",
+      "flat_rank": null,
+      "id": 9,
+      "seed_rank": null,
+      "total_chars": 12602,
+      "total_chunks": 17
+    },
+    {
+      "baseline_chars_rank": null,
+      "baseline_chunks_rank": null,
+      "by_chars_n": 17,
+      "change": "same",
+      "flat_rank": null,
+      "id": 10,
+      "seed_rank": null,
+      "total_chars": 13535,
+      "total_chunks": 19
+    },
+    {
+      "baseline_chars_rank": 2,
+      "baseline_chunks_rank": 2,
+      "by_chars_n": 15,
+      "change": "same",
+      "flat_rank": 2,
+      "id": 11,
+      "seed_rank": 2,
+      "total_chars": 12588,
+      "total_chunks": 16
+    },
+    {
+      "baseline_chars_rank": 6,
+      "baseline_chunks_rank": 6,
+      "by_chars_n": 14,
+      "change": "worsened",
+      "flat_rank": 10,
+      "id": 12,
+      "seed_rank": 6,
+      "total_chars": 8040,
+      "total_chunks": 18
+    },
+    {
+      "baseline_chars_rank": 4,
+      "baseline_chunks_rank": 4,
+      "by_chars_n": 16,
+      "change": "worsened",
+      "flat_rank": 8,
+      "id": 13,
+      "seed_rank": 4,
+      "total_chars": 15488,
+      "total_chunks": 19
+    },
+    {
+      "baseline_chars_rank": null,
+      "baseline_chunks_rank": null,
+      "by_chars_n": 13,
+      "change": "same",
+      "flat_rank": null,
+      "id": 14,
+      "seed_rank": null,
+      "total_chars": 8038,
+      "total_chunks": 17
+    },
+    {
+      "baseline_chars_rank": 1,
+      "baseline_chunks_rank": 1,
+      "by_chars_n": 14,
+      "change": "worsened",
+      "flat_rank": 2,
+      "id": 15,
+      "seed_rank": 1,
+      "total_chars": 6817,
+      "total_chunks": 18
+    }
+  ],
+  "relevant_questions": 15,
+  "results_sha256": "3e2d2ddbeeb65ca80825255b230c2c7263110600b3ea35fe87388951982b8867",
+  "same": 8,
+  "seed_k": 10,
+  "worsened": 7
+}

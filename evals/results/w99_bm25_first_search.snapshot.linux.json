@@ -1,0 +1,363 @@
+{
+  "what": "사전 등록 99번: 회사별 BM25 첫 검색 시간, 토큰표 없음(그 자리에서 Kiwi 토큰화) 대 있음(미리 계산)",
+  "source": "snapshot",
+  "measured_at": "2026-11-12T01:03:18+0000",
+  "machine": {
+    "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.41",
+    "python": "3.12.16",
+    "processor": ""
+  },
+  "chunks_file": {
+    "path": "data/snapshot/chunks.jsonl.gz(푼 것)",
+    "sha256": "3c0d7174d9dbf12774d267b17f0f12cf1b4ee4529fea97dff197c414e27a8e59"
+  },
+  "token_table": {
+    "path": "(이 실행에서 만든 임시 토큰표)",
+    "sha256": "12cefda5bbcf415d1f2bc27b42b8a2632cbf02e7a422403c7afed02281cd33d8",
+    "build_seconds_on_this_machine": 41.1
+  },
+  "question": "2025년 말 연결 기준 차입금과 사채 잔액은 얼마인가요?",
+  "fiscal_year": 2025,
+  "repeat": 3,
+  "note": "측정마다 새 프로세스. 청크 읽기·Kiwi 생성·토큰표 읽기는 첫 검색 시간에 넣지 않았다(서버 기동 때 하는 일). 절대 시간은 컴퓨터와 그때의 부하에 따라 달라진다. 볼 것은 같은 컴퓨터에서 번갈아 잰 표 없음 대 있음의 차이다.",
+  "summary": [
+    {
+      "corp_code": "00148610",
+      "company_chunks": 577,
+      "first_search_median_seconds_without_table": 4.9487,
+      "second_search_median_ms_without_table": 1.73,
+      "first_search_median_seconds_with_table": 0.0303,
+      "second_search_median_ms_with_table": 1.67,
+      "speedup": 163.3,
+      "same_top5_with_and_without_table": true
+    },
+    {
+      "corp_code": "00103042",
+      "company_chunks": 277,
+      "first_search_median_seconds_without_table": 2.0652,
+      "second_search_median_ms_without_table": 1.69,
+      "first_search_median_seconds_with_table": 0.0287,
+      "second_search_median_ms_with_table": 1.43,
+      "speedup": 72.0,
+      "same_top5_with_and_without_table": true
+    },
+    {
+      "corp_code": "01965324",
+      "company_chunks": 144,
+      "first_search_median_seconds_without_table": 1.1763,
+      "second_search_median_ms_without_table": 1.05,
+      "first_search_median_seconds_with_table": 0.0147,
+      "second_search_median_ms_with_table": 1.1,
+      "speedup": 80.0,
+      "same_top5_with_and_without_table": true
+    }
+  ],
+  "runs": [
+    {
+      "corp_code": "00148610",
+      "mode": "without",
+      "company_chunks": 577,
+      "first_search_seconds": 5.0405,
+      "second_search_seconds": 0.00173,
+      "token_table_load_seconds": 0.0,
+      "top5_chunk_ids": [
+        "chunk-9636b34750d4c53098650f79",
+        "chunk-d2663feba648ad4cf1e31c71",
+        "chunk-7f888a18a31962650b9a40a8",
+        "chunk-78180611f1588ddedc353c28",
+        "chunk-fc04ef8717c309e97044cb18"
+      ],
+      "same_result_second_time": true,
+      "round": 1
+    },
+    {
+      "corp_code": "00148610",
+      "mode": "with",
+      "company_chunks": 577,
+      "first_search_seconds": 0.0354,
+      "second_search_seconds": 0.00167,
+      "token_table_load_seconds": 0.345,
+      "top5_chunk_ids": [
+        "chunk-9636b34750d4c53098650f79",
+        "chunk-d2663feba648ad4cf1e31c71",
+        "chunk-7f888a18a31962650b9a40a8",
+        "chunk-78180611f1588ddedc353c28",
+        "chunk-fc04ef8717c309e97044cb18"
+      ],
+      "same_result_second_time": true,
+      "round": 1
+    },
+    {
+      "corp_code": "00148610",
+      "mode": "without",
+      "company_chunks": 577,
+      "first_search_seconds": 4.8775,
+      "second_search_seconds": 0.0017,
+      "token_table_load_seconds": 0.0,
+      "top5_chunk_ids": [
+        "chunk-9636b34750d4c53098650f79",
+        "chunk-d2663feba648ad4cf1e31c71",
+        "chunk-7f888a18a31962650b9a40a8",
+        "chunk-78180611f1588ddedc353c28",
+        "chunk-fc04ef8717c309e97044cb18"
+      ],
+      "same_result_second_time": true,
+      "round": 2
+    },
+    {
+      "corp_code": "00148610",
+      "mode": "with",
+      "company_chunks": 577,
+      "first_search_seconds": 0.03,
+      "second_search_seconds": 0.00164,
+      "token_table_load_seconds": 0.35,
+      "top5_chunk_ids": [
+        "chunk-9636b34750d4c53098650f79",
+        "chunk-d2663feba648ad4cf1e31c71",
+        "chunk-7f888a18a31962650b9a40a8",
+        "chunk-78180611f1588ddedc353c28",
+        "chunk-fc04ef8717c309e97044cb18"
+      ],
+      "same_result_second_time": true,
+      "round": 2
+    },
+    {
+      "corp_code": "00148610",
+      "mode": "without",
+      "company_chunks": 577,
+      "first_search_seconds": 4.9487,
+      "second_search_seconds": 0.00209,
+      "token_table_load_seconds": 0.0,
+      "top5_chunk_ids": [
+        "chunk-9636b34750d4c53098650f79",
+        "chunk-d2663feba648ad4cf1e31c71",
+        "chunk-7f888a18a31962650b9a40a8",
+        "chunk-78180611f1588ddedc353c28",
+        "chunk-fc04ef8717c309e97044cb18"
+      ],
+      "same_result_second_time": true,
+      "round": 3
+    },
+    {
+      "corp_code": "00148610",
+      "mode": "with",
+      "company_chunks": 577,
+      "first_search_seconds": 0.0303,
+      "second_search_seconds": 0.00181,
+      "token_table_load_seconds": 0.375,
+      "top5_chunk_ids": [
+        "chunk-9636b34750d4c53098650f79",
+        "chunk-d2663feba648ad4cf1e31c71",
+        "chunk-7f888a18a31962650b9a40a8",
+        "chunk-78180611f1588ddedc353c28",
+        "chunk-fc04ef8717c309e97044cb18"
+      ],
+      "same_result_second_time": true,
+      "round": 3
+    },
+    {
+      "corp_code": "00103042",
+      "mode": "without",
+      "company_chunks": 277,
+      "first_search_seconds": 2.0959,
+      "second_search_seconds": 0.00312,
+      "token_table_load_seconds": 0.0,
+      "top5_chunk_ids": [
+        "chunk-32e462bb29be5564c886020b",
+        "chunk-d57d9aa5917dbe2ca903114a",
+        "chunk-77fb1205111714f55575ee1c",
+        "chunk-d09639538a18b9a2e6d0205d",
+        "chunk-cff1aeacfb0a069f7cb77af4"
+      ],
+      "same_result_second_time": true,
+      "round": 1
+    },
+    {
+      "corp_code": "00103042",
+      "mode": "with",
+      "company_chunks": 277,
+      "first_search_seconds": 0.0328,
+      "second_search_seconds": 0.00138,
+      "token_table_load_seconds": 0.419,
+      "top5_chunk_ids": [
+        "chunk-32e462bb29be5564c886020b",
+        "chunk-d57d9aa5917dbe2ca903114a",
+        "chunk-77fb1205111714f55575ee1c",
+        "chunk-d09639538a18b9a2e6d0205d",
+        "chunk-cff1aeacfb0a069f7cb77af4"
+      ],
+      "same_result_second_time": true,
+      "round": 1
+    },
+    {
+      "corp_code": "00103042",
+      "mode": "without",
+      "company_chunks": 277,
+      "first_search_seconds": 2.0652,
+      "second_search_seconds": 0.00169,
+      "token_table_load_seconds": 0.0,
+      "top5_chunk_ids": [
+        "chunk-32e462bb29be5564c886020b",
+        "chunk-d57d9aa5917dbe2ca903114a",
+        "chunk-77fb1205111714f55575ee1c",
+        "chunk-d09639538a18b9a2e6d0205d",
+        "chunk-cff1aeacfb0a069f7cb77af4"
+      ],
+      "same_result_second_time": true,
+      "round": 2
+    },
+    {
+      "corp_code": "00103042",
+      "mode": "with",
+      "company_chunks": 277,
+      "first_search_seconds": 0.0205,
+      "second_search_seconds": 0.00143,
+      "token_table_load_seconds": 0.359,
+      "top5_chunk_ids": [
+        "chunk-32e462bb29be5564c886020b",
+        "chunk-d57d9aa5917dbe2ca903114a",
+        "chunk-77fb1205111714f55575ee1c",
+        "chunk-d09639538a18b9a2e6d0205d",
+        "chunk-cff1aeacfb0a069f7cb77af4"
+      ],
+      "same_result_second_time": true,
+      "round": 2
+    },
+    {
+      "corp_code": "00103042",
+      "mode": "without",
+      "company_chunks": 277,
+      "first_search_seconds": 1.9494,
+      "second_search_seconds": 0.00144,
+      "token_table_load_seconds": 0.0,
+      "top5_chunk_ids": [
+        "chunk-32e462bb29be5564c886020b",
+        "chunk-d57d9aa5917dbe2ca903114a",
+        "chunk-77fb1205111714f55575ee1c",
+        "chunk-d09639538a18b9a2e6d0205d",
+        "chunk-cff1aeacfb0a069f7cb77af4"
+      ],
+      "same_result_second_time": true,
+      "round": 3
+    },
+    {
+      "corp_code": "00103042",
+      "mode": "with",
+      "company_chunks": 277,
+      "first_search_seconds": 0.0287,
+      "second_search_seconds": 0.0023,
+      "token_table_load_seconds": 0.367,
+      "top5_chunk_ids": [
+        "chunk-32e462bb29be5564c886020b",
+        "chunk-d57d9aa5917dbe2ca903114a",
+        "chunk-77fb1205111714f55575ee1c",
+        "chunk-d09639538a18b9a2e6d0205d",
+        "chunk-cff1aeacfb0a069f7cb77af4"
+      ],
+      "same_result_second_time": true,
+      "round": 3
+    },
+    {
+      "corp_code": "01965324",
+      "mode": "without",
+      "company_chunks": 144,
+      "first_search_seconds": 1.1674,
+      "second_search_seconds": 0.00105,
+      "token_table_load_seconds": 0.0,
+      "top5_chunk_ids": [
+        "chunk-e0d87ddecebfd80f307ecaa6",
+        "chunk-6e6a52850361995a60c211c8",
+        "chunk-53e0dea851162c8b7f3895df",
+        "chunk-66e0a1fcd6676060a6f0263a",
+        "chunk-8f8786b6fd14e57c372eedc3"
+      ],
+      "same_result_second_time": true,
+      "round": 1
+    },
+    {
+      "corp_code": "01965324",
+      "mode": "with",
+      "company_chunks": 144,
+      "first_search_seconds": 0.0202,
+      "second_search_seconds": 0.00193,
+      "token_table_load_seconds": 0.333,
+      "top5_chunk_ids": [
+        "chunk-e0d87ddecebfd80f307ecaa6",
+        "chunk-6e6a52850361995a60c211c8",
+        "chunk-53e0dea851162c8b7f3895df",
+        "chunk-66e0a1fcd6676060a6f0263a",
+        "chunk-8f8786b6fd14e57c372eedc3"
+      ],
+      "same_result_second_time": true,
+      "round": 1
+    },
+    {
+      "corp_code": "01965324",
+      "mode": "without",
+      "company_chunks": 144,
+      "first_search_seconds": 1.1763,
+      "second_search_seconds": 0.00136,
+      "token_table_load_seconds": 0.0,
+      "top5_chunk_ids": [
+        "chunk-e0d87ddecebfd80f307ecaa6",
+        "chunk-6e6a52850361995a60c211c8",
+        "chunk-53e0dea851162c8b7f3895df",
+        "chunk-66e0a1fcd6676060a6f0263a",
+        "chunk-8f8786b6fd14e57c372eedc3"
+      ],
+      "same_result_second_time": true,
+      "round": 2
+    },
+    {
+      "corp_code": "01965324",
+      "mode": "with",
+      "company_chunks": 144,
+      "first_search_seconds": 0.0147,
+      "second_search_seconds": 0.0011,
+      "token_table_load_seconds": 0.362,
+      "top5_chunk_ids": [
+        "chunk-e0d87ddecebfd80f307ecaa6",
+        "chunk-6e6a52850361995a60c211c8",
+        "chunk-53e0dea851162c8b7f3895df",
+        "chunk-66e0a1fcd6676060a6f0263a",
+        "chunk-8f8786b6fd14e57c372eedc3"
+      ],
+      "same_result_second_time": true,
+      "round": 2
+    },
+    {
+      "corp_code": "01965324",
+      "mode": "without",
+      "company_chunks": 144,
+      "first_search_seconds": 1.1857,
+      "second_search_seconds": 0.00101,
+      "token_table_load_seconds": 0.0,
+      "top5_chunk_ids": [
+        "chunk-e0d87ddecebfd80f307ecaa6",
+        "chunk-6e6a52850361995a60c211c8",
+        "chunk-53e0dea851162c8b7f3895df",
+        "chunk-66e0a1fcd6676060a6f0263a",
+        "chunk-8f8786b6fd14e57c372eedc3"
+      ],
+      "same_result_second_time": true,
+      "round": 3
+    },
+    {
+      "corp_code": "01965324",
+      "mode": "with",
+      "company_chunks": 144,
+      "first_search_seconds": 0.014,
+      "second_search_seconds": 0.00108,
+      "token_table_load_seconds": 0.39,
+      "top5_chunk_ids": [
+        "chunk-e0d87ddecebfd80f307ecaa6",
+        "chunk-6e6a52850361995a60c211c8",
+        "chunk-53e0dea851162c8b7f3895df",
+        "chunk-66e0a1fcd6676060a6f0263a",
+        "chunk-8f8786b6fd14e57c372eedc3"
+      ],
+      "same_result_second_time": true,
+      "round": 3
+    }
+  ]
+}

@@ -1,0 +1,284 @@
+{
+  "dataset_sha256": "9ba632b03e1a1e5f218cd97ca964f3540f30039bb5c901519922676d6b942d0f",
+  "hit_at_10": 0.5333333333333333,
+  "irrelevant_questions": 15,
+  "k": 10,
+  "mrr_at_10": 0.28026455026455027,
+  "ndcg_at_10": 0.29601543621363446,
+  "per_question": [
+    {
+      "first_gold_rank": 4,
+      "gold_count": 1,
+      "hit": true,
+      "id": 1,
+      "kind": "relevant",
+      "ndcg": 0.43067655807339306,
+      "recall": 1.0
+    },
+    {
+      "first_gold_rank": 1,
+      "gold_count": 1,
+      "hit": true,
+      "id": 2,
+      "kind": "relevant",
+      "ndcg": 1.0,
+      "recall": 1.0
+    },
+    {
+      "first_gold_rank": 1,
+      "gold_count": 2,
+      "hit": true,
+      "id": 3,
+      "kind": "relevant",
+      "ndcg": 0.8175295903539445,
+      "recall": 1.0
+    },
+    {
+      "first_gold_rank": 9,
+      "gold_count": 1,
+      "hit": true,
+      "id": 4,
+      "kind": "relevant",
+      "ndcg": 0.3010299956639812,
+      "recall": 1.0
+    },
+    {
+      "first_gold_rank": 1,
+      "gold_count": 3,
+      "hit": true,
+      "id": 5,
+      "kind": "relevant",
+      "ndcg": 0.7669719408901708,
+      "recall": 1.0
+    },
+    {
+      "first_gold_rank": 5,
+      "gold_count": 4,
+      "hit": true,
+      "id": 6,
+      "kind": "relevant",
+      "ndcg": 0.2741708125981702,
+      "recall": 0.5
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 2,
+      "hit": false,
+      "id": 7,
+      "kind": "relevant",
+      "ndcg": 0.0,
+      "recall": 0.0
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 1,
+      "hit": false,
+      "id": 8,
+      "kind": "relevant",
+      "ndcg": 0.0,
+      "recall": 0.0
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 1,
+      "hit": false,
+      "id": 9,
+      "kind": "relevant",
+      "ndcg": 0.0,
+      "recall": 0.0
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 1,
+      "hit": false,
+      "id": 10,
+      "kind": "relevant",
+      "ndcg": 0.0,
+      "recall": 0.0
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 2,
+      "hit": false,
+      "id": 11,
+      "kind": "relevant",
+      "ndcg": 0.0,
+      "recall": 0.0
+    },
+    {
+      "first_gold_rank": 7,
+      "gold_count": 3,
+      "hit": true,
+      "id": 12,
+      "kind": "relevant",
+      "ndcg": 0.15642624200758548,
+      "recall": 0.3333333333333333
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 4,
+      "hit": false,
+      "id": 13,
+      "kind": "relevant",
+      "ndcg": 0.0,
+      "recall": 0.0
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 7,
+      "hit": false,
+      "id": 14,
+      "kind": "relevant",
+      "ndcg": 0.0,
+      "recall": 0.0
+    },
+    {
+      "first_gold_rank": 2,
+      "gold_count": 2,
+      "hit": true,
+      "id": 15,
+      "kind": "relevant",
+      "ndcg": 0.6934264036172708,
+      "recall": 1.0
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 0,
+      "hit": null,
+      "id": 16,
+      "kind": "irrelevant",
+      "ndcg": null,
+      "recall": null
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 0,
+      "hit": null,
+      "id": 17,
+      "kind": "irrelevant",
+      "ndcg": null,
+      "recall": null
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 0,
+      "hit": null,
+      "id": 18,
+      "kind": "irrelevant",
+      "ndcg": null,
+      "recall": null
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 0,
+      "hit": null,
+      "id": 19,
+      "kind": "irrelevant",
+      "ndcg": null,
+      "recall": null
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 0,
+      "hit": null,
+      "id": 20,
+      "kind": "irrelevant",
+      "ndcg": null,
+      "recall": null
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 0,
+      "hit": null,
+      "id": 21,
+      "kind": "irrelevant",
+      "ndcg": null,
+      "recall": null
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 0,
+      "hit": null,
+      "id": 22,
+      "kind": "irrelevant",
+      "ndcg": null,
+      "recall": null
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 0,
+      "hit": null,
+      "id": 23,
+      "kind": "irrelevant",
+      "ndcg": null,
+      "recall": null
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 0,
+      "hit": null,
+      "id": 24,
+      "kind": "irrelevant",
+      "ndcg": null,
+      "recall": null
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 0,
+      "hit": null,
+      "id": 25,
+      "kind": "irrelevant",
+      "ndcg": null,
+      "recall": null
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 0,
+      "hit": null,
+      "id": 26,
+      "kind": "irrelevant",
+      "ndcg": null,
+      "recall": null
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 0,
+      "hit": null,
+      "id": 27,
+      "kind": "irrelevant",
+      "ndcg": null,
+      "recall": null
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 0,
+      "hit": null,
+      "id": 28,
+      "kind": "irrelevant",
+      "ndcg": null,
+      "recall": null
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 0,
+      "hit": null,
+      "id": 29,
+      "kind": "irrelevant",
+      "ndcg": null,
+      "recall": null
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 0,
+      "hit": null,
+      "id": 30,
+      "kind": "irrelevant",
+      "ndcg": null,
+      "recall": null
+    }
+  ],
+  "questions_total": 30,
+  "recall_at_10": 0.45555555555555555,
+  "relevant_questions": 15,
+  "results_sha256": "4373b8cc9e76cb81d3c3174675fb2ef82a7f1cc68722da58bbbd096707b1aded"
+}

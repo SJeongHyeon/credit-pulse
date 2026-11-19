@@ -1,0 +1,10 @@
+{
+  "corpus_id": "corpus-4867b25d560356df13ab7886",
+  "documents": 100,
+  "chunks": 31967,
+  "unique_chunks": 31953,
+  "compressed_sha256": "78deabfcea8c0696a5f968736921fa27f719f6418fb5181dfd7e1df3a7d227a0",
+  "jsonl_sha256": "bc3c0f72f6bd98720ca41c326d9abb555d76c786c3d781882b22c852ffbdc46d",
+  "manifest_sha256": "510d4737d176b8c662f061dccc5ad40f5db173b03f8d1e29a2bc90d0dc895132",
+  "unique_hashes_sha256": "06a26f21943051d9ed165790255007c4aca3ccca520888ed662975445816140d"
+}

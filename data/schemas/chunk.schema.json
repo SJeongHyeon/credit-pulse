@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "chunk.schema.json",
+  "title": "DART search chunk row",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "chunk_id",
+    "corpus_id",
+    "rcept_no",
+    "corp_code",
+    "corp_name",
+    "fiscal_year",
+    "chapter",
+    "section_path",
+    "note_no",
+    "table_title",
+    "ordinal",
+    "content",
+    "content_sha256",
+    "is_table",
+    "near_dup",
+    "superseded"
+  ],
+  "properties": {
+    "chunk_id": {"type": "string", "pattern": "^chunk-[a-f0-9]{24}$"},
+    "corpus_id": {"type": "string", "pattern": "^corpus-[a-f0-9]{24}$"},
+    "rcept_no": {"type": "string", "pattern": "^[0-9]{14}$"},
+    "corp_code": {"type": "string", "pattern": "^[0-9]{8}$"},
+    "corp_name": {"type": "string", "minLength": 1, "maxLength": 100},
+    "fiscal_year": {"type": "integer", "minimum": 2020, "maximum": 2030},
+    "chapter": {"type": "string", "enum": ["II", "IV", "XI", "NOTES"]},
+    "section_path": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "note_no": {"type": ["string", "null"]},
+    "table_title": {"type": ["string", "null"]},
+    "ordinal": {"type": "integer", "minimum": 1},
+    "content": {"type": "string", "minLength": 1, "maxLength": 1200},
+    "content_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "is_table": {"type": "boolean"},
+    "near_dup": {"type": "boolean"},
+    "superseded": {"type": "boolean"}
+  }
+}

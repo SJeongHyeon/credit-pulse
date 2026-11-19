@@ -1,0 +1,8 @@
+-r requirements.txt
+
+# 로컬 임베딩 배치. sentence-transformers 없이 E5 mean pooling을 직접 수행합니다.
+numpy>=1.26,<3
+torch>=2.3
+transformers>=4.44,<6
+voyageai>=0.3,<1                     # D3 API 리랭커 비교·로컬 토큰 dry-run
+tiktoken>=0.8                        # OpenAI 임베딩 토큰·비용 dry-run

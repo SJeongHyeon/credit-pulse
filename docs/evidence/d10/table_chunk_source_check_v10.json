@@ -1,0 +1,52 @@
+{
+  "what": "표·수치 청크의 원문 자동 대조(숫자 보존, 정답 구간이 원문 한 행 안에 있는지)",
+  "chunks_file": "chunks.jsonl",
+  "results": "w146_now_r1_multi_d3-55_v9_v2.jsonl",
+  "sample_seed": 20261113,
+  "sample_size": 1000,
+  "documents_parsed": 98,
+  "cited": {
+    "chunks": 1,
+    "numbers_checked": 6,
+    "numbers_missing_from_source": 0,
+    "numbers_cut_at_chunk_edge": 0,
+    "chunks_with_missing_numbers": 0
+  },
+  "sample": {
+    "chunks": 1000,
+    "numbers_checked": 27051,
+    "numbers_missing_from_source": 2,
+    "numbers_cut_at_chunk_edge": 98,
+    "chunks_with_missing_numbers": 2
+  },
+  "gold_spans": {
+    "total": 155,
+    "in_one_source_block": 155,
+    "of_which_table_rows": 135,
+    "not_found": []
+  },
+  "problem_chunks": [
+    {
+      "chunk_id": "chunk-5bd2aacdd8623bfc88456ec4",
+      "group": "sample",
+      "rcept_no": "20260403002513",
+      "corp_name": "SKC",
+      "numbers": 30,
+      "numbers_missing": [
+        "04.3"
+      ],
+      "numbers_edge_cut": []
+    },
+    {
+      "chunk_id": "chunk-e4937aa690583c22a9df77e1",
+      "group": "sample",
+      "rcept_no": "20260318000826",
+      "corp_name": "신한지주",
+      "numbers": 12,
+      "numbers_missing": [
+        "02.15"
+      ],
+      "numbers_edge_cut": []
+    }
+  ]
+}

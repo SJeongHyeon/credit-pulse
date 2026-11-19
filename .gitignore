@@ -1,0 +1,43 @@
+# 환경변수·시크릿 — 절대 커밋 금지
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Python
+.pytest_cache/
+__pycache__/
+*.pyc
+venv/
+.venv/
+*.egg-info/
+.ipynb_checkpoints/
+.worktrees/
+
+# Node
+node_modules/
+dist/
+build/
+.next/
+.turbo/
+
+# OS / IDE
+.DS_Store
+.idea/
+.vscode/
+
+# 로그
+*.log
+
+# OpenDART 원문 — 로컬 수집 전용, 저장소에 커밋하지 않음
+data/corpus/
+data/targets.*.missing.csv
+# 전체 청크는 재생성 가능한 대용량 산출물이며 팀 저장 정책 확정 전 커밋하지 않음
+data/chunks*.jsonl
+# 임베딩 벡터·진행상태는 로컬에서 재생성하며 커밋하지 않음
+data/embeddings/
+# 서비스 이미지에만 넣는 100사 검색 산출물(scripts/prepare_service_data.py). GitHub에 올리지 않는다.
+data/service/
+data/experiments/
+.venv-ragas/

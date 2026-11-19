@@ -1,0 +1,17 @@
+{
+  "chunks_near_dup": 0,
+  "chunks_path": "data/chunks.100-b.jsonl",
+  "chunks_superseded": 0,
+  "chunks_total": 33996,
+  "corpus_id": "corpus-d028a13a77db3d4ff9e71737",
+  "documents_failed": 0,
+  "documents_success": 100,
+  "documents_superseded": 0,
+  "documents_total": 100,
+  "embedding_model": "intfloat/multilingual-e5-small",
+  "manifest_path": "data/manifest.100-b.jsonl",
+  "max_chars": 1000,
+  "overlap_chars": 100,
+  "table_mode": "group",
+  "unique_chunks": 32467
+}

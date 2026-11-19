@@ -1,0 +1,5 @@
+# RAGAS 참고 지표(scripts/run_ragas_eval.py, 사전 등록 151번) 전용. 서비스 이미지에는 넣지 않는다.
+# 서비스와 다른 가상환경에 설치한다: python -m venv .venv-ragas && .venv-ragas/Scripts/pip install -r requirements-ragas.txt
+ragas==0.4.3
+langchain-community==0.3.31  # 0.4.x에는 ragas 0.4.3이 import하는 chat_models.vertexai가 없다
+python-dotenv

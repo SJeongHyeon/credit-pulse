@@ -1,0 +1,100 @@
+{% from "_sort_menu.html" import sort_menu -%}
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CREDIT PULSE - 심사 건</title>
+    {% include "_favicon.html" %}
+    <link rel="preload" href="{{ url_for('static', path='fonts/NotoSerifKR-subset.woff2') }}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{{ url_for('static', path='fonts/CreditPulseSans-subset.woff2') }}" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="{{ url_for('static', path='fonts.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='login.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='theme.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='company-search.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='reviews.css') }}">
+    <noscript><style>#reviews-loading { display: none; }</style></noscript>
+  </head>
+  <body class="glass-page ui-sans">
+    {% include "_page_bg.html" %}
+    <header class="app-bar">
+      <div class="app-bar-inner">
+        <a class="app-logo-link" href="/">
+          <img class="app-logo" src="{{ url_for('static', path='credit-pulse-logo-white.png') }}" alt="CREDIT PULSE" width="1200" height="213">
+        </a>
+        <div class="reviews-user">
+          <span id="current-user"></span>
+          <button id="logout-button" class="secondary" type="button">로그아웃</button>
+        </div>
+      </div>
+    </header>
+    <main class="login-page reviews-page reviews-index">
+      <h1>심사 건</h1>
+
+      <noscript><p>이 화면은 JavaScript가 필요합니다. 브라우저에서 JavaScript를 켜고 다시 열어 주세요.</p></noscript>
+
+      <section id="create-section" class="create-section">
+        <h2>질문하기</h2>
+        <p class="rules-help">회사 이름과 사업연도를 질문에 적어 주세요.</p>
+        <form id="ask-form" novalidate>
+          <label for="ask-question">질문</label>
+          <textarea id="ask-question" class="review-question" name="question" rows="3" maxlength="500" required></textarea>
+
+          <details class="question-examples">
+            <summary>질문 예시</summary>
+            <div class="question-example-buttons">
+              <button type="button" class="secondary" data-question-example="오뚜기의 2025년 말 연결 기준 단기차입금은 얼마인가요?">단기차입금</button>
+              <button type="button" class="secondary" data-question-example="GS리테일이 진행 중인 주요 소송은 무엇이고, 관련 충당부채를 인식했다면 금액은 얼마인가요?">주요 소송</button>
+              <button type="button" class="secondary" data-question-example="한화투자증권의 우발채무, 약정 또는 타인 지급보증 관련 공시가 있는지와 주요 내용을 확인해 주세요.">지급보증</button>
+            </div>
+          </details>
+
+          <p id="ask-error" role="alert" hidden></p>
+          <div id="ask-result" role="status" hidden>
+            <p id="ask-result-message"></p>
+            <ul id="ask-result-news" class="review-list" hidden></ul>
+          </div>
+
+          <button id="ask-submit" type="submit">질문하기</button>
+        </form>
+      </section>
+
+      <section class="reviews-history" aria-labelledby="reviews-history-title">
+        <div class="reviews-heading">
+          <div class="reviews-heading-title">
+            <h2 id="reviews-history-title">심사 건 내역</h2>
+            {{ sort_menu("reviews-sort") }}
+          </div>
+          <button id="review-delete-all" class="secondary" type="button" aria-label="전체 심사 건 삭제" title="전체 심사 건 삭제" disabled>🗑</button>
+        </div>
+
+        <p id="reviews-error" role="alert" hidden></p>
+        <p id="reviews-sort-status" class="visually-hidden" role="status"></p>
+        <p id="reviews-loading" role="status">심사 건을 불러오는 중입니다. 첫 요청은 잠시 걸릴 수 있습니다.</p>
+        <button id="reload-button" type="button" hidden>다시 불러오기</button>
+
+        <p id="reviews-empty" hidden></p>
+        <ul id="reviews-list" class="review-list"></ul>
+        <button id="more-button" class="secondary" type="button" hidden>더 보기</button>
+
+        <dialog id="review-delete-dialog" aria-labelledby="review-delete-question">
+          <p id="review-delete-question">해당 심사건 내역을 삭제하겠습니까?</p>
+          <p id="review-delete-error" role="alert" hidden></p>
+          <div class="review-delete-actions">
+            <button id="review-delete-yes" type="button">예</button>
+            <button id="review-delete-no" class="secondary" type="button">아니오</button>
+          </div>
+        </dialog>
+      </section>
+
+      <section id="rules-section" class="create-section rules-section">
+        <h2>내 판정 규칙</h2>
+        <p class="rules-help">승인 때 고친 판정·사유가 다음 질의부터 규칙으로 쓰입니다. 틀린 규칙은 삭제하세요.</p>
+        <p id="rules-error" role="alert" hidden></p>
+        <p id="rules-status" role="status" hidden></p>
+        <ul id="rules-list" class="review-list rules-list"></ul>
+      </section>
+    </main>
+    <script type="module" src="{{ url_for('static', path='reviews.js') }}"></script>
+  </body>
+</html>

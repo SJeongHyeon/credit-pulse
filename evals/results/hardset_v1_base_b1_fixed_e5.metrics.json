@@ -1,0 +1,77 @@
+{
+  "dataset_sha256": "e264f93179eb7a87f592d8e8b4e7a73fcccd710f71f714e8c0534d8291cd06c7",
+  "hit_at_10": 0.5714285714285714,
+  "irrelevant_questions": 0,
+  "k": 10,
+  "mrr_at_10": 0.20770975056689342,
+  "ndcg_at_10": 0.24737529289567672,
+  "per_question": [
+    {
+      "first_gold_rank": 1,
+      "gold_count": 1,
+      "hit": true,
+      "id": 2,
+      "kind": "relevant",
+      "ndcg": 1.0,
+      "recall": 1.0
+    },
+    {
+      "first_gold_rank": 9,
+      "gold_count": 1,
+      "hit": true,
+      "id": 4,
+      "kind": "relevant",
+      "ndcg": 0.3010299956639812,
+      "recall": 1.0
+    },
+    {
+      "first_gold_rank": 5,
+      "gold_count": 4,
+      "hit": true,
+      "id": 6,
+      "kind": "relevant",
+      "ndcg": 0.2741708125981702,
+      "recall": 0.5
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 1,
+      "hit": false,
+      "id": 8,
+      "kind": "relevant",
+      "ndcg": 0.0,
+      "recall": 0.0
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 1,
+      "hit": false,
+      "id": 9,
+      "kind": "relevant",
+      "ndcg": 0.0,
+      "recall": 0.0
+    },
+    {
+      "first_gold_rank": 7,
+      "gold_count": 3,
+      "hit": true,
+      "id": 12,
+      "kind": "relevant",
+      "ndcg": 0.15642624200758548,
+      "recall": 0.3333333333333333
+    },
+    {
+      "first_gold_rank": null,
+      "gold_count": 7,
+      "hit": false,
+      "id": 14,
+      "kind": "relevant",
+      "ndcg": 0.0,
+      "recall": 0.0
+    }
+  ],
+  "questions_total": 7,
+  "recall_at_10": 0.40476190476190477,
+  "relevant_questions": 7,
+  "results_sha256": "0f164c93e9f491af0281566ddb930e1aa8270e0c7c37814f2fee385efedce5fb"
+}

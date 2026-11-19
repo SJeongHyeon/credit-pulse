@@ -1,0 +1,17 @@
+{
+  "chunks_near_dup": 0,
+  "chunks_path": "data/experiments/b100-v10-fixed_window_rows/chunks.jsonl",
+  "chunks_superseded": 0,
+  "chunks_total": 30171,
+  "corpus_id": "corpus-e1c8a36e0948de228e596575",
+  "documents_failed": 0,
+  "documents_success": 100,
+  "documents_superseded": 0,
+  "documents_total": 100,
+  "embedding_model": "unselected",
+  "manifest_path": "data/experiments/b100-v10-fixed_window_rows/manifest.jsonl",
+  "max_chars": 1000,
+  "overlap_chars": 100,
+  "table_mode": "fixed_window_rows",
+  "unique_chunks": 30006
+}

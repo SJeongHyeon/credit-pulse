@@ -1,0 +1,18 @@
+서버 재시작 뒤 재개: 실제 서비스(HTTP)로 확인 (2026-11-16 23:54 KST)
+기준 코드: main 348f945 Merge pull request #250 from aihuman-7th/민영-paraphrase-review
+환경: 키·.env 없는 새 clone, docker compose(데모 모드), API 컨테이너 restartq-api-1. 운영 DB·배포 서버는 쓰지 않았다.
+
+API 컨테이너 시작 시각(재시작 전): 2026-11-16T14:54:32.566702598Z
+
+$ python -X utf8 scripts/service_restart_resume.py --base-url http://127.0.0.1:18000 --step pause --state restart_state.json
+{"step": "pause", "http": 200, "outcome": "awaiting_approval", "review_id": "2c53585d-e7cf-4ca3-b8b2-3ef33f0a1a5c", "corp_name": "오뚜기", "draft": [{"item": "borrowing_structure", "verdict": "applicable", "citations": 4}], "status_before_restart": "awaiting_approval", "host": "127.0.0.1", "at": "2026-11-16T23:54:59+0900"}
+(exit 0)
+
+$ docker compose restart api
+(exit 0)
+API 컨테이너 시작 시각(재시작 후): 2026-11-16T14:55:03.326210459Z
+
+$ python -X utf8 scripts/service_restart_resume.py --base-url http://127.0.0.1:18000 --step resume --state restart_state.json
+{"step": "resume", "review_id": "2c53585d-e7cf-4ca3-b8b2-3ef33f0a1a5c", "detail_http": 200, "status_after_restart": "awaiting_approval", "pending_draft": [{"item": "borrowing_structure", "verdict": "applicable", "citations": 4}], "draft_same_as_before_restart": true, "approve_http": 200, "memo_id_saved": true, "approval_seq": 1, "approve_error": null, "second_approve_http": 409, "second_approve_error": "CONFLICT_NOT_AWAITING_APPROVAL", "status_after_approval": "closed", "host": "127.0.0.1", "at": "2026-11-16T23:55:06+0900"}
+(exit 0)
+
